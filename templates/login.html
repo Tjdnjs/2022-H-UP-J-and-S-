@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+  </head>
+
+  <body>
+      {% if not log: %}
+      <form action="/login" method="post">
+        <h2>LOGIN</h2>
+        <div class="int-area" id = 'id'><input type="text" placeholder="id" name="id" /></div>
+        <div class="int-area"><input type="password" placeholder="password" name="pw" /></div>
+        <div class="btn-area"><input type="submit" id="btn" value="login" /></div>
+      </form>
+      {% else %}
+      <a href="/logout">Logout</a>
+      {% endif %}
+      
+    </section>
+  </body>
+</html>
