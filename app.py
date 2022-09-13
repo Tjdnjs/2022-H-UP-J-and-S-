@@ -9,10 +9,11 @@ from view import user
 os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
 
 app = Flask(__name__, static_url_path='/static') # flask 객체 생성
+
 # blueprint
 app.register_blueprint(user.user, url_prefix='/user')
 
-CORS(app)
+CORS(app) # 외부 API 사용하기 위함
 app.secret_key = os.urandom(24) # 보안을 위해 서버가 생성될 때마다 시크릿키 새로 발급
 
 login_manager = LoginManager() # 로그인 객체 생성
