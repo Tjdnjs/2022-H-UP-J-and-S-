@@ -3,6 +3,7 @@ from control.user import User
 from urllib.parse import urlparse, urljoin
 from flask_login import login_user, logout_user, current_user
 
+# user blueprint 연결
 user = Blueprint('user', __name__)
 
 # next 파라미터 유효성 검사 - open redirect 취약 방지하기 위함
