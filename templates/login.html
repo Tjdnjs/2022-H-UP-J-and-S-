@@ -8,7 +8,7 @@
 
   <body>
       {% if not current_user.is_authenticated %}
-      <form action="/login" method="post">
+      <form action="/user/login" method="post">
         <h2>LOGIN</h2>
         <div class="int-area" id = 'id'><input type="text" placeholder="id" name="id" /></div>
         <div class="int-area"><input type="password" placeholder="password" name="pw" /></div>
@@ -16,7 +16,7 @@
       </form>
       {% else %}
       <div>Hi {{current_user.id}}</div>
-      <a href="/logout">Logout</a>
+      <a href="/user/logout">Logout</a>
       {% endif %}
       
     </section>
