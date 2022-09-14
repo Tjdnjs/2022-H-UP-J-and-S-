@@ -4,7 +4,6 @@ from flask_cors import CORS
 import os
 from control.user import User
 from view import user
-from oauth2client.contrib.flask_util import UserOAuth2
 
 # https 만을 지원하는 기능읗 http에서 테스트할 때 필요한 설정
 os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
@@ -16,10 +15,6 @@ app.register_blueprint(user.user, url_prefix='/user')
 
 CORS(app) # 외부 API 사용하기 위함
 app.secret_key = os.urandom(24) # 보안을 위해 서버가 생성될 때마다 시크릿키 새로 발급
-
-app.config['GOOGLE_OAUTH2_CLIENT_ID'] = '26759057333-qgfl7gl6h8ln8av2erovdi5j1bi45ujg.apps.googleusercontent.com'
-app.config['GOOGLE_OAUTH2_CLIENT_SECRET'] = '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'
-oauth2 = UserOAuth2(app)
 
 login_manager = LoginManager() # 로그인 객체 생성
 login_manager.init_app(app) # app에 login_manager 연결
