@@ -7,7 +7,7 @@
   </head>
 
   <body>
-      {% if not current_user.is_authenticated %}
+      {% if current_user.is_authenticated == False or oauth2.has_credentials()==False %}
       <form action="/user/login" method="post">
         <h2>LOGIN</h2>
         <div class="int-area" id = 'id'><input type="text" placeholder="id" name="id" /></div>
