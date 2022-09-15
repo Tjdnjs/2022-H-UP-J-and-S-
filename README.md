@@ -5,4 +5,7 @@
 - Frontend Dev : 이채원
 - Backend Dev : 박서원
 
-### to-do list web
+### Framework
+
+- FE : HTML, CSS, JavaScript
+- BE : Flask, MySQL
