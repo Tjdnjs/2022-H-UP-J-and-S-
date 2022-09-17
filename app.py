@@ -1,15 +1,19 @@
-from flask import Flask, request, render_template, make_response, redirect, url_for
+from flask import Flask, request, render_template, make_response, redirect, url_for, abort
 from flask_login import LoginManager, current_user, login_required, login_user, logout_user
 from flask_cors import CORS
 import os
 from control.user import User
-# from view import login_view
+from view import user
 
 # https 만을 지원하는 기능읗 http에서 테스트할 때 필요한 설정
 os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
 
 app = Flask(__name__, static_url_path='/static') # flask 객체 생성
-CORS(app)
+
+# blueprint
+app.register_blueprint(user.user, url_prefix='/user')
+
+CORS(app) # 외부 API 사용하기 위함
 app.secret_key = os.urandom(24) # 보안을 위해 서버가 생성될 때마다 시크릿키 새로 발급
 
 login_manager = LoginManager() # 로그인 객체 생성
@@ -26,29 +30,10 @@ def load_user(user_id):
 def unauthorized():
     return '<script>alert("not found user");history.go(-1);</script>'
 
+
 @app.route('/')
 def main():
-    return render_template('login.html', log = current_user.is_authenticated)
-
-@app.route('/login', methods = ['get','post'])
-def login():
-    id = request.form.get('id')
-    pw = request.form.get('pw')
-
-    user = User.get(id)
-
-    if not user:
-        return '<script>alert("not found user");history.go(-1);</script>'
-    elif pw != user.pw:
-        return '<script>alert("passwork error");history.go(-1);</script>'
-    else:
-        login_user(user)
-        return redirect(url_for('main', log = current_user.is_authenticated))
-
-@app.route('/logout')
-def logout():
-    logout_user()
-    return redirect(url_for('main', log = current_user.is_authenticated))
+    return render_template('index.html')
 
 if __name__ == '__main__':
     app.run(host = '0.0.0.0', port = '8080', debug = True)
