@@ -1,11 +1,11 @@
 # flask_login에서 제공하는 사용자 클래스 객체
 import pymysql
 
-HOST = 'localhost'
+HOST = 'hup.csaiwateqfbb.us-east-1.rds.amazonaws.com'
 connect = pymysql.connect(
     host = HOST,
     port = 3306,
-    user = 'root',
+    user = 'admin',
     db = 'user_login',
     passwd = 'qkrtjdnjsdb1!',
     charset = 'utf8'
