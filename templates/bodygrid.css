@@ -1,0 +1,28 @@
+body{
+  width: 100vw; /*부모의 영향을 받지 않고 뷰포트 기준 전체화면 꽉 채우는 width*/
+  height: 100vh;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 2.75fr;
+  grid-template-rows: 100px auto 50px;
+  grid-template-areas: 
+  'header header'
+  'side main'
+  'footer footer';
+}
+header{
+  grid-area: header;
+  background-color: gray;
+}
+main{
+  grid-area: main;
+  background-color: beige;
+}
+aside{
+  grid-area: side;
+  background-color: bisque;
+}
+footer{
+  grid-area: footer;
+  background-color: aliceblue;
+}
