@@ -1,5 +1,7 @@
 from flask import Flask, Blueprint, request, render_template, make_response, redirect, url_for, abort
 from control.user import User
+# from model import User
+# from pybo import db
 from urllib.parse import urlparse, urljoin
 from flask_login import login_user, logout_user, current_user
 
