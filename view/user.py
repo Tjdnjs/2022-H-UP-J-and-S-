@@ -32,9 +32,9 @@ def login():
         return abort(400)
 
     if not user:
-        return '<script>alert("not found user");history.go(-1);</script>'
+        return '<script>alert("존재하지 않는 아이디입니다");history.go(-1);</script>'
     elif pw != user.pw:
-        return '<script>alert("passwork error");history.go(-1);</script>'
+        return '<script>alert("잘못된 비밀번호입니다");history.go(-1);</script>'
     else:
         login_user(user)
         return redirect(url_for('user.user_page'))

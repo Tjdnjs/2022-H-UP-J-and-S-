@@ -25,7 +25,7 @@
           <div class="btn-area"><input type="submit" id="btn" value="login" /></div>
         </form>
         {% else %}
-        <div>Hi {{current_user.id}}</div>
+        <div>Hi {{current_user.name}}</div>
         <a href="/user/logout">Logout</a>
         {% endif %}
         
