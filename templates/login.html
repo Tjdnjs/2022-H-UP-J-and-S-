@@ -3,22 +3,36 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="bodygrid.css" >
     <title>Login</title>
   </head>
 
   <body>
-      {% if not current_user.is_authenticated %}
-      <form action="/user/login" method="post">
-        <h2>LOGIN</h2>
-        <div class="int-area" id = 'id'><input type="text" placeholder="id" name="id" /></div>
-        <div class="int-area"><input type="password" placeholder="password" name="pw" /></div>
-        <div class="btn-area"><input type="submit" id="btn" value="login" /></div>
-      </form>
-      {% else %}
-      <div>Hi {{current_user.id}}</div>
-      <a href="/user/logout">Logout</a>
-      {% endif %}
-      
-    </section>
+    <header>
+      header
+    </header>
+    <aside>
+      side
+    </aside>
+    <main>
+      main
+      <section>
+        {% if not current_user.is_authenticated %}
+        <form action="/user/login" method="post">
+          <h2>LOGIN</h2>
+          <div class="int-area" id = 'id'><input type="text" placeholder="id" name="id" /></div>
+          <div class="int-area"><input type="password" placeholder="password" name="pw" /></div>
+          <div class="btn-area"><input type="submit" id="btn" value="login" /></div>
+        </form>
+        {% else %}
+        <div>Hi {{current_user.id}}</div>
+        <a href="/user/logout">Logout</a>
+        {% endif %}
+        
+      </section>
+    </main>
+    <footer>
+      footer
+    </footer>
   </body>
 </html>
