@@ -43,3 +43,39 @@ def login():
 def logout():
     logout_user()
     return redirect(url_for('main'))
+
+###
+
+@user.route('/register')
+def register():
+    return render_template('signin.html')
+
+@user.route('/registerAction', methods=['POST'])
+def registerAction():
+    user_id = request.form.get('user_id')
+    user_pw = request.form.get('user_pw')
+    user_name = request.form.get('user_name')
+    user_email = request.form.get('user_email')
+    result = User.create(user_name, user_id, user_pw,  user_email)
+    if result:  # 회원가입 성공
+        return redirect(url_for('user.user_page')) #  로그인 페이지로
+    else:   # DB 오류
+        return '<script>alert("회원가입 오류입니다");history.go(-1);</script>'
+
+# 회원탈퇴
+@user.route('/delete')
+def delete():
+    if current_user.is_authenticated:
+        return render_template('delete.html')
+    else:
+        return redirect(url_for('user.user_page'))
+    
+
+@user.route('/deleteAction', methods = ['GET','POST'])
+def deleteAction():
+    if current_user.is_authenticated:
+        result = User.delete(current_user.id)
+        logout_user()
+        if result==1:  # 회원탈퇴 성공
+            return redirect(url_for('user.register')) #  회원가입 페이지로
+    return "<h1> 오류 </h1>"
