@@ -24,3 +24,41 @@ class User(UserMixin):
             return None
         user = User(user_name = user[0], user_id = user[1], user_pw = user[2], user_email=user[3])
         return user
+
+        # 회원가입
+    @staticmethod
+    def create(user_name : str, user_id : str, user_pw : str, user_email : str):
+        # mysql DB 연결
+        conn = conn_mysql()
+        # 커서
+        cursor = conn.cursor()
+        # 이미 존재하는 아이디인지 조회
+        query = f"SELECT * FROM user_info WHERE user_id = '{user_id}';"
+        cnt = cursor.execute(query)
+        if cnt == 0:    # 없는 아이디
+            query2 = f"INSERT INTO user_info VALUES('{user_name}', '{user_id}', '{user_pw}', '{user_email}');"
+            cnt2 = cursor.execute(query2)    # 쿼리 실행개수 (0:DB오류 / 1:정상)
+            conn.commit()
+            return True
+        else:
+            return False
+
+
+    # 회원탈퇴
+    @staticmethod
+    def delete(user_id : str):
+        # mysql DB 연결
+        conn = conn_mysql()
+        # 커서
+        cursor = conn.cursor()
+        # 이미 존재하는 아이디인지 조회
+        query = f"SELECT * FROM user_info WHERE user_id = '{user_id}';"
+        cnt = cursor.execute(query)
+        if cnt==1:    # 존재하는 아이디
+            query2 = f"DELETE FROM user_info WHERE user_id = '{user_id}';"
+            cnt2 = cursor.execute(query2)    # 0:DB오류 / 1:정상
+            conn.commit()
+            return cnt2
+        else:       # 오류
+            return 0
+
