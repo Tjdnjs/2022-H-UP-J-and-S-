@@ -1,7 +1,9 @@
-body{
-  width: 100vw; /*부모의 영향을 받지 않고 뷰포트 기준 전체화면 꽉 채우는 width*/
+html, body{
   height: 100vh;
   margin: 0;
+}
+body{
+  width: 100vw; /*부모의 영향을 받지 않고 뷰포트 기준 전체화면 꽉 채우는 width*/
   display: grid;
   grid-template-columns: 1fr 2.75fr;
   grid-template-rows: 6rem auto 4rem;

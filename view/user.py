@@ -50,16 +50,19 @@ def logout():
 def register():
     return render_template('signin.html')
 
+
 @user.route('/registerAction', methods=['POST'])
 def registerAction():
     user_id = request.form.get('user_id')
     user_pw = request.form.get('user_pw')
     user_name = request.form.get('user_name')
     user_email = request.form.get('user_email')
-    result = User.create(user_name, user_id, user_pw,  user_email)
-    if result:  # 회원가입 성공
+    if User.get(user_id):
+        return '<script>alert("이미 존재하는 ID 입니다");history.go(-1);</script>'
+    else:
+        result = User.create(user_name, user_id, user_pw,  user_email)
         return redirect(url_for('user.user_page')) #  로그인 페이지로
-    else:   # DB 오류
+    if not result: 
         return '<script>alert("회원가입 오류입니다");history.go(-1);</script>'
 
 # 회원탈퇴
