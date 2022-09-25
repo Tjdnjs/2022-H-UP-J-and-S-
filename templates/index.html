@@ -9,20 +9,33 @@
 </head>
 <body>
   <header>
-    header
+ 
   </header>
   <aside>
-    side
-    <a href="/user/register">회원가입</a>
-    <a href="/user">login</a>
-  
-  
+    <section id="menubar">
+      {% if not current_user.is_authenticated %}
+        <div><a href="/user">로그인</a>을 해주세요.</div>
+        <a href="">My Page</a><br>
+        <a>Plan</a><br>
+        <a>Personal</a><br>
+        <a>Group</a><br>
+        <div><a href="/user">login</a> / <a href="/user/register">Sign up</a></div>
+      {% else %}
+        <div>{{current_user.name}}님</div>
+        <a href="">My Page</a><br>
+        <a>Plan</a><br>
+        <a>Personal</a><br>
+        <a>Group</a><br>
+        <a href="/user/logout">Logout</a>
+      {% endif %}
+
+    </section>
   </aside>
   <main>
-    main
+
   </main>
   <footer>
-    footer
+
   </footer>
 </body>
 </html>
