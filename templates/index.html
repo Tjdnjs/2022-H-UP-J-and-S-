@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../static/css/bodygrid.css" >
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
 <body>
@@ -15,6 +18,7 @@
     <section id="menubar">
       {% if not current_user.is_authenticated %}
         <div><a href="/user">로그인</a>을 해주세요.</div>
+        <a href="">My Page</a><br>
         <a>Plan</a><br>
         <a>Personal</a><br>
         <a>Group</a><br>

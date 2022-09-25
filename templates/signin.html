@@ -4,29 +4,64 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/bodygrid.css" >
+    <link rel="stylesheet" href="../static/css/signin.css" >
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
 <body>
-    <form action="/user/registerAction" method="POST">
-
-        <legend>회원가입 화면</legend>
-        <div>
-            <input type='text' name='user_name' placeholder="이름" required>
-        </div>
-        <div>
-            <div>영문 + 숫자 4~10 자리를 입력해주세요</div>
-            <input type='text' name='user_id' pattern="[a-zA-z0-9]{4,10}" max_length="10" placeholder="아이디" required>
-        </div>
-        <div>
-            <div>영문 대소문자, 숫자 8~16자리를 입력해주세요</div>
-            <input type='password' name='user_pw' pattern="[a-zA-z0-9]{8,16}" placeholder="비밀번호" required>
-        </div>
-        <div>
-            <input type='email' name='user_email' placeholder="이메일" required>
-        </div>
-        <input type='submit' value='회원가입'></input>
+  <header>
+      
+  </header>
+  <aside>
+    <section id="menubar">
+      {% if not current_user.is_authenticated %}
+        <div><a href="/user">로그인</a>을 해주세요.</div>
+        <a href="">My Page</a><br>
+        <a>Plan</a><br>
+        <a>Personal</a><br>
+        <a>Group</a><br>
+        <div><a href="/user">login</a> / <a href="/user/register">Sign up</a></div>
+      {% else %}
+        <div>{{current_user.name}}님</div>
+        <a href="">My Page</a><br>
+        <a>Plan</a><br>
+        <a>Personal</a><br>
+        <a>Group</a><br>
+        <a href="/user/logout">Logout</a>
+      {% endif %}
+    </section>
+  </aside>
+  <main>
+    <section id="signintool">
+      <div id="signind">
+        <h3 id="title">회원 가입</h3>
+        <form action="/user/registerAction" method="POST">
+            <div>
+                <input id="name" type='text' name='user_name' placeholder="이름" required>
+            </div>
+            <div>
+                <div class="des">영문 + 숫자 4~10 자리를 입력해주세요.</div>
+                <input id="id" type='text' name='user_id' pattern="[a-zA-z0-9]{4,10}" max_length="10" placeholder="아이디" required>
+            </div>
+            <div>
+                <div class="des">영문 대소문자, 숫자 8~16자리를 입력해주세요.</div>
+                <input id="password" type='password' name='user_pw' pattern="[a-zA-z0-9]{8,16}" placeholder="비밀번호" required>
+            </div>
+            <div>
+                <input id="email" type='email' name='user_email' placeholder="이메일" required>
+            </div>
+            <input id="signup" type='submit' value='회원가입'></input>
+        </form>    
+        <script src="../static/js/check.js"></script>
+      </div>
+    </section>
+  </main>
+  <footer>
     
-    </form>    
-    <script src="../static/js/check.js"></script>
+  </footer>
+    
 </body>
 </html>
