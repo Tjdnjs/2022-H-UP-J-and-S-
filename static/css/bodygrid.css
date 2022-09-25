@@ -4,7 +4,7 @@ body{
   margin: 0;
   display: grid;
   grid-template-columns: 1fr 2.75fr;
-  grid-template-rows: 100px auto 50px;
+  grid-template-rows: 6rem auto 4rem;
   grid-template-areas: 
   'header header'
   'side main'
@@ -12,17 +12,17 @@ body{
 }
 header{
   grid-area: header;
-  background-color: gray;
+  background-color: #A8A6A6;
 }
 main{
   grid-area: main;
-  background-color: beige;
+  background-color: #E4E4E0;
 }
 aside{
   grid-area: side;
-  background-color: bisque;
+  background-color: #939FBF;
 }
 footer{
   grid-area: footer;
-  background-color: aliceblue;
+  background-color: #EFEFED;
 }
