@@ -20,7 +20,7 @@
           <a>Plan</a><br>
           <a>Personal</a><br>
           <a>Group</a><br>
-          <div><a href="/user">login</a> / <a href="">Sign up</a></div>
+          <div><a href="/user">login</a> / <a href="/user/register">Sign up</a></div>
         {% else %}
           <div>{{current_user.name}}님</div>
           <a href="">My Page</a><br>
@@ -41,7 +41,7 @@
                 <div class="int-area"><input type="password" placeholder="password" name="pw" /></div>
                 <div class="btn-area"><input type="submit" id="btn" value="login" /></div>
               </form>
-              <a id="sign-up" href="">Sign up</a>
+              <a id="sign-up" href="/user/register">Sign up</a>
           </div>  
           
         {% else %}

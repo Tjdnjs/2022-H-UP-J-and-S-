@@ -9,14 +9,24 @@
 <body>
     <form action="/user/registerAction" method="POST">
 
-        <legned class="border-bottom mb-4">회원가입 화면</legned>
-        <input type='text' name='user_name' placeholder="이름">
-        <input type='text' name='user_id' placeholder="아이디">
-        <input type='password' name='user_pw' placeholder="비밀번호">
-        <input type='email' name='user_email' placeholder="이메일">
+        <legend>회원가입 화면</legend>
+        <div>
+            <input type='text' name='user_name' placeholder="이름" required>
+        </div>
+        <div>
+            <div>영문 + 숫자 4~10 자리를 입력해주세요</div>
+            <input type='text' name='user_id' pattern="[a-zA-z0-9]{4,10}" max_length="10" placeholder="아이디" required>
+        </div>
+        <div>
+            <div>영문 대소문자, 숫자 8~16자리를 입력해주세요</div>
+            <input type='password' name='user_pw' pattern="[a-zA-z0-9]{8,16}" placeholder="비밀번호" required>
+        </div>
+        <div>
+            <input type='email' name='user_email' placeholder="이메일" required>
+        </div>
         <input type='submit' value='회원가입'></input>
     
-        </form>    
-    
+    </form>    
+    <script src="../static/js/check.js"></script>
 </body>
 </html>
