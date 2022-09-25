@@ -1,8 +1,13 @@
-#logintool{
+#signintool{
   display: flex;
-  margin-top: 11rem;
+  margin-top: 6rem;
 }
-#logind {
+#title{
+  color: #949292;
+  margin-top: 0;
+  margin-bottom: .7rem;
+}
+#signind {
   display: block;
   margin: auto ;
   background-color: #EFEFED;
@@ -12,32 +17,31 @@
   border: 10px solid #949292;  
   border-radius: 4rem;
 }
-#id, #password{
+#name, #id, #password, #email{ 
   font-family: 'Noto Serif KR', serif;
-  font-size: 2rem;
+  font-size: 1rem;
   width: 25rem;
-  margin: .2rem;
+  margin-top: 2rem;
   background-color: transparent;
-  border: none;
-  border-bottom: 2px solid #949292;
+  border: 1.3px solid #949292;
+  padding: .2rem;
   outline: none;
 }
-#loginsub{
+#signup{
   font-family: 'Noto Serif KR', serif;
-  width: 25.5rem;
-  font-size: 2rem;
-  padding: .2rem;
-  margin-top: 2rem;
+  width: 8rem;
+  font-size: 1rem;
+  padding: .4rem;
+  margin-top: 1.5rem;
   background-color: #939FBF;
   color: white;
   border: none;
   border-radius: .4rem;  
   outline: none;
 }
-#sign-up{
-  display: inline-block;
+.des{
   color: #949292;
-  text-decoration: none;
-  margin-top: .5rem;
-  margin-left: 20rem;
+  margin-top: 0;
+  text-align: left;
+  margin-left: 40px;
 }
