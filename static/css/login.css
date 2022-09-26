@@ -1,21 +1,21 @@
 #logintool{
   display: flex;
-  margin-top: 11rem;
+  height: 100%;
+
 }
 #logind {
-  display: block;
   margin: auto ;
   background-color: #EFEFED;
-  width: 30rem;
-  padding: 4rem 2rem;
+  width: 25rem;
+  padding: 3rem 2rem;
   text-align: center;
-  border: 10px solid #949292;  
+  border: 8px solid #949292;  
   border-radius: 4rem;
 }
 #id, #password{
   font-family: 'Noto Serif KR', serif;
-  font-size: 2rem;
-  width: 25rem;
+  font-size: 1.6rem;
+  width: 23rem;
   margin: .2rem;
   background-color: transparent;
   border: none;
@@ -24,8 +24,8 @@
 }
 #loginsub{
   font-family: 'Noto Serif KR', serif;
-  width: 25.5rem;
-  font-size: 2rem;
+  width: 23.5rem;
+  font-size: 1.6rem;
   padding: .2rem;
   margin-top: 2rem;
   background-color: #939FBF;
