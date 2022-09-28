@@ -1,7 +1,5 @@
 from flask import Flask, Blueprint, request, render_template, make_response, redirect, url_for, abort
 from control.user import User
-# from model import User
-# from pybo import db
 from urllib.parse import urlparse, urljoin
 from flask_login import login_user, logout_user, current_user, login_required
 
@@ -20,6 +18,7 @@ def is_safe_url(target):
 def user_page():
     return render_template('login.html')
 
+# 로그인 동작
 @user.route('/login', methods = ['get','post'])
 def login():
     id = request.form.get('id')
@@ -39,30 +38,36 @@ def login():
         login_user(user)
         return redirect(url_for('main'))
 
+# 로그아웃 동작
 @user.route('/logout')
 def logout():
     logout_user()
     return redirect(url_for('user.user_page'))
 
-###
 
+# 회원가입 탬플릿 연결
 @user.route('/register')
 def register():
     return render_template('signin.html')
 
-
+# 회원가입 동작
 @user.route('/registerAction', methods=['POST'])
 def registerAction():
     user_id = request.form.get('user_id')
     user_pw = request.form.get('user_pw')
     user_name = request.form.get('user_name')
     user_email = request.form.get('user_email')
+    
+    # 아이디 중복 검사
     if User.get(user_id):
         return '<script>alert("이미 존재하는 ID 입니다");history.go(-1);</script>'
     else:
+        # 중복되지 않을 경우 User 생성
         result = User.create(user_name, user_id, user_pw,  user_email)
+        # login form 으로 연결
         return redirect(url_for('user.user_page'))
     if not result: 
+        # DB 오류 발생
         return '<script>alert("회원가입 오류입니다");history.go(-1);</script>'
 
 # 회원탈퇴
@@ -73,7 +78,7 @@ def delete():
     else:
         return redirect(url_for('user.user_page'))
     
-
+# 회원 탈퇴 동작
 @user.route('/deleteAction', methods = ['GET','POST'])
 def deleteAction():
     if current_user.is_authenticated:
@@ -81,10 +86,12 @@ def deleteAction():
         logout_user()
         if result==1:  # 회원탈퇴 성공
             return redirect(url_for('user.register')) #  회원가입 페이지로
-    return "<h1> 오류 </h1>"
+    return '<script>alert("회원탈퇴 오류입니다");history.go(-1);</script>'
 
+# 개인 정보 조회
 @user.route('/mypage', methods = ['GET'])
 @login_required
 def mypage():
     current = User.get(current_user.id)
-    return render_template('mypage.html', name=current.name, pw=current.pw,id=current.id,email=current.mail )
+    user = {"name": current.name, "pw": current.pw, "id":current.id, "email": current.mail}
+    return render_template('mypage.html', user = user )
