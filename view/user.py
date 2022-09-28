@@ -3,7 +3,7 @@ from control.user import User
 # from model import User
 # from pybo import db
 from urllib.parse import urlparse, urljoin
-from flask_login import login_user, logout_user, current_user
+from flask_login import login_user, logout_user, current_user, login_required
 
 # user blueprint 생성
 user = Blueprint('user', __name__)
@@ -61,7 +61,7 @@ def registerAction():
         return '<script>alert("이미 존재하는 ID 입니다");history.go(-1);</script>'
     else:
         result = User.create(user_name, user_id, user_pw,  user_email)
-        return redirect(url_for('user.user_page')) #  로그인 페이지로
+        return render_template('index.html') #  첫
     if not result: 
         return '<script>alert("회원가입 오류입니다");history.go(-1);</script>'
 
@@ -82,3 +82,9 @@ def deleteAction():
         if result==1:  # 회원탈퇴 성공
             return redirect(url_for('user.register')) #  회원가입 페이지로
     return "<h1> 오류 </h1>"
+
+@user.route('/mypage', methods = ['GET'])
+@login_required
+def mypage():
+    current = User.get(current_user.id)
+    return render_template('mypage.html', name=current.name, pw=current.pw,id=current.id,email=current.mail )
