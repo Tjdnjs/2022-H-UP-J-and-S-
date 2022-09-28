@@ -37,12 +37,12 @@ def login():
         return '<script>alert("잘못된 비밀번호입니다");history.go(-1);</script>'
     else:
         login_user(user)
-        return redirect(url_for('user.user_page'))
+        return redirect(url_for('main'))
 
 @user.route('/logout')
 def logout():
     logout_user()
-    return redirect(url_for('main'))
+    return redirect(url_for('user.user_page'))
 
 ###
 
@@ -61,7 +61,7 @@ def registerAction():
         return '<script>alert("이미 존재하는 ID 입니다");history.go(-1);</script>'
     else:
         result = User.create(user_name, user_id, user_pw,  user_email)
-        return render_template('index.html') #  첫
+        return redirect(url_for('user.user_page'))
     if not result: 
         return '<script>alert("회원가입 오류입니다");history.go(-1);</script>'
 
