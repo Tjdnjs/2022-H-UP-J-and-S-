@@ -42,11 +42,11 @@
         <form action="/user/registerAction" method="POST">
             <div>
                 <input id="name" type='text' name='user_name' placeholder="이름" required>
+                <div id="help-nic" class="des">사용하실 이름을 입력해주세요</div>
             </div>
             <div>
-                {{message}}
                 <input id="id" type='text' name='user_id' pattern="[a-zA-z0-9]{4,10}" max_length="10" placeholder="아이디" required>
-                <button type="button" id="check" onclick="check_dup()">중복확인</button>
+                <button type="button" class="check" onclick="check_dup()">중복확인</button>
                 <div id="help-id" class="des">영문 + 숫자 4~10 자리를 입력해주세요.</div>
             </div>
             <div>
@@ -55,6 +55,8 @@
             </div>
             <div>
                 <input id="email" type='email' name='user_email' placeholder="이메일" required>
+                <button type="button" class="check" onclick="check_e()">중복확인</button>
+                <div id="help-e" class="des">사용하실 이메일을 입력해주세요</div>
             </div>
             <input id="signup" type='submit' value='회원가입'></input>
         </form>    
