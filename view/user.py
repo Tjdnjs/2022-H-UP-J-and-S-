@@ -1,4 +1,4 @@
-from flask import Flask, Blueprint, request, render_template, make_response, redirect, url_for, abort
+from flask import Flask, Blueprint, request, render_template, make_response, redirect, url_for, abort, jsonify, flash, get_flashed_messages
 from control.user import User
 from urllib.parse import urlparse, urljoin
 from flask_login import login_user, logout_user, current_user, login_required
@@ -48,8 +48,16 @@ def logout():
 # 회원가입 탬플릿 연결
 @user.route('/register')
 def register():
+    # return render_template('sign2.html')
     return render_template('signin.html')
 
+@user.route('/checkDup/<string:user_id>', methods=['POST'])
+def check_dup(user_id):
+    print('Checking')
+    # user_id = request.form.get('user_id')
+    exists = bool(User.get(user_id))
+    return jsonify({'result': 'success', 'exists': exists})
+    
 # 회원가입 동작
 @user.route('/registerAction', methods=['POST'])
 def registerAction():

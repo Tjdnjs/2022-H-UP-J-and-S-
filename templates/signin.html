@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600&display=swap" rel="stylesheet">
+    <script src="http://code.jquery.com/jquery-latest.js"></script> 
     <title>Document</title>
 </head>
 <body>
@@ -43,8 +44,10 @@
                 <input id="name" type='text' name='user_name' placeholder="이름" required>
             </div>
             <div>
+                {{message}}
                 <input id="id" type='text' name='user_id' pattern="[a-zA-z0-9]{4,10}" max_length="10" placeholder="아이디" required>
-                <div class="des">영문 + 숫자 4~10 자리를 입력해주세요.</div>
+                <button type="button" id="check" onclick="check_dup()">중복확인</button>
+                <div id="help-id" class="des">영문 + 숫자 4~10 자리를 입력해주세요.</div>
             </div>
             <div>
                 <input id="password" type='password' name='user_pw' pattern="[a-zA-z0-9]{8,16}" placeholder="비밀번호" required>
@@ -58,6 +61,7 @@
         <script src="../static/js/check.js"></script>
       </div>
     </section>
+    
   </main>
   <footer>
     
