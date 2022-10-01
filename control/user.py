@@ -24,7 +24,18 @@ class User(UserMixin):
             return None
         user = User(user_name = user[0], user_id = user[1], user_pw = user[2], user_email=user[3])
         return user
-
+    
+    @staticmethod
+    def get_e(user_email):
+        mysql_db = conn_mysql()
+        db_cursor = mysql_db.cursor()
+        sql = "select * from user_info where user_email = '" + str(user_email) + "'"
+        db_cursor.execute(sql)
+        user = db_cursor.fetchone()
+        if not user:
+            return None
+        user = User(user_name = user[0], user_id = user[1], user_pw = user[2], user_email=user[3])
+        return user
         # 회원가입
     @staticmethod
     def create(user_name : str, user_id : str, user_pw : str, user_email : str):

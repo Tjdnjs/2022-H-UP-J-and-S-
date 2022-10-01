@@ -1,4 +1,4 @@
-from flask import Flask, Blueprint, request, render_template, make_response, redirect, url_for, abort
+from flask import Flask, Blueprint, request, render_template, make_response, redirect, url_for, abort, jsonify, flash, get_flashed_messages
 from control.user import User
 from urllib.parse import urlparse, urljoin
 from flask_login import login_user, logout_user, current_user, login_required
@@ -48,7 +48,22 @@ def logout():
 # 회원가입 탬플릿 연결
 @user.route('/register')
 def register():
+    # return render_template('sign2.html')
     return render_template('signin.html')
+
+@user.route('/checkDup/<string:user_id>', methods=['POST'])
+def check_dup(user_id):
+    print('Checking')
+    # user_id = request.form.get('user_id')
+    exists = bool(User.get(user_id))
+    return jsonify({'result': 'success', 'exists': exists})
+    
+@user.route('/checke/<string:email>', methods=['POST'])
+def checke(email):
+    print('Checking')
+    # user_id = request.form.get('user_id')
+    exists = bool(User.get_e(email))
+    return jsonify({'result': 'success', 'exists': exists}) 
 
 # 회원가입 동작
 @user.route('/registerAction', methods=['POST'])
@@ -58,14 +73,8 @@ def registerAction():
     user_name = request.form.get('user_name')
     user_email = request.form.get('user_email')
     
-    # 아이디 중복 검사
-    if User.get(user_id):
-        return '<script>alert("이미 존재하는 ID 입니다");history.go(-1);</script>'
-    else:
-        # 중복되지 않을 경우 User 생성
-        result = User.create(user_name, user_id, user_pw,  user_email)
-        # login form 으로 연결
-        return redirect(url_for('user.user_page'))
+    result = User.create(user_name, user_id, user_pw,  user_email)
+    return redirect(url_for('user.user_page'))
     if not result: 
         # DB 오류 발생
         return '<script>alert("회원가입 오류입니다");history.go(-1);</script>'
