@@ -12,7 +12,7 @@
   margin: auto ;
   background-color: #EFEFED;
   width: 30rem;
-  padding: 4rem 2rem;
+  padding: 1.5rem 1rem;
   text-align: center;
   border: 10px solid #949292;  
   border-radius: 4rem;
@@ -26,6 +26,9 @@
   border: 1.3px solid #949292;
   padding: .2rem;
   outline: none;
+}
+#id, #email{
+  width: 21rem;
 }
 #signup{
   font-family: 'Noto Serif KR', serif;
@@ -44,4 +47,12 @@
   margin-top: 0;
   text-align: left;
   margin-left: 40px;
+  font-size: .75rem;
+}
+.check{
+  color: white;
+  background-color:#b9b8b8 ;
+  border: none;
+  border-radius: .2rem;
+  padding: .4rem .2rem;
 }

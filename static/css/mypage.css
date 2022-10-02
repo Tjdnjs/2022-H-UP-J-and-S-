@@ -1,0 +1,66 @@
+#mypagetool{
+  display: flex;
+  height: 100%;
+}
+#mypaged{
+  display: block;
+  margin: auto ;
+  background-color: transparent;
+  width: 27rem;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  border-top: 3px solid #949292;  
+  border-bottom: 3px solid #949292;
+}
+#title{
+  color: #949292;
+  margin-bottom: 2rem;
+}
+.des{
+  text-align: left;
+  color: #656464;
+  margin: 1rem 0 1rem 2rem;
+}
+#delete{
+  color: white;
+  background-color: #b9b8b8;
+  font-family: 'Noto Serif KR', serif;
+  font-size: .8rem;
+  border: none;
+  border-radius: .2rem;
+  padding: .3rem.5rem;
+  margin: 2rem 0 0 20rem;
+}
+.help-pw{
+  color: #949292;
+  margin-top: 0;
+  text-align: left;
+  font-size: .75rem;
+}
+#password{
+  font-family: 'Noto Serif KR', serif;
+  margin: .2rem;
+  width: 20rem;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #949292;
+  outline: none;
+}
+#pw_check{
+  font-family: 'Noto Serif KR', serif;
+  margin: .2rem;
+  width: 17rem;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #949292;
+  outline: none;
+}
+#edit_profile{
+  color: white;
+  background-color: #949292;
+  font-family: 'Noto Serif KR', serif;
+  font-size: .8rem;
+  border: none;
+  border-radius: .2rem;
+  padding: .3rem.5rem;
+}

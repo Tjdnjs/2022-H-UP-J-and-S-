@@ -1,36 +1,73 @@
+</html>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/bodygrid.css" >
+    <link rel="stylesheet" href="../static/css/mypage.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600&display=swap" rel="stylesheet">
     <title>Document</title>
     <script src="http://code.jquery.com/jquery-latest.js"></script> 
 </head>
 <body>
-    <section id="mypagetool">
-        <div id="mypaged">
-            <form action="/user/edit" method="post">
-                <div class="des">이름 : {{user["name"]}}</div>
-                <div class="des">아이디 : {{user["id"]}}</div>
-                <div class="des">이메일 : {{user["email"]}}</div>
-                <div>
-                    비밀번호
-                    <input id="password" type='password' name='user_pw' pattern="[a-zA-z0-9]{8,16}" placeholder="비밀번호" required>
-                    <div class="des">영문 대소문자, 숫자, 특수문자가 조합된 8~16자리 비밀번호를 입력해주세요.</div>
-                </div>
-                <div>
-                    비밀번호 재입력
-                    <input id="pw_check" type='password' name='pw_check' onkeyup="check_pw()" pattern="[a-zA-z0-9]{8,16}" placeholder="비밀번호 재입력" required>
-                    <div class="des" id = "help-pw">비밀번호를 다시 입력해주세요</div>
-                </div>
-        
-                <input id="edit_profile" type='submit' value='비밀번호 수정'></input>
-                <script src="../static/js/check.js"></script>
-            </form>
-        </div>
+  <header>
+ 
+  </header>
+  <aside>
+    <section id="menubar">
+      {% if not current_user.is_authenticated %}
+        <div><a href="/user">로그인</a>을 해주세요.</div>
+        <a href="../user/mypage">My Page</a><br>
+        <a>Plan</a><br>
+        <a>Personal</a><br>
+        <a>Group</a><br>
+        <div><a href="/user">login</a> / <a href="../user/register">Sign up</a></div>
+
+      {% else %}
+        <div>{{current_user.name}}님</div>
+        <a href="../user/mypage">My Page</a><br>
+        <a>Plan</a><br>
+        <a>Personal</a><br>
+        <a>Group</a><br>
+        <a href="../user/logout">Logout</a>
+      {% endif %}
 
     </section>
+  </aside>
+  <main>
+    <section id="mypagetool">
+      <div id="mypaged">
+        <h3 id="title">마이 페이지</h3>
+          <form action="/user/edit" method="post">
+              <div class="des">이름 : {{user["name"]}}</div>
+              <div class="des">아이디 : {{user["id"]}}</div>
+              <div class="des">이메일 : {{user["email"]}}</div>
+              <div class="des">
+                  비밀번호
+                  <input id="password" type='password' name='user_pw' pattern="[a-zA-z0-9]{8,16}" placeholder="비밀번호" required>
+                  <div class="help-pw">영문 대소문자, 숫자, 특수문자가 조합된 8~16자리 비밀번호를 입력해주세요.</div>
+              </div>
+              <div class="des">
+                  비밀번호 재입력
+                  <input id="pw_check" type='password' name='pw_check' onkeyup="check_pw()" pattern="[a-zA-z0-9]{8,16}" placeholder="비밀번호 재입력" required>
+                  <div class = "help-pw">비밀번호를 다시 입력해주세요.</div>
+              </div>
+      
+              <input id="edit_profile" type='submit' value='비밀번호 수정'></input>
+              <script src="../static/js/check.js"></script>
+          </form>
+          <form action="/user/deleteAction" method="POST">
+            <input id="delete" type='submit' value="회원탈퇴"></input>
+          </form>
+      </div>
+    </section>
+  </main>
+  <footer>
 
+  </footer>
 </body>
 </html>
