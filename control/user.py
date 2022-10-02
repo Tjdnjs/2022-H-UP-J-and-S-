@@ -39,7 +39,7 @@ class User(UserMixin):
     
     # 회원가입
     @staticmethod
-    def create(user_name : str, user_id : str, user_pw : str, user_email : str):
+    def create(user_name : str, user_id : str, user_pw, user_email : str):
         # mysql DB 연결
         conn = conn_mysql()
         # 커서
@@ -49,6 +49,7 @@ class User(UserMixin):
         cnt = cursor.execute(query)
         if cnt == 0:    # 없는 아이디
             query2 = f"INSERT INTO user_info VALUES('{user_name}', '{user_id}', '{user_pw}', '{user_email}');"
+            print(query2)
             cnt2 = cursor.execute(query2)    # 쿼리 실행개수 (0:DB오류 / 1:정상)
             conn.commit()
             return True

@@ -2,6 +2,7 @@ from flask import Flask, Blueprint, request, render_template, make_response, red
 from control.user import User
 from urllib.parse import urlparse, urljoin
 from flask_login import login_user, logout_user, current_user, login_required
+import bcrypt
 
 # user blueprint 생성
 user = Blueprint('user', __name__)
@@ -32,8 +33,10 @@ def login():
 
     if not user:
         return '<script>alert("존재하지 않는 아이디입니다");history.go(-1);</script>'
-    elif pw != user.pw:
+    elif not bcrypt.checkpw(pw.encode('utf-8'), user.pw.encode('utf-8')):
         return '<script>alert("잘못된 비밀번호입니다");history.go(-1);</script>'
+    # elif pw != user.pw:
+    #     return '<script>alert("잘못된 비밀번호입니다");history.go(-1);</script>'
     else:
         login_user(user)
         return redirect(url_for('main'))
@@ -72,8 +75,10 @@ def registerAction():
     user_pw = request.form.get('user_pw')
     user_name = request.form.get('user_name')
     user_email = request.form.get('user_email')
-    
-    result = User.create(user_name, user_id, user_pw,  user_email)
+    # 암호화
+    pw_hash = bcrypt.hashpw(user_pw.encode('utf-8'), bcrypt.gensalt()).decode('utf-8')
+    print(pw_hash)
+    result = User.create(user_name, user_id, pw_hash,  user_email)
     return redirect(url_for('user.user_page'))
     if not result: 
         # DB 오류 발생
@@ -110,6 +115,7 @@ def mypage():
 def edit():
     user_pw = request.form.get('user_pw')
     current = User.get(current_user.id)
-    current.edit(current_user.id, user_pw)
+    pw_hash = bcrypt.hashpw(user_pw.encode('UTF-8'), bcrypt.gensalt()).decode('utf-8')
+    current.edit(current_user.id, pw_hash)
     return redirect(url_for('user.mypage'))
     
