@@ -49,12 +49,12 @@
           </div>  
           
         {% else %}
-        <div>Hi {{current_user.name}}</div>
-        <a href="/user/logout">Logout</a>
+          <div>Hi {{current_user.name}}</div>
+          <a href="/user/logout">Logout</a>
 
-        <form action="/user/deleteAction" method="POST">
-          <input type='submit' value="회원탈퇴"></input>
-        </form>
+          <form action="/user/deleteAction" method="POST">
+            <input type='submit' value="회원탈퇴"></input>
+          </form>
 
 
         {% endif %}

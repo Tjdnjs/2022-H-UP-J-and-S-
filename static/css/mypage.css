@@ -31,3 +31,36 @@
   padding: .3rem.5rem;
   margin: 2rem 0 0 20rem;
 }
+.help-pw{
+  color: #949292;
+  margin-top: 0;
+  text-align: left;
+  font-size: .75rem;
+}
+#password{
+  font-family: 'Noto Serif KR', serif;
+  margin: .2rem;
+  width: 20rem;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #949292;
+  outline: none;
+}
+#pw_check{
+  font-family: 'Noto Serif KR', serif;
+  margin: .2rem;
+  width: 17rem;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #949292;
+  outline: none;
+}
+#edit_profile{
+  color: white;
+  background-color: #949292;
+  font-family: 'Noto Serif KR', serif;
+  font-size: .8rem;
+  border: none;
+  border-radius: .2rem;
+  padding: .3rem.5rem;
+}
