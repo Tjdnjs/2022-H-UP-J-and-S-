@@ -104,3 +104,12 @@ def mypage():
     current = User.get(current_user.id)
     user = {"name": current.name, "pw": current.pw, "id":current.id, "email": current.mail}
     return render_template('mypage.html', user = user )
+
+@user.route('/edit', methods = ['POST'])
+@login_required
+def edit():
+    user_pw = request.form.get('user_pw')
+    current = User.get(current_user.id)
+    current.edit(current_user.id, user_pw)
+    return redirect(url_for('user.mypage'))
+    
