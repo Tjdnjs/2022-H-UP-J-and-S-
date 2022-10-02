@@ -17,7 +17,7 @@
   border: 10px solid #949292;  
   border-radius: 4rem;
 }
-#name, #id, #password, #email{ 
+#name, #id, #password, #email, #pw_check{ 
   font-family: 'Noto Serif KR', serif;
   font-size: 1rem;
   width: 25rem;
