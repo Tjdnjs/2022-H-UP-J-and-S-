@@ -5,10 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="http://code.jquery.com/jquery-latest.js"></script> 
 </head>
 <body>
-    {{user["name"]}}
-    {{user["id"]}}
-    {{user["email"]}}
+    <section id="mypagetool">
+        <div id="mypaged">
+            <form action="/user/edit" method="post">
+                <div class="des">이름 : {{user["name"]}}</div>
+                <div class="des">아이디 : {{user["id"]}}</div>
+                <div class="des">이메일 : {{user["email"]}}</div>
+                <div>
+                    비밀번호
+                    <input id="password" type='password' name='user_pw' pattern="[a-zA-z0-9]{8,16}" placeholder="비밀번호" required>
+                    <div class="des">영문 대소문자, 숫자, 특수문자가 조합된 8~16자리 비밀번호를 입력해주세요.</div>
+                </div>
+                <div>
+                    비밀번호 재입력
+                    <input id="pw_check" type='password' name='pw_check' onkeyup="check_pw()" pattern="[a-zA-z0-9]{8,16}" placeholder="비밀번호 재입력" required>
+                    <div class="des" id = "help-pw">비밀번호를 다시 입력해주세요</div>
+                </div>
+        
+                <input id="edit_profile" type='submit' value='비밀번호 수정'></input>
+                <script src="../static/js/check.js"></script>
+            </form>
+        </div>
+
+    </section>
+
 </body>
 </html>

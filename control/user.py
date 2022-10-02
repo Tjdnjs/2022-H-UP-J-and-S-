@@ -36,7 +36,8 @@ class User(UserMixin):
             return None
         user = User(user_name = user[0], user_id = user[1], user_pw = user[2], user_email=user[3])
         return user
-        # 회원가입
+    
+    # 회원가입
     @staticmethod
     def create(user_name : str, user_id : str, user_pw : str, user_email : str):
         # mysql DB 연결
@@ -72,4 +73,15 @@ class User(UserMixin):
             return cnt2
         else:       # 오류
             return 0
+        
+    # 회원 정보 수정
+    @staticmethod
+    def edit(user_id : str, user_pw : str):
+        # mysql DB 연결
+        conn = conn_mysql()
+        # 커서
+        cursor = conn.cursor()
+        query = f"UPDATE user_info set user_pw = '{user_pw}' WHERE user_id = '{user_id}';"
+        cnt = cursor.execute(query)
+        conn.commit()
 
