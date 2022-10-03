@@ -31,6 +31,9 @@
   padding: .3rem.5rem;
   margin: 2rem 0 0 20rem;
 }
+#delete:hover{
+  background-color: #939292;
+}
 .help-pw{
   color: #949292;
   margin-top: 0;
@@ -63,4 +66,7 @@
   border: none;
   border-radius: .2rem;
   padding: .3rem.5rem;
+}
+#edit_profile:hover{
+  background-color: #727171;
 }

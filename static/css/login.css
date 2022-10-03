@@ -9,8 +9,9 @@
   width: 25rem;
   padding: 3rem 2rem;
   text-align: center;
-  border: 8px solid #949292;  
-  border-radius: 4rem;
+  border-right: 7px solid #949292;  
+  border-bottom: 8px solid #949292;
+  border-radius: 3rem;
 }
 #id, #password{
   font-family: 'Noto Serif KR', serif;
@@ -34,10 +35,16 @@
   border-radius: .4rem;  
   outline: none;
 }
+#loginsub:hover{
+  background-color: #7985a5;
+}
 #sign-up{
   display: inline-block;
   color: #949292;
   text-decoration: none;
   margin-top: .5rem;
   margin-left: 20rem;
+}
+#sign-up:hover{
+  color: #727171;
 }

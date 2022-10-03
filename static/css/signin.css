@@ -42,6 +42,9 @@
   border-radius: .4rem;  
   outline: none;
 }
+#signup:hover{
+  background-color: #7985a5;
+}
 .des{
   color: #949292;
   margin-top: 0;
@@ -55,4 +58,7 @@
   border: none;
   border-radius: .2rem;
   padding: .4rem .2rem;
+}
+.check:hover{
+  background-color: #939292;
 }
