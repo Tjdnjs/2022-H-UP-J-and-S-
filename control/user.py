@@ -4,7 +4,8 @@ from model.mysql import conn_mysql
 class User(UserMixin):
 
     # User 객체에 저장할 사용자 정보
-    def __init__(self, user_name, user_id, user_pw, user_email):
+    def __init__(self, user_key, user_name, user_id, user_pw, user_email):
+        self.key = user_key
         self.name = user_name
         self.id = user_id
         self.pw = user_pw
@@ -22,7 +23,19 @@ class User(UserMixin):
         user = db_cursor.fetchone()
         if not user:
             return None
-        user = User(user_name = user[0], user_id = user[1], user_pw = user[2], user_email=user[3])
+        user = User(user_key = user[0], user_name = user[1], user_id = user[2], user_pw = user[3], user_email=user[4])
+        return user
+    
+    @staticmethod
+    def get_key(user_key):
+        mysql_db = conn_mysql()
+        db_cursor = mysql_db.cursor()
+        sql = "select * from user_info where user_key = '" + int(user_key) + "'"
+        db_cursor.execute(sql)
+        user = db_cursor.fetchone()
+        if not user:
+            return None
+        user = User(user_key = user[0],user_name = user[1], user_id = user[2], user_pw = user[3], user_email=user[4])
         return user
     
     @staticmethod
@@ -34,7 +47,7 @@ class User(UserMixin):
         user = db_cursor.fetchone()
         if not user:
             return None
-        user = User(user_name = user[0], user_id = user[1], user_pw = user[2], user_email=user[3])
+        user = User(user_key = user[0],user_name = user[1], user_id = user[2], user_pw = user[3], user_email=user[4])
         return user
     
     # 회원가입
@@ -48,7 +61,7 @@ class User(UserMixin):
         query = f"SELECT * FROM user_info WHERE user_id = '{user_id}';"
         cnt = cursor.execute(query)
         if cnt == 0:    # 없는 아이디
-            query2 = f"INSERT INTO user_info VALUES('{user_name}', '{user_id}', '{user_pw}', '{user_email}');"
+            query2 = f"INSERT INTO user_info VALUES('None','{user_name}', '{user_id}', '{user_pw}', '{user_email}');"
             print(query2)
             cnt2 = cursor.execute(query2)    # 쿼리 실행개수 (0:DB오류 / 1:정상)
             conn.commit()

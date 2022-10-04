@@ -3,7 +3,8 @@ from flask_login import LoginManager, current_user, login_required, login_user, 
 from flask_cors import CORS
 import os
 from control.user import User
-from view import user
+from control.plan_p import Cate
+from view import user, plan_personal
 
 # https 만을 지원하는 기능읗 http에서 테스트할 때 필요한 설정
 os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
@@ -12,6 +13,8 @@ app = Flask(__name__, static_url_path='/static') # flask 객체 생성
 
 # blueprint
 app.register_blueprint(user.user, url_prefix='/user')
+app.register_blueprint(plan_personal.plan_p, url_prefix='/plan')
+
 
 CORS(app) # 외부 API 사용하기 위함
 app.secret_key = os.urandom(24) # 보안을 위해 서버가 생성될 때마다 시크릿키 새로 발급
@@ -30,10 +33,18 @@ def load_user(user_id):
 def unauthorized():
     return '<script>alert("not found user");history.go(-1);</script>'
 
+def find():
+    key = Cate.get_b_user(current_user.key)
+    return key
 
 @app.route('/')
 def main():
-    return render_template('index.html')
+    if current_user.is_authenticated:
+        cate = find()
+        print(cate)
+        return render_template('index.html', cate=cate)
+    else:
+        return render_template('index.html')
 
 if __name__ == '__main__':
     app.run(host = '0.0.0.0', port = '8080', debug = True)

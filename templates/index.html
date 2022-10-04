@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600&display=swap" rel="stylesheet">
     <title>Document</title>
+    <script src="http://code.jquery.com/jquery-latest.js"></script> 
 </head>
 <body>
   <header>
@@ -29,10 +30,17 @@
         <a href="../user/mypage">My Page</a><br>
         <a>Plan</a><br>
         <a>Personal</a><br>
+        {% for i in cate %}
+          <li><a href="{{i[2]}}">{{i[2]}}</a></li>
+        {% endfor %}
+        <div id = "create" ></div>
+        <input type="button" value="생성" onclick="addInput();" />
+        <input type="button" value="취소" onclick="deleteInput();"/>
+        <input type="submit" value="완료" onclick="submit()"/>
         <a>Group</a><br>
         <a href="../user/logout">Logout</a>
       {% endif %}
-    
+      <script src="../static/js/create_catetory.js"></script>
     </section>
   </aside>
   <main>
