@@ -36,7 +36,7 @@ function submit() {
         type: "POST",
         url: `/plan/create/${cate}`,
         success: function () {
-          deleteInput();ß
+          deleteInput();
       }
       })
       

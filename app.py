@@ -42,7 +42,9 @@ def main():
     if current_user.is_authenticated:
         cate = find()
         print(cate)
-        return render_template('index.html', cate=cate)
+        if cate:
+            return render_template('index.html', cate=cate)
+        else: return render_template('index.html')
     else:
         return render_template('index.html')
 

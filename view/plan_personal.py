@@ -12,16 +12,17 @@ def find():
     key = Cate.get_b_user(current_user.key)
     return key
 
-@plan_p.route('/create/<string:cate>', methods=['POST', 'GET'])
-def plan_cate_c(cate):
-    # cate = request.form.get('cate');
+@plan_p.route('/create', methods=['POST', 'GET'])
+def plan_cate_c():
+    cate = request.form.get('cate');
     user = User.get(current_user.id).key
-    name = cate
-    Cate.create(user, name)
+    print(cate)
+    Cate.create(user, cate)
     return redirect(url_for('plan.plan'))
+    return 0
 
 @plan_p.route('/')
 def plan():
     cate = find()
     print(cate)
-    return render_template('index.html', cate = cate)
+    return redirect(url_for('main'))
