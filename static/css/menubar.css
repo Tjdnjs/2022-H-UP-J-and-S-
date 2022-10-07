@@ -1,0 +1,72 @@
+#menubar{
+  color: whitesmoke;
+  display: block;
+  margin: auto;
+  height: 100%;
+}
+.menubarblock{
+  position: relative;
+  background-color: #BDC4D7;
+  height: 95%;
+  margin: .9rem;
+}
+a {
+  text-decoration: none;
+  color: whitesmoke;
+}
+.ldes{
+  text-align: right;
+  margin: 0 3rem;
+  padding-top: 4.5rem ;
+  padding-bottom: .5rem ;
+  border-bottom: solid 2px whitesmoke;
+}
+#category{
+  margin: 0 3rem;
+  padding-bottom: .5rem ;
+  border-bottom: solid 2px whitesmoke;
+}
+.mdes{
+  font-size: 1.2rem;
+  text-align: left;
+  margin: 0 1.5rem;
+  padding-top: 1rem ;
+  padding-bottom: .5rem ;
+  border-bottom: solid 2px whitesmoke;
+}
+#loginsignup, #logout{
+  font-size: 1.2rem;
+  position:absolute;
+  bottom: 15px;
+  right: 15px;
+}
+#name{
+  font-size: 1.5rem;
+}
+#categorytext{
+  font-family: 'Noto Serif KR', serif;
+  outline: none;
+  border: 0;
+  width: 70%;
+  background-color: whitesmoke;
+  padding: .2rem;
+}
+#cate_button{
+  font-family: 'Noto Serif KR', serif;
+  background-color: #949292;
+  color: whitesmoke;
+  border: none;
+  border-radius: .2rem;
+  padding: .2rem .5rem;
+}
+#cate_button:hover{
+  background-color: #848383;
+}
+.mypage:hover,#loginsignup:hover, #logout:hover{
+  color: rgb(231, 229, 229);
+}
+.list{
+  list-style: none;
+  margin: .2rem 0;
+  padding: .2rem;
+}
