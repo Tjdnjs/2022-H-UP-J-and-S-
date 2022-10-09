@@ -6,10 +6,9 @@
 }
 .menubarblock{
   position: relative;
-  background-color: #BDC4D7;
-  height: 95%;
-  margin: .9rem;
+  height: 100%;
 }
+/*#727171*/
 a {
   text-decoration: none;
   color: whitesmoke;
@@ -17,12 +16,13 @@ a {
 .ldes{
   text-align: right;
   margin: 0 3rem;
-  padding-top: 4.5rem ;
+  margin-bottom: 2rem;
+  padding-top: 7rem;
   padding-bottom: .5rem ;
   border-bottom: solid 2px whitesmoke;
 }
 #category{
-  margin: 0 3rem;
+  margin: 1rem 3rem;
   padding-bottom: .5rem ;
   border-bottom: solid 2px whitesmoke;
 }
@@ -70,10 +70,10 @@ a {
   margin: .2rem 0;
   padding: .2rem 0;
 }
-input[id=personal]{
+input[id*="plan"]{
   display: none;
 }
-input[id=personal] + label{
+input[id*="plan"] + label{
   display: inline-block;
   font-size: 1.1rem;
   margin-left: 2rem;
@@ -82,18 +82,18 @@ input[id=personal] + label{
   cursor: pointer;
   border-bottom: solid 1px whitesmoke;
 }
-input[id=personal] + label + div{
+input[id*="plan"] + label + div{
   overflow: hidden;
   height: 0;
   display: block;
   align-items: center;
   transition: all .3s;
 }
-input[id=personal]+ label+ div li{
+input[id*="plan"]+ label+ div li{
   display: block;
   margin-left: 3rem;
   padding: 0.1rem 0 .1rem 0;
 }
-input[id=personal]:checked + label + div{
+input[id*="plan"]:checked + label + div{
   height: 240px;
 }

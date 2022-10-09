@@ -6,12 +6,12 @@ html, body{
 body{
   width: 100vw; /*부모의 영향을 받지 않고 뷰포트 기준 전체화면 꽉 채우는 width*/
   display: grid;
-  grid-template-columns: 1fr 2.75fr;
+  grid-template-columns: 1fr 3.5fr;
   grid-template-rows: 6rem auto 4rem;
   grid-template-areas: 
-  'header header'
+  'side header'
   'side main'
-  'footer footer';
+  'side footer';
 }
 header{
   grid-area: header;
@@ -23,7 +23,7 @@ main{
 }
 aside{
   grid-area: side;
-  background-color: #939FBF;
+  background-color: #83899e;/*#939FBF*/
 }
 footer{
   grid-area: footer;
