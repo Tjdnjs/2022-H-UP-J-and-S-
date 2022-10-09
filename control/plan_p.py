@@ -64,3 +64,19 @@ class Cate():
         query = f"UPDATE personal_category set cate = '{cate}' WHERE cat_key = '{cat_key}';"
         cnt = cursor.execute(query)
         conn.commit()
+        
+    @staticmethod
+    def delete(cat_key):
+        # mysql DB 연결
+        conn = conn_mysql()
+        # 커서
+        cursor = conn.cursor()
+        query = f"SELECT * FROM personal_category WHERE cat_key = '{cat_key}';"
+        cnt = cursor.execute(query)
+        if cnt==1:
+            query2 = f"DELETE FROM personal_category WHERE cat_key = '{cat_key}';"
+            cnt2 = cursor.execute(query2)    # 0:DB오류 / 1:정상
+            conn.commit()
+            return cnt2
+        else:       # 오류
+            return 0

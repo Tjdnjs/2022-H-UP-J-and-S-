@@ -72,6 +72,9 @@
           <input type="text" value="{{i[2]}}" name="edit{{i[0]}}">
           <input type="submit" value="수정하기">
         </form>
+        <form action="../plan/deleteaction/{{i[0]}}" method="post">
+            <input type="submit" value="삭제하기">
+        </form>
         {% endfor %}
 
   </main>
