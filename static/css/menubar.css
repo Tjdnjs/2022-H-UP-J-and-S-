@@ -95,5 +95,5 @@ input[id*="plan"]+ label+ div li{
   padding: 0.1rem 0 .1rem 0;
 }
 input[id*="plan"]:checked + label + div{
-  height: 240px;
+  height: auto;
 }

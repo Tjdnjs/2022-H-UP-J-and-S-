@@ -37,6 +37,7 @@
           <div class="mdes"><a class="home" href="#">HOME</a><br></div>
           <div class="mdes"><a class="mypage" href="../user/mypage">My Page</a><br></div>
           <div class="mdes"><a id="plan">Plan</a><br></div>
+          <button type="button"><a href="../plan/edit">카테고리 수정</a></button>
           <input type="checkbox" name="accordion" id="planp">
           <label for=planp>Personal</label>
           <div>
@@ -49,7 +50,7 @@
             <!-- <div id = "create" ></div> -->
             <!-- <input type="button" value="생성" onclick="addInput();" /> -->
             <!-- <input type="button" value="취소" onclick="deleteInput();"/> -->
-          <form id="category" action = "plan/create" method="post">
+          <form id="category" action = "../plan/create" method="post">
             <input id="categorytext" type="text" name = "cate" placeholder = "카테고리 생성">
             <input id="cate_button" type="submit" value="완료"/>
           </form>
