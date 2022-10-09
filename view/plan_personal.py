@@ -21,7 +21,7 @@ def plan_cate_c():
 @plan_p.route('/edit', methods = ['GET'])
 def edit():
     cate = is_cate()
-    return render_template('plan_update.html', cate=cate)
+    return render_template('category_update.html', cate=cate)
 
 @plan_p.route('/editaction/<int:cate_key>', methods=['POST', 'GET'])
 def editaction(cate_key):
