@@ -3,6 +3,7 @@ from control.user import User
 from urllib.parse import urlparse, urljoin
 from flask_login import login_user, logout_user, current_user, login_required
 import bcrypt
+from control.plan_p import Cate
 
 # user blueprint 생성
 user = Blueprint('user', __name__)
@@ -14,6 +15,12 @@ def is_safe_url(target):
     test_url = urlparse(urljoin(request.host_url, target))
     return test_url.scheme in ('http', 'https') and \
            ref_url.netloc == test_url.netloc
+
+def is_cate():
+    try:
+        cate = Cate.get_b_user(current_user.key)
+    except: cate = False
+    return cate
 
 @user.route('/')
 def user_page():
@@ -79,18 +86,19 @@ def registerAction():
     pw_hash = bcrypt.hashpw(user_pw.encode('utf-8'), bcrypt.gensalt()).decode('utf-8')
     print(pw_hash)
     result = User.create(user_name, user_id, pw_hash,  user_email)
-    return redirect(url_for('user.user_page'))
     if not result: 
         # DB 오류 발생
         return '<script>alert("회원가입 오류입니다");history.go(-1);</script>'
+    return redirect(url_for('user.user_page'))
 
 # 회원탈퇴
 @user.route('/delete')
 def delete():
+    cate = is_cate()
     if current_user.is_authenticated:
-        return render_template('delete.html')
+        return render_template('delete.html', cate=cate)
     else:
-        return redirect(url_for('user.user_page'))
+        return redirect(url_for('user.user_page', cate=cate))
     
 # 회원 탈퇴 동작
 @user.route('/deleteAction', methods = ['GET','POST'])
@@ -107,8 +115,12 @@ def deleteAction():
 @login_required
 def mypage():
     current = User.get(current_user.id)
+    cate = is_cate()
     user = {"name": current.name, "pw": current.pw, "id":current.id, "email": current.mail}
-    return render_template('mypage.html', user = user )
+    print(current_user,cate)
+    if cate:
+        return render_template('mypage.html', user = user, cate=cate )
+    else: return render_template('mypage.html', user = user)
 
 @user.route('/edit', methods = ['POST'])
 @login_required
@@ -117,5 +129,7 @@ def edit():
     current = User.get(current_user.id)
     pw_hash = bcrypt.hashpw(user_pw.encode('UTF-8'), bcrypt.gensalt()).decode('utf-8')
     current.edit(current_user.id, pw_hash)
-    return redirect(url_for('user.mypage'))
-    
+    cate = is_cate()
+    if cate:
+        return redirect(url_for('user.mypage', cate=cate))
+    else: return redirect(url_for('user.mypage'))

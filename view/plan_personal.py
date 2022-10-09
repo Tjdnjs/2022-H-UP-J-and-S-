@@ -4,25 +4,25 @@ from control.plan_p import Cate
 from urllib.parse import urlparse, urljoin
 from flask_login import login_user, logout_user, current_user, login_required
 import bcrypt
+from view.user import is_cate
 
 # user blueprint 생성
 plan_p = Blueprint('plan', __name__)
-
-def find():
-    key = Cate.get_b_user(current_user.key)
-    return key
 
 @plan_p.route('/create', methods=['POST', 'GET'])
 def plan_cate_c():
     cate = request.form.get('cate');
     user = User.get(current_user.id).key
     print(cate)
-    Cate.create(user, cate)
-    return redirect(url_for('plan.plan'))
-    return 0
+    if Cate.create(user, cate):
+        return redirect(url_for('plan.plan'))
+    else: return '<script>alert("이미 존재하는 카테고리명입니다.");history.go(-1);</script>'
+    
+@plan_p.route('/edit')
+def edit():
+    cate = is_cate()
+    return render_template('plan_update.html', cate=cate)
 
 @plan_p.route('/')
 def plan():
-    cate = find()
-    print(cate)
     return redirect(url_for('main'))
