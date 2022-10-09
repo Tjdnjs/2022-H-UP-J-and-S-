@@ -21,6 +21,7 @@
         {% if not current_user.is_authenticated %}
           <div class="menubarblock">
             <div class="ldes"><a href="/user">로그인</a>을 해주세요.</div>
+            <div class="mdes"><a class="home" href="#">HOME</a><br></div>
             <div class="mdes"><a class="mypage" href="../user/mypage">My Page</a><br></div>
             <div class="mdes"><a class="plan">Plan</a><br></div>
             <div class="mdes"><a class="personal">Personal</a><br></div>
@@ -31,10 +32,11 @@
         {% else %}
         <div class="menubarblock">
             <div class="ldes" id="name">{{current_user.name}}님</div>
+            <div class="mdes"><a class="home" href="#">HOME</a><br></div>
             <div class="mdes"><a class="mypage" href="../user/mypage">My Page</a><br></div>
             <div class="mdes"><a id="plan">Plan</a><br></div>
-            <input type="checkbox" name="accordion" id="personal">
-            <label for=personal>Personal</label>
+            <input type="checkbox" name="accordion" id="planp">
+            <label for=planp>Personal</label>
             <div>
               {% if cate %}
               {% for i in cate %}
@@ -50,7 +52,11 @@
               <input id="cate_button" type="submit" value="완료"/>
             </form>
             </div>
-            <div class="mdes"><a class="group">Group</a><br></div>
+            <input type="checkbox" name="accordion" id="plang">
+            <label for=plang>Group</label>
+            <div>
+              <li class="list">ㅇㅇㅇ</li>
+            </div>
             <a id="logout" href="../user/logout">Logout</a>
           </div>  
         {% endif %}
