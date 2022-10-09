@@ -7,7 +7,20 @@ class Cate():
         self.key = cat_key
         self.user = user_key
         self.name = cate
-
+        
+    @staticmethod
+    def get_b_key(cat_key):
+        mysql_db = conn_mysql()
+        db_cursor = mysql_db.cursor()
+        sql = "select * from personal_category where cat_key = '" + str(cat_key) + "'"
+        db_cursor.execute(sql)
+        print(sql)
+        cate = db_cursor.fetchall()
+        print(cate)
+        if not cate:
+            return None
+        return cate[0][1]
+    
     @staticmethod
     def get_b_user(user_key):
         mysql_db = conn_mysql()
@@ -42,11 +55,12 @@ class Cate():
 
 
     @staticmethod
-    def edit(cate, user_key):
+    def edit(cate, cat_key):
+        print("category edit")
         # mysql DB 연결
         conn = conn_mysql()
         # 커서
         cursor = conn.cursor()
-        query = f"UPDATE personal_category set cate = '{cate}' WHERE user_key = '{user_key}';"
+        query = f"UPDATE personal_category set cate = '{cate}' WHERE cat_key = '{cat_key}';"
         cnt = cursor.execute(query)
         conn.commit()
