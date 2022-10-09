@@ -68,5 +68,32 @@ a {
 .list{
   list-style: none;
   margin: .2rem 0;
-  padding: .2rem;
+  padding: .2rem 0;
+}
+input[id=personal]{
+  display: none;
+}
+input[id=personal] + label{
+  display: inline-block;
+  font-size: 1.1rem;
+  margin-left: 2rem;
+  margin-top: .5rem;
+  padding-right: 2rem;
+  cursor: pointer;
+  border-bottom: solid 1px whitesmoke;
+}
+input[id=personal] + label + div{
+  overflow: hidden;
+  height: 0;
+  display: block;
+  align-items: center;
+  transition: all .3s;
+}
+input[id=personal]+ label+ div li{
+  display: block;
+  margin-left: 3rem;
+  padding: 0.1rem 0 .1rem 0;
+}
+input[id=personal]:checked + label + div{
+  height: 240px;
 }
