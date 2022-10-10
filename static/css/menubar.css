@@ -98,9 +98,11 @@ input[id*="plan"]:checked + label + div{
   height: auto;
 }
 #categoryup{
+  display: flex;
+  margin-left: auto;
+  margin-right: 3rem;
   font-family: 'Noto Serif KR', serif;
   background-color: transparent;
   color: whitesmoke;
   border: none;
-  margin-left: 15rem;
 }
