@@ -22,7 +22,7 @@ a {
   border-bottom: solid 2px whitesmoke;
 }
 #category{
-  margin: 1rem 3rem;
+  margin : 1rem 3rem 0.3rem;
   padding-bottom: .5rem ;
   border-bottom: solid 2px whitesmoke;
 }
@@ -96,4 +96,11 @@ input[id*="plan"]+ label+ div li{
 }
 input[id*="plan"]:checked + label + div{
   height: auto;
+}
+#categoryup{
+  font-family: 'Noto Serif KR', serif;
+  background-color: transparent;
+  color: whitesmoke;
+  border: none;
+  margin-left: 15rem;
 }
