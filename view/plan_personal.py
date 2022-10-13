@@ -1,9 +1,7 @@
-from flask import Flask, Blueprint, request, render_template, make_response, redirect, url_for, abort, jsonify, flash, get_flashed_messages
+from flask import Flask, Blueprint, request, render_template, redirect, url_for
 from control.user import User
 from control.plan_p import Cate
-from urllib.parse import urlparse, urljoin
-from flask_login import login_user, logout_user, current_user, login_required
-import bcrypt
+from flask_login import current_user
 from view.user import is_cate
 
 # user blueprint 생성
