@@ -11,10 +11,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600&display=swap" rel="stylesheet">
     <title>Document</title>
     <script src="http://code.jquery.com/jquery-latest.js"></script> 
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script>
+    $( function() {
+      $( "#datepicker" ).datepicker();
+    } );
+    </script>
   </head>
 <body>
   <header>
- 
+    
   </header>
   <aside>
     <section id="menubar">
@@ -65,7 +74,7 @@
     </section>
   </aside>
   <main>
-
+    <p>Date: <input type="text" id="datepicker"></p>
   </main>
   <footer>
 
