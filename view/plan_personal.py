@@ -43,6 +43,9 @@ def delete(cate_key):
     else:
         return '<script>alert("삭제 권한이 없습니다");history.go(-1);</script>'
 
+@plan_p.route('/<string:cate>')
+def getplan(cate):
+    return render_template('plan.html', category=cate)
 
 @plan_p.route('/')
 def plan():

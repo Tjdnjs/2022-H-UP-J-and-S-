@@ -49,7 +49,7 @@
           <div>
             {% if cate %}
             {% for i in cate %}
-              <li class="list"><a href="{{i[2]}}">{{i[2]}}</a></li>
+              <li class="list"><a href="/plan/{{i[2]}}">{{i[2]}}</a></li>
             {% endfor %}
             {% endif %}
           
@@ -74,6 +74,7 @@
     </section>
   </aside>
   <main>
+    <h1>{{category}}</h1>
     <p>Date: <input type="text" id="datepicker"></p>
   </main>
   <footer>
