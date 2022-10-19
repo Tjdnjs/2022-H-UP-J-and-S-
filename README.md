@@ -1,4 +1,4 @@
-# 2022-2 H-UP 
+# H-UP 4기 (2022-2)
 
 ### Team J & S (Jump and Surf)
 
