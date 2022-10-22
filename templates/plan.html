@@ -12,6 +12,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600&display=swap" rel="stylesheet">
     <title>Document</title>
     <script src="http://code.jquery.com/jquery-latest.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../static/css/datepicker.css">
   </head>
 <body>
   <header>
@@ -67,57 +71,36 @@
   </aside>
   <main>
     <h1>{{category}}</h1>
-    <div class="main">
-      <div class="content-wrap">
-        <div class="content-left">
-          <div class="main-wrap">
-            <div id="main-day" class="main-day"></div>
-            <div id="main-date" class="main-date"></div>
-          </div>
-          <div class="todo-wrap">
-            <div class="todo-title">Todo List</div>
-            <div class="input-wrap">
-              <input type="text" placeholder="할 일 추가" id="input-box" class="input-box">
-              <button type="button" id="input-data" class="input-data">등록</button>
-              <div id="input-list" class="input-list"></div>
-            </div>
-          </div>
-        </div>
-        <div class="content-right">
-          <table id="calendar" align="center">
-            <thead>
-              <tr class="btn-wrap clearfix">
-                <td>
-                  <label id="prev">
-                      &#60;
-                  </label>
-                </td>
-                <td align="center" id="current-year-month" colspan="5"></td>
-                <td>
-                  <label id="next">
-                      &#62;
-                  </label>
-                </td>
-              </tr>
-              <tr>
-                  <td class = "sun" align="center">Sun</td>
-                  <td align="center">Mon</td>
-                  <td align="center">Tue</td>
-                  <td align="center">Wed</td>
-                  <td align="center">Thu</td>
-                  <td align="center">Fri</td>
-                  <td class= "sat" align="center">Sat</td>
-                </tr>
-            </thead>
-            <tbody id="calendar-body" class="calendar-body"></tbody>
-          </table>
-        </div>
-      </div>
-    </div>
+    <form>
+      <input class="datepicker" id="datepicker">
+      <script>
+        $(function(){
+          $('.datepicker').datepicker();
+          $.datepicker.setDefaults({
+            dateFormat: 'yy-mm-dd',
+            prevText: '이전 달',
+            nextText: '다음 달',
+            monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+            monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+            dayNames: ['일', '월', '화', '수', '목', '금', '토'],
+            dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
+            dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+            showMonthAfterYear: true,
+            yearSuffix: '년'
+          });
+          
+          $(function () {
+            $('.datepicker').datepicker();
+          });
+        })
+      </script>
+    </form>
+    <script>
+      document.getElementById('datepicker').value=new Date().toISOString().slice(0,10);
+    </script>
   </main>
   <footer>
 
   </footer>
-  <script src="../static/js/calendar.js"></script>
 </body>
 </html>
