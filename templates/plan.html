@@ -71,8 +71,9 @@
   </aside>
   <main>
     <h1>{{category}}</h1>
-    <form>
-      <input class="datepicker" id="datepicker">
+    <form action="/plan/{{category}}/make-plan">
+      <input class="datepicker" id="datepicker" name="date">
+      <input type="submit" value="날짜 제출">
       <script>
         $(function(){
           $('.datepicker').datepicker();

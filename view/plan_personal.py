@@ -47,6 +47,12 @@ def delete(cate_key):
 def getplan(cate):
     return render_template('plan.html', category=cate)
 
+@plan_p.route('/<string:cate>/make-plan')
+def create_plan(cate):
+    date = request.args.get('date');
+    print(date)
+    return redirect(url_for('plan.getplan', cate=cate))
+
 @plan_p.route('/')
 def plan():
     return redirect(url_for('main'))
