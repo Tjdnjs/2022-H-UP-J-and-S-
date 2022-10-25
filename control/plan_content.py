@@ -35,13 +35,13 @@ class Personal_plan():
 
 
     @staticmethod
-    def edit(cate, cat_key):
-        print("category edit")
+    def edit(plan_key, content):
+        print("plan edit")
         # mysql DB 연결
         conn = conn_mysql()
         # 커서
         cursor = conn.cursor()
-        query = f"UPDATE personal_plan set cate = '{cate}' WHERE cat_key = '{cat_key}';"
+        query = f"UPDATE personal_plan set content = '{content}' WHERE pp_key = '{plan_key}';"
         cnt = cursor.execute(query)
         conn.commit()
         

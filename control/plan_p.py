@@ -35,6 +35,22 @@ class Cate():
         # cate = Cate(cat_key = cate[0], user = cate[1], name = cate[2])
         return list(cate)
     
+    
+    @staticmethod
+    def get_b_cate(user_key, cate):
+        # mysql DB 연결
+        conn = conn_mysql()
+        # 커서
+        cursor = conn.cursor()
+        query = f"SELECT * FROM personal_category WHERE cate = '{cate}' and user_key = '{user_key}';"
+        print(query)
+        cnt = cursor.execute(query)
+        if cnt !=0:
+            cate = cursor.fetchall()
+            return cate[0][0]
+        else:
+            return False
+        
     #카테고리 생성
     @staticmethod
     def create(user_key, cate):
@@ -52,7 +68,6 @@ class Cate():
             return True
         else:
             return False
-
 
     @staticmethod
     def edit(cate, cat_key):
