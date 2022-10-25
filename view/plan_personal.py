@@ -1,6 +1,7 @@
 from flask import Flask, Blueprint, request, render_template, redirect, url_for
 from control.user import User
 from control.plan_p import Cate
+from control.plan_content import Personal_plan
 from flask_login import current_user
 from view.user import is_cate
 
@@ -50,7 +51,15 @@ def getplan(cate):
 @plan_p.route('/<string:cate>/make-plan')
 def create_plan(cate):
     date = request.args.get('date');
-    print(date)
+    content = request.args.get('p_content');
+    user = User.get(current_user.id).key
+    cate_key = Cate.get_b_cate(user, cate)
+    print(date, content, cate_key)
+    if content:
+        Personal_plan.create(cate_key, content, date)
+    else:
+        return '<script>alert("계획 내용이 작성되지 않았습니다");history.go(-1);</script>'
+        
     return redirect(url_for('plan.getplan', cate=cate))
 
 @plan_p.route('/')
