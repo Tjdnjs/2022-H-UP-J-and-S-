@@ -7,7 +7,8 @@ class Cate():
         self.key = cat_key
         self.user = user_key
         self.name = cate
-        
+    
+    # key로 category 에 해당하는 사용자 검색    
     @staticmethod
     def get_b_key(cat_key):
         mysql_db = conn_mysql()
@@ -35,7 +36,7 @@ class Cate():
         # cate = Cate(cat_key = cate[0], user = cate[1], name = cate[2])
         return list(cate)
     
-    
+    # user_key 와 카테고리 명으로 key 찾기
     @staticmethod
     def get_b_cate(user_key, cate):
         # mysql DB 연결
@@ -69,6 +70,7 @@ class Cate():
         else:
             return False
 
+    # 카테고리 수정
     @staticmethod
     def edit(cate, cat_key):
         print("category edit")
@@ -79,7 +81,8 @@ class Cate():
         query = f"UPDATE personal_category set cate = '{cate}' WHERE cat_key = '{cat_key}';"
         cnt = cursor.execute(query)
         conn.commit()
-        
+    
+    # 카테고리 삭제
     @staticmethod
     def delete(cat_key):
         # mysql DB 연결
