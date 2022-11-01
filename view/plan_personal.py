@@ -57,6 +57,10 @@ def getcategory(cate):
 @plan_p.route('/<string:cate>/make-plan')
 def create_plan(cate):
     date = request.args.get('date2');
+    print("date", date);
+    if not date: 
+        return '<script>alert("날짜 선택을 다시 해주세요");history.go(-1);</script>'
+    
     content = request.args.get('p_content');
     user = User.get(current_user.id).key
     cate_key = Cate.get_b_cate(user, cate)
@@ -66,7 +70,7 @@ def create_plan(cate):
     else:
         return '<script>alert("계획 내용이 작성되지 않았습니다");history.go(-1);</script>'
         
-    return render_template('plan.html', category=cate)
+    return '<script>window.location=document.referrer</script>'
 
 def getplan(cate):
     user = User.get(current_user.id).key
@@ -95,7 +99,7 @@ def editplan(pp_key):
     # date = str(plan[0][3]); cate = Cate.get_b_key(plan[0][1])[0];
     if current_user.key == plan[0][1]:
         Personal_plan.edit(pp_key,new_plan)
-        return '<script>history.go(-1);location.reload();</script>'
+        return '<script>window.location=document.referrer</script>'
     else:
         return '<script>alert("수정 권한이 없습니다");history.go(-1);</script>'
 
@@ -107,7 +111,7 @@ def deleteplan(pp_key):
     if current_user.key == plan[0][1]:
         result = Personal_plan.delete(pp_key)
         if result==1:
-            return '<script>history.go(-1);location.reload()</script>'
+            return '<script>window.location=document.referrer</script>'
         else:return '<script>alert("카테고리 삭제에 실패했습니다");history.go(-1);</script>'
             
     else:

@@ -97,14 +97,14 @@
         })
       </script>
     </form>
-    <div id="date">{{ date }}</div>
-
-
+    
     <form action="/plan/{{category}}/make-plan">
       <input type="hidden" name="date2" id="date2">
       <input type="text" name="p_content">
       <input type="submit" value="계획 생성">
     </form>
+
+    <div id="date">{{ date }}</div>
 
     <div id="plan_content">
     {% if plan%}
@@ -125,6 +125,7 @@
       document.getElementById('datepicker').value=document.getElementById('date').innerHTML;
       function date_change(){
         document.getElementById('date2').value=document.getElementById('datepicker').value;
+        console.log(document.getElementById('date2').value)
       }
     </script>
     
