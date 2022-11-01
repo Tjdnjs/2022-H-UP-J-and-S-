@@ -7,12 +7,37 @@ class Personal_plan():
         self.cate = cat_key
         self.content = content
         self.date = date
-        
+    
+    def get_b_date(date):
+        mysql_db = conn_mysql()
+        db_cursor = mysql_db.cursor()
+        sql = "select * from personal_plan where date = '" + date + "'"
+        db_cursor.execute(sql)
+        print(sql)
+        plan = db_cursor.fetchall()
+        print(plan)
+        if not plan:
+            return None
+        return plan
+    
     @staticmethod
-    def get_b_key(cat_key):
+    def get_b_catkey(cat_key):
         mysql_db = conn_mysql()
         db_cursor = mysql_db.cursor()
         sql = "select * from personal_plan where cat_key = '" + str(cat_key) + "'"
+        db_cursor.execute(sql)
+        print(sql)
+        plan = db_cursor.fetchall()
+        print(plan)
+        if not plan:
+            return None
+        return plan
+    
+    @staticmethod
+    def get_b_key(pp_key):
+        mysql_db = conn_mysql()
+        db_cursor = mysql_db.cursor()
+        sql = "select * from personal_plan where pp_key = '" + str(pp_key) + "'"
         db_cursor.execute(sql)
         print(sql)
         plan = db_cursor.fetchall()
@@ -51,10 +76,10 @@ class Personal_plan():
         conn = conn_mysql()
         # 커서
         cursor = conn.cursor()
-        query = f"SELECT * FROM personal_plan WHERE plan_key = '{plan_key}';"
+        query = f"SELECT * FROM personal_plan WHERE pp_key = '{plan_key}';"
         cnt = cursor.execute(query)
         if cnt==1:
-            query2 = f"DELETE FROM personal_plan WHERE plan_key = '{plan_key}';"
+            query2 = f"DELETE FROM personal_plan WHERE pp_key = '{plan_key}';"
             cnt2 = cursor.execute(query2)    # 0:DB오류 / 1:정상
             conn.commit()
             return cnt2
