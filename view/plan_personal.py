@@ -4,6 +4,7 @@ from control.plan_p import Cate
 from control.plan_content import Personal_plan
 from flask_login import current_user
 from view.user import is_cate
+import datetime
 
 # user blueprint 생성
 plan_p = Blueprint('plan', __name__)
@@ -11,8 +12,8 @@ plan_p = Blueprint('plan', __name__)
 @plan_p.route('/create', methods=['POST', 'GET'])
 def plan_cate_c():
     cate = request.form.get('cate');
-    user = User.get(current_user.id).key
     print(cate)
+    user = User.get(current_user.id).key
     if Cate.create(user, cate):
         return redirect(url_for('plan.plan'))
     else: return '<script>alert("이미 존재하는 카테고리명입니다.");history.go(-1);</script>'
@@ -45,8 +46,17 @@ def delete(cate_key):
         return '<script>alert("삭제 권한이 없습니다");history.go(-1);</script>'
 
 @plan_p.route('/<string:cate>')
-def getplan(cate):
+def getcategory(cate):
     return render_template('plan.html', category=cate)
+
+def getplan(cate):
+    user = User.get(current_user.id).key
+    key = Cate.get_b_cate(user,cate);
+    plan = Personal_plan.get_b_key(key);
+    if plan != None:
+        plan_list = [[li[2], li[3]] for li in plan]
+        print(plan_list)
+    return plan_list
 
 @plan_p.route('/<string:cate>/make-plan')
 def create_plan(cate):
@@ -60,7 +70,18 @@ def create_plan(cate):
     else:
         return '<script>alert("계획 내용이 작성되지 않았습니다");history.go(-1);</script>'
         
-    return redirect(url_for('plan.getplan', cate=cate))
+    return render_template('plan.html', category=cate)
+
+@plan_p.route('/<string:cate>/get-plan')
+def get_plan(cate):
+    plan = getplan(cate)
+    date = request.args.get('date');
+    date_plan = list(filter(lambda x: str(x[1]) == date, plan))
+    return render_template('plan.html', category = cate, plan = date_plan)
+
+@plan_p.route('/<string:cate>/get')
+def get_category(cate):
+    return render_template('plan.html', category=cate)
 
 @plan_p.route('/')
 def plan():

@@ -7,7 +7,19 @@ class Personal_plan():
         self.cate = cat_key
         self.content = content
         self.date = date
-        
+    
+    def get_b_date(date):
+        mysql_db = conn_mysql()
+        db_cursor = mysql_db.cursor()
+        sql = "select * from personal_plan where date = '" + date + "'"
+        db_cursor.execute(sql)
+        print(sql)
+        plan = db_cursor.fetchall()
+        print(plan)
+        if not plan:
+            return None
+        return plan
+    
     @staticmethod
     def get_b_key(cat_key):
         mysql_db = conn_mysql()
