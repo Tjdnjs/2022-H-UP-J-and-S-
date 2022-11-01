@@ -20,7 +20,7 @@ class Cate():
         print(cate)
         if not cate:
             return None
-        return cate[0][1]
+        return cate[0]
     
     @staticmethod
     def get_b_user(user_key):
