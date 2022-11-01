@@ -71,64 +71,67 @@
     </section>
   </aside>
   <main>
-    <h1>{{category}}</h1>
-    <form action="/plan/{{category}}/get-plan">
-      <input class="datepicker" id="datepicker" name="date" onchange = "date_change()">
-      <input type="submit" value="계획 조회">
-      <script>
-        $(function(){
-          $('.datepicker').datepicker();
-          $.datepicker.setDefaults({
-            dateFormat: 'yy-mm-dd',
-            prevText: '이전 달',
-            nextText: '다음 달',
-            monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
-            monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
-            dayNames: ['일', '월', '화', '수', '목', '금', '토'],
-            dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
-            dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
-            showMonthAfterYear: true,
-            yearSuffix: '년'
-          });
-          
-          $(function () {
+    <h1 id="plan_title">{{category}}</h1>
+    <div id="todo_tool">
+      <form id="todocalendar" action="/plan/{{category}}/get-plan">
+        <input class="datepicker" id="datepicker" name="date" onchange = "date_change()">
+        <input id="day_select_button" type="submit" value="계획 조회">
+        <script>
+          $(function(){
             $('.datepicker').datepicker();
-          });
-        })
-      </script>
-    </form>
+            $.datepicker.setDefaults({
+              dateFormat: 'yy-mm-dd',
+              prevText: '이전 달',
+              nextText: '다음 달',
+              monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+              monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+              dayNames: ['일', '월', '화', '수', '목', '금', '토'],
+              dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
+              dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+              showMonthAfterYear: true,
+              yearSuffix: '년'
+            });
+            
+            $(function () {
+              $('.datepicker').datepicker();
+            });
+          })
+        </script>
+      </form>
+      
+      <div id="todoplan">
+        <form action="/plan/{{category}}/make-plan">
+          <input type="hidden" name="date2" id="date2">
+          <input id="plan_write" type="text" name="p_content">
+          <input id="plan_make_button" type="submit" value="계획 생성">
+        </form>
     
-    <form action="/plan/{{category}}/make-plan">
-      <input type="hidden" name="date2" id="date2">
-      <input type="text" name="p_content">
-      <input type="submit" value="계획 생성">
-    </form>
-
-    <div id="date">{{ date }}</div>
-
-    <div id="plan_content">
-    {% if plan%}
-    {% for i in plan %}
-    <input type="checkbox">
-    <form action="/plan/editplan/{{i[0]}}" method="post">
-      <input class="text" value="{{ i[1] }}" name="editplan{{i[0]}}">
-      <input type="submit" value="수정하기">
-    </form>
-    <form action="/plan/deleteplan/{{i[0]}}" method="post">
-      <input type="submit" value="삭제하기">
-    </form>
-    {% endfor %}
-    {% endif %}
-    </div>
-
-    <script>
-      document.getElementById('datepicker').value=document.getElementById('date').innerHTML;
-      function date_change(){
-        document.getElementById('date2').value=document.getElementById('datepicker').value;
-        console.log(document.getElementById('date2').value)
-      }
-    </script>
+        <div id="date">{{ date }}</div>
     
+        <div id="plan_content">
+        {% if plan%}
+        {% for i in plan %}
+        <input type="checkbox">
+        <form action="/plan/editplan/{{i[0]}}" method="post">
+          <input class="text" value="{{ i[1] }}" name="editplan{{i[0]}}">
+          <input type="submit" value="수정하기">
+        </form>
+        <form action="/plan/deleteplan/{{i[0]}}" method="post">
+          <input type="submit" value="삭제하기">
+        </form>
+        {% endfor %}
+        {% endif %}
+        </div>
+    
+        <script>
+          document.getElementById('datepicker').value=document.getElementById('date').innerHTML;
+          function date_change(){
+            document.getElementById('date2').value=document.getElementById('datepicker').value;
+            console.log(document.getElementById('date2').value)
+          }
+        </script>
+      </div>
+    </div> 
 
   </main>
   <footer>

@@ -1,0 +1,47 @@
+#todocalendar{
+  float: left;
+}
+#todoplan{
+  float: left;
+  width: 25rem;
+}
+#plan_title{
+  display: block;
+  width: 15rem;
+  margin: 2rem auto 3rem auto;
+  text-align: center;
+  color: #53555e;
+  padding-bottom: .3rem ;
+  border-bottom: 2px solid#727685;
+}
+#todo_tool{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+}
+input[type="submit"]{
+  background-color: transparent;
+  color: #4a4d57;
+  border: none;
+  border-radius: .6rem;
+  padding: .4rem .3rem;
+  font-family: 'Noto Serif KR', serif;
+}
+#day_select_button {
+  background-color: #969cb5;
+  color: white;
+  border: none;
+  border-radius: .6rem;
+  padding: .4rem .3rem;
+  font-family: 'Noto Serif KR', serif;
+}
+#day_select_button:hover{
+  background-color: #888da3;
+}
+.text{
+  font-family: 'Noto Serif KR', serif;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #4a4d57;
+}
