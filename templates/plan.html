@@ -109,6 +109,7 @@
           <input type="hidden" name="date2" id="date2">
         </form>
         <hr>
+        <div id="plan_date">{{ date }}</div>
         <div id="plan_content">
         {% if plan%}
         {% for i in plan %}
@@ -127,11 +128,15 @@
         </div>
     
         <script>
-          document.getElementById('datepicker').value=document.getElementById('date').innerHTML;
+          document.getElementById('datepicker').value=document.getElementById('plan_date').innerHTML;
+          document.getElementById('date2').value=document.getElementById('date').innerHTML;
+
           function date_change(){
             document.getElementById('date2').value=document.getElementById('datepicker').value;
-            console.log(document.getElementById('date2').value)
+            document.getElementById('date').innerHTML = document.getElementById('datepicker').value;
+            
           }
+
         </script>
       </div>
     </div> 
