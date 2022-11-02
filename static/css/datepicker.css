@@ -1,15 +1,16 @@
 input#datepicker{
-    border: 2px solid #83899e;
+    border: 1.4px solid #83899e;
     background-color: transparent;
     border-radius: 10px;
     padding: .3rem 1rem;
     font-size: 1.2rem;
     font-family: 'Noto Serif KR', serif;
-}
+    outline: none;
+  }
 
 div.ui-datepicker-header{
     background-color: #dfe1eb;
-    border-radius: 20px;
+    border-radius: 2px;
     margin: 5px 0;
 }
 .ui-datepicker{
@@ -25,8 +26,8 @@ div.ui-datepicker-header{
     align-items: center;
 }
 a.ui-state-default{
-    border-radius: 20px;
-    margin: 5px;
+    border-radius: 5px;
+    margin: 3px;
 }
 .ui-state-default, .ui-widget-content .ui-state-default{
     background: #f2f4ff;
@@ -46,4 +47,12 @@ a.ui-state-default{
     font-weight: bold;
     background: #ccd6ff;
     color: #454545;
+}
+#ui-datepicker-div{
+    width: 20em;
+    position: absolute;
+    top: 224.875px;
+    left: 290.552px;
+    z-index: 1;
+    display: none;
 }
