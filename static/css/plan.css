@@ -38,10 +38,29 @@ input[type="submit"]{
 #day_select_button:hover{
   background-color: #888da3;
 }
+#date{
+  font-size: 1.5rem;
+  margin-bottom: .5rem;
+}
+#content_p{
+  font-family: 'Noto Serif KR', serif;
+  width: 20rem;
+  padding: .2rem 0;
+  background-color: white;
+  outline: none;
+  border: 2px solid white;
+}
 .text{
   font-family: 'Noto Serif KR', serif;
   background-color: transparent;
   outline: none;
   border: none;
   border-bottom: 1px solid #4a4d57;
+}
+#create_p{
+  background-color: #949292;
+  color: white;
+}
+#plan_list, #plan_del{
+  display: inline-block;
 }
