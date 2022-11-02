@@ -49,9 +49,10 @@ def delete(cate_key):
         return '<script>alert("삭제 권한이 없습니다");history.go(-1);</script>'
 
 # 카테고리 내 조회
-@plan_p.route('/<string:cate>')
-def getcategory(cate):
-    return render_template('plan.html', category=cate)
+@plan_p.route('/<string:thiscate>')
+def getcategory(thiscate):
+    cate = is_cate()
+    return render_template('plan.html', category=thiscate, cate=cate)
 
 # 계획 생성
 @plan_p.route('/<string:cate>/make-plan')
@@ -82,12 +83,13 @@ def getplan(cate):
     return plan_list
 
 # 계획 조회
-@plan_p.route('/<string:cate>/get-plan')
-def get_plan(cate):
-    plan = getplan(cate)
+@plan_p.route('/<string:thiscate>/get-plan')
+def get_plan(thiscate):
+    cate = is_cate()
+    plan = getplan(thiscate)
     date = request.args.get('date');
     date_plan = list(filter(lambda x: str(x[2]) == date, plan))
-    return render_template('plan.html', category = cate, plan = date_plan, date=date)
+    return render_template('plan.html', category = thiscate, cate=cate, plan = date_plan, date=date)
 
 # 계획 수정
 @plan_p.route('/editplan/<int:pp_key>', methods=['POST', 'GET'])
