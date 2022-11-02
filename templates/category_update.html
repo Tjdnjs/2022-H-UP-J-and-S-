@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../static/css/bodygrid.css" >
     <link rel="stylesheet" href="../static/css/menubar.css">
+    <link rel="stylesheet" href="../static/css/category_update.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600&display=swap" rel="stylesheet">
@@ -65,17 +66,20 @@
     </section>
   </aside>
   <main>
-    <h1>카테고리 수정</h1>
-
-        {% for i in cate %}
-        <form action="../plan/editaction/{{i[0]}}" method="post">
-          <input type="text" value="{{i[2]}}" name="edit{{i[0]}}">
-          <input type="submit" value="수정하기">
-        </form>
-        <form action="../plan/deleteaction/{{i[0]}}" method="post">
-            <input type="submit" value="삭제하기">
-        </form>
+    <fieldset id="category_update">
+      <legend  id="page_title">&nbsp;&nbsp;카테고리 수정&nbsp;&nbsp;</legend>
+      {% for i in cate %}
+        <div id="plans">
+          <form id="plan_update" action="../plan/editaction/{{i[0]}}" method="post">
+            <input id="update_text" type="text" value="{{i[2]}}" name="edit{{i[0]}}">
+            <input id="update_button" type="submit" value="수정">
+          </form>
+          <form id="delete" action="../plan/deleteaction/{{i[0]}}" method="post">
+              <input id="delete_button" type="submit" value="삭제">
+          </form>
+        </div>
         {% endfor %}
+    </fieldset>
 
   </main>
   <footer>
