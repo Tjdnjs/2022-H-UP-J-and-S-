@@ -74,7 +74,7 @@
     <h1 id="plan_title">{{category}}</h1>
     <div id="todo_tool">
       <form id="todocalendar" action="/plan/{{category}}/get-plan">
-        <input class="datepicker" id="datepicker" name="date" onchange = "date_change()">
+        <input class="datepicker" id="datepicker" name="date" autocomplete="off" onchange = "date_change()">
         <input id="day_select_button" type="submit" value="계획 조회">
         <script>
           $(function(){
@@ -104,7 +104,7 @@
         <div id="date">{{ date }}</div>
 
         <form action="/plan/{{category}}/make-plan">
-          <input id="content_p" type="text" name="p_content">
+          <input id="content_p" type="text" name="p_content" autocomplete="off">
           <input id="create_p" type="submit" value="계획 생성">
           <input type="hidden" name="date2" id="date2">
         </form>
@@ -136,7 +136,6 @@
             document.getElementById('date').innerHTML = document.getElementById('datepicker').value;
             
           }
-
         </script>
       </div>
     </div> 
