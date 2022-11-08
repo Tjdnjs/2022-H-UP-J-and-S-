@@ -75,7 +75,7 @@
     <div id="todo_tool">
       <form id="todocalendar" action="/plan/{{category}}/get-plan">
         <input class="datepicker" id="datepicker" name="date" autocomplete="off" onchange = "date_change()">
-        <input id="day_select_button" type="submit" value="계획 조회">
+        <input id="day_select_button" type="image" src="/static/image/calendar_with_check.png" width="37" height="37">
         <script>
           $(function(){
             $('.datepicker').datepicker();
@@ -103,9 +103,9 @@
     
         <div id="date">{{ date }}</div>
 
-        <form action="/plan/{{category}}/make-plan">
+        <form id="makeplan" action="/plan/{{category}}/make-plan">
           <input id="content_p" type="text" name="p_content" autocomplete="off">
-          <input id="create_p" type="submit" value="계획 생성">
+          <input id="create_p" type="image" src="/static/image/add.png" width="30" height="30">
           <input type="hidden" name="date2" id="date2">
         </form>
         <hr>
@@ -114,13 +114,15 @@
         {% if plan%}
         {% for i in plan %}
         <div>
-          <input type="checkbox">
+          <input type="checkbox" id="check">
+            <label for="check"></label>
         <form id="plan_list" action="/plan/editplan/{{i[0]}}" method="post">
           <input class="text" value="{{ i[1] }}" name="editplan{{i[0]}}">
-          <input type="submit" value="수정하기">
+          <input type="image" src="/static/image/edit.png" width="17" height="17">
         </form>
+
         <form id="plan_del" action="/plan/deleteplan/{{i[0]}}" method="post">
-          <input  type="submit" value="삭제하기">
+          <input type="image" src="/static/image/trash_can.png" width="17" height="17">
         </form>
         </div>
         {% endfor %}
