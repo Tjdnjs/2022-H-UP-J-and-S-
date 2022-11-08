@@ -4,7 +4,7 @@ from flask_cors import CORS
 import os
 from control.user import User
 from control.plan_p import Cate
-from view import user, plan_personal
+from view import user, plan_personal, group_view
 
 # https 만을 지원하는 기능읗 http에서 테스트할 때 필요한 설정
 os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
@@ -14,7 +14,7 @@ app = Flask(__name__, static_url_path='/static') # flask 객체 생성
 # blueprint
 app.register_blueprint(user.user, url_prefix='/user')
 app.register_blueprint(plan_personal.plan_p, url_prefix='/plan')
-
+app.register_blueprint(group_view.group, url_prefix='/group')
 
 CORS(app) # 외부 API 사용하기 위함
 app.secret_key = os.urandom(24) # 보안을 위해 서버가 생성될 때마다 시크릿키 새로 발급

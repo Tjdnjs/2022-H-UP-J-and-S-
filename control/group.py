@@ -9,7 +9,7 @@ class Group():
         self.date = created_date
         
     @staticmethod
-    def create(user_key, name):
+    def create(user_id, name):
         # mysql DB 연결
         conn = conn_mysql()
         date = datetime.today().strftime('%Y-%m-%d')
@@ -18,7 +18,7 @@ class Group():
         query = f"SELECT * FROM group_category WHERE group_name = '{name}';"
         cnt = cursor.execute(query)
         if cnt ==0:
-            query2 = f"INSERT INTO group_category VALUES('None','{name}', '{user_key}','{date}');"
+            query2 = f"INSERT INTO group_category VALUES('None','{name}', '{user_id}','{date}');"
             print(query2)
             cnt2 = cursor.execute(query2)    # 쿼리 실행개수 (0:DB오류 / 1:정상)
             conn.commit()
@@ -34,9 +34,22 @@ class Group():
         cursor = conn.cursor()
         query = f"SELECT * FROM group_category WHERE group_name = '{name}';"
         cnt = cursor.execute(query)
-        if cnt ==0:
+        if cnt !=0:
             group = cursor.fetchall()
             return group
         else:
             return False
     
+    @staticmethod
+    def getAll():
+        print("get all group")
+        conn = conn_mysql()
+        # 커서
+        cursor = conn.cursor()
+        query = f"SELECT * FROM group_category;"
+        cnt = cursor.execute(query)
+        if cnt !=0:
+            group = cursor.fetchall()
+            return group
+        else:
+            return False
