@@ -6,7 +6,7 @@ from flask_login import current_user
 from view.user import is_cate
 import datetime
 
-# user blueprint 생성
+# plan blueprint 생성
 plan_p = Blueprint('plan', __name__)
 
 # 카테고리 생성
