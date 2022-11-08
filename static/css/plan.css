@@ -1,6 +1,7 @@
 #todocalendar{
   float: left;
   display: flex;
+  align-items: center;
 
 }
 #makeplan{
@@ -19,6 +20,12 @@
   padding-bottom: .3rem ;
   border-bottom: 2px solid#727685;
 }
+#datepicker{
+  background-image: url(/static/image/calendar_with_check.png);
+  background-size: 23px 23px;
+  background-repeat: no-repeat;
+  background-position: 98% 50%;
+}
 #todo_tool{
   display: flex;
   justify-content: space-evenly;
@@ -32,17 +39,9 @@ input[type="submit"]{
   padding: .4rem .3rem;
   font-family: 'Noto Serif KR', serif;
 }
-/*#day_select_button {
-  background-color: #969cb5;
-  color: white;
-  border: none;
-  border-radius: .6rem;
-  padding: .4rem .3rem;
-  font-family: 'Noto Serif KR', serif;
+#day_select_button {
+  margin-left: .6rem;
 }
-#day_select_button:hover{
-  background-color: #888da3;
-}*/
 #date{
   font-size: 1.5rem;
   margin-bottom: .5rem;
@@ -64,10 +63,9 @@ input[type="submit"]{
   border: none;
   border-bottom: 1px solid #4a4d57;
 }
-/*#create_p{
-  background-color: #949292;
-  color: white;
-}*/
+#create_p{
+  margin-left: .4rem;
+}
 #plan_list, #plan_del{
   display: inline-block;
 }
