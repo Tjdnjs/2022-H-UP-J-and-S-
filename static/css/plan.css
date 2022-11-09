@@ -70,16 +70,16 @@ input[type="submit"]{
   display: inline-block;
 }
 
-input[id="check"]{
+#plan_checkbox > input[type="checkbox"]{
   display: none;
 }
-input[id="check"] + label{
+#plan_checkbox > input[type="checkbox"] + label{
   display: inline-block;
   width: 10px;
   height: 10px;
   border: 1px solid #4a4d57 ;
 }
-input[id="check"]:checked + label{
+#plan_checkbox > input[type="checkbox"]:checked + label{
   background-color: #636363;
 }
 #plan_date{
