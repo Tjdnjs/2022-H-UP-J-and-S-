@@ -1,6 +1,7 @@
 from flask import Flask, Blueprint, request, render_template, redirect, url_for
 from control.user import User
 from control.group import Group
+from view.user import is_cate
 from flask_login import current_user, login_required
 from view.user import is_cate
 import datetime
@@ -12,7 +13,8 @@ group = Blueprint('group', __name__)
 @group.route('/', methods=['GET'])
 def group_page():
     group = Group.getAll()
-    return render_template('group.html', group=group)
+    cate = is_cate()
+    return render_template('group.html', group=group, cate=cate)
 
 @login_required
 @group.route('/create', methods=['POST', 'GET'])
@@ -31,6 +33,6 @@ def group_search():
     group = Group.search(group_name)
     print(group)
     if group:
-        return render_template('group.html', group=group)
+        return render_template('group.html', group=group, cate=is_cate())
     else:
         return '<script>alert("존재하지 않는 그룹명입니다.");history.go(-1);</script>'
