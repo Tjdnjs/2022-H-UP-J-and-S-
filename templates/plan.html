@@ -113,9 +113,9 @@
         <div id="plan_content">
         {% if plan%}
         {% for i in plan %}
-        <div>
-          <input type="checkbox" id="check">
-            <label for="check"></label>
+        <div id="plan_checkbox">
+          <input type="checkbox" id="{{i[0]}}">
+            <label for="{{i[0]}}"></label>
         <form id="plan_list" action="/plan/editplan/{{i[0]}}" method="post">
           <input class="text" value="{{ i[1] }}" name="editplan{{i[0]}}">
           <input type="image" src="/static/image/edit.png" width="17" height="17">
