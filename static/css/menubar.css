@@ -106,3 +106,18 @@ input[id*="plan"]:checked + label + div{
   color: whitesmoke;
   border: none;
 }
+#group-list{
+  position: absolute;
+  right: 23px;
+  margin-top: 0.3rem;
+  font-size: .9rem;
+}
+#group-list-login{
+  float: right;
+  margin-right: 1rem;
+  font-size: .8rem;
+  font-family: 'Noto Serif KR', serif;
+  background-color: transparent;
+  color: whitesmoke;
+  border: none;
+}
