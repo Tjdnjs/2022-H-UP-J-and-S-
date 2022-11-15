@@ -1,0 +1,65 @@
+#group_search_tool{
+  margin: 2.3rem 0 ; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#group_search{
+  width: 55%;
+  height: 2.2rem;
+  background: transparent;
+  border: 1.5px solid rgba(102, 102, 102, 0.792);
+  border-radius: 2rem;
+  padding-left: 1rem;
+  margin-right: .5rem;
+  font-size: 1.1rem;
+  font-family: 'Noto Serif KR', serif;
+  outline: none;
+}
+#group_create_tool{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 30%;
+  padding: .5rem;
+  background-color: #a8a6a654;
+  border-top-right-radius: 2rem;
+  border-bottom-right-radius: 2rem ;
+
+}
+#group_create{
+  background-color: white;
+  width: 80%;
+  padding: .3rem .5rem;
+  outline: none;
+  border: none;
+  font-family: 'Noto Serif KR', serif;
+  color: #474747;
+}
+.group_lists{
+  display: block;
+  float: left;
+  margin: 2rem;
+  background-color: #d6cfcf6d;
+  border: 4px solid #a8a6a654;
+  border-radius: 2rem;
+  padding: 2rem 2rem 1.5rem 2rem;
+  color: #474747;
+}
+.group_lists > .gtext{
+  display: inline-block;
+  margin: .2rem 0;
+}
+.group_join_button{
+  display: block;
+  margin-top:1rem ;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Noto Serif KR', serif;
+  color: white;
+  border: none;
+  border-radius: 1rem;
+  padding: .2rem .7rem;
+  background-color: #83899ed0;
+}
