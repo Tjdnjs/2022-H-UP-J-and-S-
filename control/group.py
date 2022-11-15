@@ -39,7 +39,7 @@ class Group():
             return group
         else:
             return False
-    
+
     @staticmethod
     def getAll():
         print("get all group")
@@ -47,6 +47,50 @@ class Group():
         # 커서
         cursor = conn.cursor()
         query = f"SELECT * FROM group_category;"
+        cnt = cursor.execute(query)
+        if cnt !=0:
+            group = cursor.fetchall()
+            return group
+        else:
+            return False
+        
+    @staticmethod
+    def getCreator(group):
+        conn = conn_mysql()
+        # 커서
+        cursor = conn.cursor()
+        query = f"SELECT * FROM group_category WHERE group_name = '{group}';"
+        cnt = cursor.execute(query)
+        if cnt !=0:
+            group = cursor.fetchall()
+            return group[0][2]
+        else:
+            return False
+        
+    @staticmethod
+    def register(group, user):
+        # mysql DB 연결
+        conn = conn_mysql()
+        master = Group.getCreator(group)
+        # 커서
+        cursor = conn.cursor()
+        query = f"SELECT * FROM temp_register WHERE group_name = '{group}' and user_name = '{user}';"
+        cnt = cursor.execute(query)
+        if cnt ==0:
+            query2 = f"INSERT INTO temp_register VALUES('None', '{master}', '{user}','{group}');"
+            print(query2)
+            cnt2 = cursor.execute(query2)    # 쿼리 실행개수 (0:DB오류 / 1:정상)
+            conn.commit()
+            return True
+        else:
+            return False
+        
+    @staticmethod
+    def registerList(master):
+        conn = conn_mysql()
+        # 커서
+        cursor = conn.cursor()
+        query = f"SELECT * FROM temp_register WHERE group_master = '{master}';"
         cnt = cursor.execute(query)
         if cnt !=0:
             group = cursor.fetchall()
