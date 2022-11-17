@@ -74,21 +74,24 @@
     </section>
   </aside>
   <main>
-    <div>
+    <div id="group_page">
         <form id="group_search_tool" action = '/group/search'>
             <input type="search" id="group_search" autocomplete="off" placeholder="그룹명 검색" onfocus="this.placeholder=''" onblur="this.placeholder='그룹명 검색'" name="g_name" >
             <input id="group_search_button" type="image" src="/static/image/zoom2.png" width="30" height="30" >
         </form>
 
         <div>
+          <div id="group_cr_mn_tool">
             <form id="group_create_tool" action = '/group/create' method="post">
                 <input id="group_create" type="text" autocomplete="off" placeholder="그룹 생성" onfocus="this.placeholder=''" onblur="this.placeholder='그룹 생성'" name = "g_name">
                 <input id="group_create_button" type="image" src="/static/image/add.png" width="30" height="30" >
             </form>
-            <button><a href="/group/manage">그룹 관리</a></button>
+            <button id="manage_button"><a href="/group/manage">그룹 관리</a></button>
+          </div>
+            
             {% if group %}
             {% for i in group %}
-            <li class="group_lists">
+              <li class="group_lists">
               <span class="gtext">그룹명 : {{i[1]}}</span><br>
               <span class="gtext">그룹 생성자 : {{i[2]}}</span><br>
               <span class="gtext">그룹 생성일 : {{i[3]}}</span><br> 
@@ -96,6 +99,8 @@
                 <a href="/group/register/{{i[1]}}">가&nbsp;입</a>
               </button>
             </li>
+            </div>
+            
             {% endfor %}
             {% else %}
             그룹이 존재하지 않습니다

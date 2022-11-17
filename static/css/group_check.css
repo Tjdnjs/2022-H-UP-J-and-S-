@@ -1,0 +1,32 @@
+#group_master{
+  text-align: center;
+  font-size: 1.5rem;
+  color: #747373;
+  margin:0 0 1rem;
+}
+.group_join_lists{
+  text-align: center;
+  list-style: none;
+  margin: 2rem 0 2rem 0;
+  color: #5e5b5b;
+}
+.group_button{
+  background-color: #83899ed0;
+  border: none;
+  font-family: 'Noto Serif KR', serif;
+  color: white;
+  border-radius: 1rem;
+  padding: .1rem .5rem;
+}
+#group_mn_list{
+  border-top: 2px solid #949292;
+  border-bottom: 2px solid #949292;
+}
+#manage_tool{
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  width: 40%;
+  margin: auto auto;
+}
