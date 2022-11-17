@@ -39,14 +39,16 @@
   color: #474747;
 }
 .group_lists{
-  display: block;
-  float: left;
-  margin: 2rem;
+  display: inline-block;
+  margin: 1.2em 2rem;
   background-color: #d6cfcf6d;
   border: 4px solid #a8a6a654;
   border-radius: 2rem;
   padding: 2rem 2rem 1.5rem 2rem;
   color: #474747;
+}
+#group_list_tool{
+  display: inline-block;
 }
 .group_lists > .gtext{
   display: inline-block;
@@ -75,7 +77,8 @@
 #group_cr_mn_tool{
   display: flex;
   align-items: center;
+  margin-bottom: 1rem;
 }
-#group_page{
-  max-width: 100%;
+main > div{
+  text-align: center;
 }
