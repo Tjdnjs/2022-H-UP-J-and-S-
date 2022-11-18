@@ -58,6 +58,7 @@
   border: none;
   border-radius: .2rem;
   padding: .4rem .2rem;
+  font-family: 'Noto Serif KR', serif;
 }
 .check:hover{
   background-color: #939292;
