@@ -3,7 +3,7 @@ from control.user import User
 from control.plan_p import Cate
 from control.plan_content import Personal_plan
 from flask_login import current_user
-from view.user import is_cate
+from view.user import is_cate, is_group
 import datetime
 
 # plan blueprint 생성
@@ -23,7 +23,7 @@ def plan_cate_c():
 @plan_p.route('/edit', methods = ['GET'])
 def edit():
     cate = is_cate()
-    return render_template('category_update.html', cate=cate)
+    return render_template('category_update.html', cate=cate, register=is_group())
 
 @plan_p.route('/editaction/<int:cate_key>', methods=['POST', 'GET'])
 def editaction(cate_key):
@@ -52,7 +52,7 @@ def delete(cate_key):
 @plan_p.route('/<string:thiscate>')
 def getcategory(thiscate):
     cate = is_cate()
-    return render_template('plan.html', category=thiscate, cate=cate)
+    return render_template('plan.html', category=thiscate, cate=cate, register=is_group())
 
 # 계획 생성
 @plan_p.route('/<string:cate>/make-plan')
@@ -89,7 +89,7 @@ def get_plan(thiscate):
     plan = getplan(thiscate)
     date = request.args.get('date');
     date_plan = list(filter(lambda x: str(x[2]) == date, plan))
-    return render_template('plan.html', category = thiscate, cate=cate, plan = date_plan, date=date)
+    return render_template('plan.html', category = thiscate, cate=cate, plan = date_plan, date=date, register=is_group())
 
 # 계획 수정
 @plan_p.route('/editplan/<int:pp_key>', methods=['POST', 'GET'])

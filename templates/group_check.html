@@ -86,8 +86,8 @@
             <li class="group_join_lists">
               <span>그룹 : {{i[3]}} /</span>
               <span>요청자 : {{i[2]}} /</span>
-              <button class="group_button"><a href="/group/allow/{{i[3]}}">승인</a></button>
-              <button class="group_button"><a href="/group/reject/{{i[3]}}">거절</a></button>
+              <button class="group_button"><a href="/group/allow/{{i[3]}}/{{i[2]}}">승인</a></button>
+              <button class="group_button"><a href="/group/reject/{{i[3]}}/{{i[2]}}">거절</a></button>
             </li>
             {% endfor %}
             {% else %}

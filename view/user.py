@@ -4,6 +4,7 @@ from urllib.parse import urlparse, urljoin
 from flask_login import login_user, logout_user, current_user, login_required
 import bcrypt
 from control.plan_p import Cate
+from control.group import Group
 
 # user blueprint 생성
 user = Blueprint('user', __name__)
@@ -21,6 +22,13 @@ def is_cate():
         cate = Cate.get_b_user(current_user.key)
     except: cate = False
     return cate
+
+def is_group():
+    try:
+        print("user id:", current_user.id)
+        register = Group.find_register(current_user.id)
+    except: register = False
+    return register
 
 @user.route('/')
 def user_page():
@@ -96,7 +104,7 @@ def registerAction():
 def delete():
     cate = is_cate()
     if current_user.is_authenticated:
-        return render_template('delete.html', cate=cate)
+        return render_template('delete.html', cate=cate, register=is_group())
     else:
         return redirect(url_for('user.user_page', cate=cate))
     
@@ -119,8 +127,8 @@ def mypage():
     user = {"name": current.name, "pw": current.pw, "id":current.id, "email": current.mail}
     print(current_user,cate)
     if cate:
-        return render_template('mypage.html', user = user, cate=cate )
-    else: return render_template('mypage.html', user = user)
+        return render_template('mypage.html', user = user, cate=cate,register=is_group() )
+    else: return render_template('mypage.html', user = user,register=is_group())
 
 @user.route('/edit', methods = ['POST'])
 @login_required

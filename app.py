@@ -5,6 +5,7 @@ import os
 from control.user import User
 from control.plan_p import Cate
 from view import user, plan_personal, group_view
+from view.user import is_cate, is_group
 
 # https 만을 지원하는 기능읗 http에서 테스트할 때 필요한 설정
 os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
@@ -33,18 +34,10 @@ def load_user(user_id):
 def unauthorized():
     return '<script>alert("not found user");history.go(-1);</script>'
 
-def find():
-    key = Cate.get_b_user(current_user.key)
-    return key
-
 @app.route('/')
 def main():
     if current_user.is_authenticated:
-        cate = find()
-        print(cate)
-        if cate:
-            return render_template('index.html', cate=cate)
-        else: return render_template('index.html')
+        return render_template('index.html', cate=is_cate(), register=is_group())
     else:
         return render_template('index.html')
 

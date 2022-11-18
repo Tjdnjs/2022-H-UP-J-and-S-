@@ -48,16 +48,21 @@
             <!-- <div id = "create" ></div> -->
             <!-- <input type="button" value="생성" onclick="addInput();" /> -->
             <!-- <input type="button" value="취소" onclick="deleteInput();"/> -->
-          <form id="category" action = "/plan/create" method="post">
-            <input id="categorytext" type="text" autocomplete="off" name = "cate" placeholder = "카테고리 생성">
-            <input id="cate_button" type="submit" value="완료"/>
-          </form>
-          <button type="button" id="categoryup"><a href="/plan/edit">카테고리 수정</a></button>
+            <form id="category" action = "/plan/create" method="post">
+              <input id="categorytext" type="text" autocomplete="off" name = "cate" placeholder = "카테고리 생성">
+              <input id="cate_button" type="submit" value="완료"/>
+            </form>
+            <button type="button" id="categoryup"><a href="/plan/edit">카테고리 수정</a></button>
           </div>
           <input type="checkbox" name="accordion" id="plang">
           <label for=plang>Group</label>
           <div>
-            <li class="list">ooo</li>
+            <div>
+              {% if register %}
+              {% for i in register %}
+                <li class="list"><a href="#">{{i[0]}}</a></li>
+              {% endfor %}
+              {% endif %}
             <a id="group-list-login" href="/group">더보기</a>
           </div>
           <a id="logout" href="/user/logout">Logout</a>
