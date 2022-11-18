@@ -91,15 +91,14 @@
             
             {% if group %}
             {% for i in group %}
-              <li class="group_lists">
+            <li class="group_lists">
               <span class="gtext">그룹명 : {{i[1]}}</span><br>
               <span class="gtext">그룹 생성자 : {{i[2]}}</span><br>
               <span class="gtext">그룹 생성일 : {{i[3]}}</span><br> 
               <button type="button" class="group_join_button">
-                <a href="/group/register/{{i[1]}}">가&nbsp;입</a>
-              </button>
+              <a href="/group/register/{{i[1]}}">가&nbsp;입</a>
             </li>
-            </div>
+            
             
             {% endfor %}
             {% else %}
