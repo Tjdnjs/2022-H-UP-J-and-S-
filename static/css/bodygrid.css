@@ -4,10 +4,10 @@ html, body{
   font-family: 'Noto Serif KR', serif;
 }
 body{
-  width: 100vw; /*부모의 영향을 받지 않고 뷰포트 기준 전체화면 꽉 채우는 width*/
+  /*width: 100vw; /*부모의 영향을 받지 않고 뷰포트 기준 전체화면 꽉 채우는 width*/
   display: grid;
   grid-template-columns: 1fr 3.5fr;
-  grid-template-rows: 6rem auto 4rem;
+  grid-template-rows: 10% 85% 5%;
   grid-template-areas: 
   'side header'
   'side main'
@@ -20,6 +20,8 @@ header{
 main{
   grid-area: main;
   background-color: #E4E4E0;
+  overflow: auto;
+  overflow-x: hidden;
 }
 aside{
   grid-area: side;
@@ -28,4 +30,17 @@ aside{
 footer{
   grid-area: footer;
   background-color: #EFEFED;
+}
+main::-webkit-scrollbar{
+  width: 10px;
+}
+main::-webkit-scrollbar-thumb {
+  height: 20%; /* 스크롤바의 길이 */
+  background: #b5b5b5; /* 스크롤바의 색상 */
+  
+  border-radius: 10px;
+}
+
+main::-webkit-scrollbar-track {
+  background: #E4E4E0;  /*스크롤바 뒷 배경 색상*/
 }
