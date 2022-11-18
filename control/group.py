@@ -97,3 +97,44 @@ class Group():
             return group
         else:
             return False
+        
+    @staticmethod
+    def allow_temp(group, user):
+        conn = conn_mysql()
+        # 커서
+        cursor = conn.cursor()
+        query1 = f"DELETE FROM temp_register WHERE group_name = '{group}' and user_name = '{user}';"
+        print(query1)
+        cnt1 = cursor.execute(query1);
+        if cnt1 !=0:
+            query2 = f"INSERT INTO register VALUES('{group}','{user}');"
+            print(query2)
+            cnt2 = cursor.execute(query2)
+            conn.commit()
+            return True
+        else:
+            return False
+    @staticmethod
+    def delete_temp(group, user):
+        conn = conn_mysql()
+        # 커서
+        cursor = conn.cursor()
+        query1 = f"DELETE FROM temp_register WHERE group_name = '{group}' and user_name = '{user}';"
+        cnt1 = cursor.execute(query1)
+        if cnt1 !=0:
+            return True
+        else:
+            return False
+        
+    @staticmethod
+    def find_register(user):
+        conn = conn_mysql()
+        cursor = conn.cursor()
+        query = f"SELECT * FROM register WHERE user_name = '{user}';"
+        cnt = cursor.execute(query)
+        if cnt !=0:
+            group = cursor.fetchall()
+            print("registered : ", group)
+            return group
+        else:
+            return False

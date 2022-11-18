@@ -3,7 +3,7 @@ from control.user import User
 from control.group import Group
 from view.user import is_cate
 from flask_login import current_user, login_required
-from view.user import is_cate
+from view.user import is_cate, is_group
 import datetime
 
 # group blueprint 생성
@@ -14,7 +14,7 @@ group = Blueprint('group', __name__)
 def group_page():
     group = Group.getAll()
     cate = is_cate()
-    return render_template('group.html', group=group, cate=cate)
+    return render_template('group.html', group=group, cate=cate, register=is_group())
 
 @login_required
 @group.route('/create', methods=['POST', 'GET'])
@@ -35,7 +35,7 @@ def group_search():
     group = Group.search(group_name)
     print(group)
     if group:
-        return render_template('group.html', group=group, cate=is_cate())
+        return render_template('group.html', group=group, cate=is_cate(), register=is_group())
     else:
         return '<script>alert("존재하지 않는 그룹명입니다.");history.go(-1);</script>'
     
@@ -55,4 +55,22 @@ def group_registesr(group_key):
 def group_manage():
     user = current_user.id
     group = Group.registerList(user)
-    return render_template('group_check.html', grouplist=group, cate=is_cate())
+    return render_template('group_check.html', grouplist=group, cate=is_cate(), register=is_group())
+
+@login_required
+@group.route('/allow/<string:group>/<string:user>')
+def group_allow(group, user):
+    register = Group.allow_temp(group, user)
+    if register:
+        return '<script>window.location=document.referrer</script>'
+    else:
+        return f"<script>${user}님의 ${group} 가입 승인에 실패하셨습니다.</script>"
+    
+@login_required
+@group.route('/reject/<string:group>/<string:user>')
+def group_reject(group, user):
+    drop = Group.delete_temp(group, user)
+    if drop:
+        return '<script>window.location=document.referrer</script>'
+    else:
+        return f"<script>${user}님의 ${group} 가입 거절에 실패하셨습니다.</script>"
