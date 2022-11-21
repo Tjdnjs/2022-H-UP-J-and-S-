@@ -85,3 +85,24 @@ class Personal_plan():
             return cnt2
         else:       # 오류
             return 0
+        
+    @staticmethod
+    def plan_toggle(plan_key):
+        print("plan toggle")
+        # mysql DB 연결
+        conn = conn_mysql()
+        # 커서
+        cursor = conn.cursor()
+        query = f"SELECT * FROM personal_plan WHERE pp_key = '{plan_key}' LIMIT 1;"
+        cnt = cursor.execute(query)
+        if cnt == 1:
+            plan = cursor.fetchall();
+            print("toggle : ", plan)
+            if plan[-1] == 0:
+                query = f"UPDATE personal_plan set checked = 1 WHERE pp_key = '{plan_key}';"
+                cursor.execute(query)
+            elif plan[-1] == 1:
+                query = f"UPDATE personal_plan set checked = 0 WHERE pp_key = '{plan_key}';"
+                cursor.execute(query)
+            conn.commit()
+        else: return 0

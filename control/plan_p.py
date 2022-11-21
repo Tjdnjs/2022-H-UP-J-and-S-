@@ -98,3 +98,4 @@ class Cate():
             return cnt2
         else:       # 오류
             return 0
+        
