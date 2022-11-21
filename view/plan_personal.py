@@ -124,7 +124,7 @@ def toggleplan(pp_key):
     plan = Personal_plan.get_b_key(pp_key)
     if current_user.key == plan[0][1]:
         Personal_plan.plan_toggle(pp_key)
-        return '<script>window.location=document.referrer</script>'
+        return 'did'
     else:
         return '<script>alert("수정 권한이 없습니다");history.go(-1);</script>'
     

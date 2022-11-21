@@ -26,9 +26,7 @@ class Personal_plan():
         db_cursor = mysql_db.cursor()
         sql = "select * from personal_plan where cat_key = '" + str(cat_key) + "'"
         db_cursor.execute(sql)
-        print(sql)
         plan = db_cursor.fetchall()
-        print(plan)
         if not plan:
             return None
         return plan
@@ -57,7 +55,6 @@ class Personal_plan():
         print(query2)
         cnt2 = cursor.execute(query2)    # 쿼리 실행개수 (0:DB오류 / 1:정상)
         conn.commit()
-
 
     @staticmethod
     def edit(plan_key, content):
@@ -98,10 +95,10 @@ class Personal_plan():
         if cnt == 1:
             plan = cursor.fetchall();
             print("toggle : ", plan)
-            if plan[-1] == 0:
+            if plan[0][-1] == 0:
                 query = f"UPDATE personal_plan set checked = 1 WHERE pp_key = '{plan_key}';"
                 cursor.execute(query)
-            elif plan[-1] == 1:
+            elif plan[0][-1] == 1:
                 query = f"UPDATE personal_plan set checked = 0 WHERE pp_key = '{plan_key}';"
                 cursor.execute(query)
             conn.commit()
