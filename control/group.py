@@ -114,6 +114,7 @@ class Group():
             return True
         else:
             return False
+        
     @staticmethod
     def delete_temp(group, user):
         conn = conn_mysql()
