@@ -51,7 +51,7 @@ class Personal_plan():
         conn = conn_mysql()
         # 커서
         cursor = conn.cursor()
-        query2 = f"INSERT INTO personal_plan VALUES('None','{cate}', '{content}','{date}');"
+        query2 = f"INSERT INTO personal_plan VALUES('None','{cate}', '{content}','{date}',0);"
         print(query2)
         cnt2 = cursor.execute(query2)    # 쿼리 실행개수 (0:DB오류 / 1:정상)
         conn.commit()
