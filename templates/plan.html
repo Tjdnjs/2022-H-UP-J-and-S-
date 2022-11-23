@@ -117,7 +117,6 @@
         </form>
         <hr>
         <div id="plan_date">{{ date }}</div>
-        <hr id="plan_content">
         {% if plan_left%}
         {% for i in plan_left %}
         <div id="plan_checkbox">
@@ -138,7 +137,7 @@
         {% if plan%}
         {% for i in plan%}
         <div id="plan_checkbox">
-          <input type="checkbox" id="{{i[0]}}" onclick="check(this)">
+          <input class="checked_list" type="checkbox" id="{{i[0]}}" onclick="check(this)" checked>
             <label for="{{i[0]}}"></label>
         <form id="plan_list" action="/plan/editplan/{{i[0]}}" method="post">
           <input class="text" value="{{ i[1] }}" name="editplan{{i[0]}}">
