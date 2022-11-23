@@ -86,7 +86,8 @@ input[type="submit"]{
   font-size: large;
   margin-bottom: .5rem;
 }
-#plan_content{
+#plan_left, #plan_completed{
+  background-color: #cacaca;
   padding: .5rem;
-  background-color: #cdcdcd;
+  padding-left: 1.5rem;
 }
