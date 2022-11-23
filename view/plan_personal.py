@@ -78,7 +78,7 @@ def getplan(cate):
     key = Cate.get_b_cate(user,cate);
     plan = Personal_plan.get_b_catkey(key);
     if plan != None:
-        plan_list = [[li[0], li[2], li[3]] for li in plan]
+        plan_list = [[li[0], li[2], li[3], li[4]] for li in plan]
         print(plan_list)
     return plan_list
 
@@ -88,8 +88,9 @@ def get_plan(thiscate):
     cate = is_cate()
     plan = getplan(thiscate)
     date = request.args.get('date');
-    date_plan = list(filter(lambda x: str(x[2]) == date, plan))
-    return render_template('plan.html', category = thiscate, cate=cate, plan = date_plan, date=date, register=is_group())
+    date_plan = list(filter(lambda x: str(x[2]) == date and x[-1] == True, plan))
+    date_plan_not = list(filter(lambda x: str(x[2]) == date and x[-1] == False, plan))
+    return render_template('plan.html', category = thiscate, cate=cate, plan = date_plan, plan_left=date_plan_not, date=date, register=is_group())
 
 # 계획 수정
 @plan_p.route('/editplan/<int:pp_key>', methods=['POST', 'GET'])
@@ -124,7 +125,7 @@ def toggleplan(pp_key):
     plan = Personal_plan.get_b_key(pp_key)
     if current_user.key == plan[0][1]:
         Personal_plan.plan_toggle(pp_key)
-        return 'did'
+        return '<script>window.location=document.referrer</script>'
     else:
         return '<script>alert("수정 권한이 없습니다");history.go(-1);</script>'
     
