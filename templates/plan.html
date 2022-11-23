@@ -121,8 +121,14 @@
         {% if plan%}
         {% for i in plan %}
         <div id="plan_checkbox">
-          <input type="checkbox" id="{{i[0]}}">
+          <input type="checkbox" id="{{i[0]}}" onclick="check(this)">
             <label for="{{i[0]}}"></label>
+            <script>
+              function check(box){
+                if(box.checked == true)
+                  window.location.href = "/plan/toggle/{{i[0]}} ";
+              }
+            </script>
         <form id="plan_list" action="/plan/editplan/{{i[0]}}" method="post">
           <input class="text" value="{{ i[1] }}" name="editplan{{i[0]}}">
           <input type="image" src="/static/image/edit.png" width="17" height="17">
