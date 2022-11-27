@@ -10,17 +10,16 @@ class Cate():
     
     # key로 category 에 해당하는 사용자 검색    
     @staticmethod
-    def get_b_key(cat_key):
+    def getCreator(cat_key):
         mysql_db = conn_mysql()
         db_cursor = mysql_db.cursor()
         sql = "select * from personal_category where cat_key = '" + str(cat_key) + "'"
         db_cursor.execute(sql)
         print(sql)
-        cate = db_cursor.fetchall()
-        print(cate)
+        cate = db_cursor.fetchone()
         if not cate:
             return None
-        return cate[0]
+        return cate[1]
     
     @staticmethod
     def get_b_user(user_key):

@@ -16,6 +16,7 @@ def group_page():
     cate = is_cate()
     return render_template('group.html', group=group, cate=cate, register=is_group())
 
+
 @login_required
 @group.route('/create', methods=['POST', 'GET'])
 def group_create():
@@ -43,7 +44,7 @@ def group_search():
 @group.route('/register/<string:group_key>', methods=['GET', 'POST'])
 def group_registesr(group_key):
     user = current_user.id
-    if Group.getCreator(group_key) == user:
+    if Group.search_key(group_key).master == user:
         return '<script>alert("당신은 그룹 생성자입니다.");history.go(-1);</script>'
     if Group.register(group_key, user):
         return redirect(url_for('group.group_page'))
@@ -74,3 +75,10 @@ def group_reject(group, user):
         return '<script>window.location=document.referrer</script>'
     else:
         return f"<script>${user}님의 ${group} 가입 거절에 실패하셨습니다.</script>"
+    
+@login_required
+@group.route('/<string:group>', methods=['GET'])
+def group_detail(group):
+    group = Group.getGroup(group)
+    cate = is_cate()
+    return render_template('group_plan.html', group=group, cate=cate, register=is_group())

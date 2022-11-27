@@ -38,7 +38,7 @@ class Personal_plan():
         sql = "select * from personal_plan where pp_key = '" + str(pp_key) + "'"
         db_cursor.execute(sql)
         print(sql)
-        plan = db_cursor.fetchall()
+        plan = db_cursor.fetchone()
         print(plan)
         if not plan:
             return None

@@ -30,7 +30,7 @@ def editaction(cate_key):
     edit = "edit"+str(cate_key)
     new_cate = request.form.get(edit)
     print(new_cate)
-    if current_user.key == Cate.get_b_key(cate_key)[1]:
+    if current_user.key == Cate.getCreator(cate_key):
         Cate.edit(new_cate, cate_key)
         return redirect(url_for('plan.edit'))
     else:
@@ -39,7 +39,7 @@ def editaction(cate_key):
 # 카테고리 삭제
 @plan_p.route('/deleteaction/<int:cate_key>', methods = ['GET','POST'])
 def delete(cate_key):
-    if current_user.key == Cate.get_b_key(cate_key)[1]:
+    if current_user.key == Cate.get_b_key(cate_key):
         result = Cate.delete(cate_key)
         if result==1:
             return redirect(url_for('plan.edit'))
@@ -100,7 +100,7 @@ def editplan(pp_key):
     plan = Personal_plan.get_b_key(pp_key)
     print(new_plan)
     # date = str(plan[0][3]); cate = Cate.get_b_key(plan[0][1])[0];
-    if current_user.key == plan[0][1]:
+    if current_user.key == plan[1]:
         Personal_plan.edit(pp_key,new_plan)
         return '<script>window.location=document.referrer</script>'
     else:
@@ -111,7 +111,7 @@ def editplan(pp_key):
 def deleteplan(pp_key):
     plan = Personal_plan.get_b_key(pp_key)
     # date = str(plan[0][3]); cate = Cate.get_b_key(plan[0][1])[0];
-    if current_user.key == plan[0][1]:
+    if current_user.key == plan[1]:
         result = Personal_plan.delete(pp_key)
         if result==1:
             return '<script>window.location=document.referrer</script>'
@@ -123,7 +123,7 @@ def deleteplan(pp_key):
 @plan_p.route('/toggle/<int:pp_key>')
 def toggleplan(pp_key):
     plan = Personal_plan.get_b_key(pp_key)
-    if current_user.key == plan[0][1]:
+    if current_user.key == plan[1]:
         Personal_plan.plan_toggle(pp_key)
         return '<script>window.location=document.referrer</script>'
     else:
