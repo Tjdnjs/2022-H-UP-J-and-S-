@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/bodygrid.css" >
+    <link rel="stylesheet" href="../static/css/menubar.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <script src="http://code.jquery.com/jquery-latest.js"></script> 
+  </head>
+<body>
+  <header>
+ 
+  </header>
+  <aside>
+    <section id="menubar">
+      {% if not current_user.is_authenticated %}
+        <div class="menubarblock">
+          <div class="ldes"><a href="/user">로그인</a>을 해주세요.</div>
+          <div class="mdes"><a class="home" href="/">HOME</a><br></div>
+          <div class="mdes"><a class="mypage" href="/user/mypage">My Page</a><br></div>
+          <div class="mdes"><a class="plan">Plan</a><br></div>
+          <div class="mdes"><a class="personal">Personal</a><br></div>
+          <div class="mdes"><a class="group">Group</a><br></div>
+          <div id="group-list" ><a  href="/group">group 더보기</a></div>
+          <div id="loginsignup"><a href="/user">login</a> / <a href="/user/register">Sign up</a></div>
+        </div>
+    
+      {% else %}
+      <div class="menubarblock">
+          <div class="ldes" id="name">{{current_user.name}}님</div>
+          <div class="mdes"><a class="home" href="/">HOME</a><br></div>
+          <div class="mdes"><a class="mypage" href="/user/mypage">My Page</a><br></div>
+          <div class="mdes"><a id="plan">Plan</a><br></div>
+          <input type="checkbox" name="accordion" id="planp">
+          <label for=planp>Personal</label>
+          <div>
+            {% if cate %}
+            {% for i in cate %}
+              <li class="list"><a href="/plan/{{i[2]}}">{{i[2]}}</a></li>
+            {% endfor %}
+            {% endif %}
+          
+            <!-- <div id = "create" ></div> -->
+            <!-- <input type="button" value="생성" onclick="addInput();" /> -->
+            <!-- <input type="button" value="취소" onclick="deleteInput();"/> -->
+            <form id="category" action = "/plan/create" method="post">
+              <input id="categorytext" type="text" autocomplete="off" name = "cate" placeholder = "카테고리 생성">
+              <input id="cate_button" type="submit" value="완료"/>
+            </form>
+            <button type="button" id="categoryup"><a href="/plan/edit">카테고리 수정</a></button>
+          </div>
+          <input type="checkbox" name="accordion" id="plang">
+          <label for=plang>Group</label>
+          <div>
+            <div>
+              {% if register %}
+              {% for i in register %}
+                <li class="list"><a href="#">{{i[0]}}</a></li>
+              {% endfor %}
+              {% endif %}
+            <a id="group-list-login" href="/group">더보기</a>
+          </div>
+          <a id="logout" href="/user/logout">Logout</a>
+        </div>  
+      {% endif %}
+      <!-- <script src="../static/js/create_catetory.js"></script> -->
+    </section>
+  </aside>
+  <main>
+    <h1>group 공지</h1>
+  </main>
+  <footer>
+
+  </footer>
+</body>
+</html>
