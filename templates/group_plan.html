@@ -73,6 +73,12 @@
   </aside>
   <main>
     <h1>{{group[1]}} 공지</h1>
+    {% if notice %}
+    {% for i in notice %}
+    <div>{{notice[0][3]}}</div>
+    <div>{{notice[0][2]}}</div>
+    {% endfor %}
+    {% endif %}
   </main>
   <footer>
 

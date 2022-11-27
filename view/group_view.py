@@ -1,4 +1,5 @@
 from flask import Flask, Blueprint, request, render_template, redirect, url_for
+from control.notice import Notice
 from control.user import User
 from control.group import Group
 from view.user import is_cate
@@ -80,5 +81,6 @@ def group_reject(group, user):
 @group.route('/<string:group>', methods=['GET'])
 def group_detail(group):
     group = Group.getGroup(group)
+    notice = Notice.getNotice(group[0])
     cate = is_cate()
-    return render_template('group_plan.html', group=group, cate=cate, register=is_group())
+    return render_template('group_plan.html', group=group, cate=cate, notice=notice, register=is_group())

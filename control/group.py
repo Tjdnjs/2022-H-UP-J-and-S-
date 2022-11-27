@@ -92,7 +92,7 @@ class Group():
         master = Group.getCreator(group)
         # 커서
         cursor = conn.cursor()
-        query = f"SELECT * FROM temp_register WHERE group_name = '{group}' and user_name = '{user}';"
+        query = f"SELECT * FROM temp_register WHERE group_name = '{group}' and user_id = '{user}';"
         cnt = cursor.execute(query)
         if cnt ==0:
             query2 = f"INSERT INTO temp_register VALUES('None', '{master}', '{user}','{group}');"
@@ -121,7 +121,7 @@ class Group():
         conn = conn_mysql()
         # 커서
         cursor = conn.cursor()
-        query1 = f"DELETE FROM temp_register WHERE group_name = '{group}' and user_name = '{user}';"
+        query1 = f"DELETE FROM temp_register WHERE group_name = '{group}' and user_id = '{user}';"
         print(query1)
         cnt1 = cursor.execute(query1);
         if cnt1 !=0:
@@ -138,7 +138,7 @@ class Group():
         conn = conn_mysql()
         # 커서
         cursor = conn.cursor()
-        query1 = f"DELETE FROM temp_register WHERE group_name = '{group}' and user_name = '{user}';"
+        query1 = f"DELETE FROM temp_register WHERE group_name = '{group}' and user_id = '{user}';"
         cnt1 = cursor.execute(query1)
         if cnt1 !=0:
             return True
@@ -149,7 +149,7 @@ class Group():
     def find_register(user):
         conn = conn_mysql()
         cursor = conn.cursor()
-        query = f"SELECT * FROM register WHERE user_name = '{user}';"
+        query = f"SELECT * FROM register WHERE user_id = '{user}';"
         cnt = cursor.execute(query)
         if cnt !=0:
             group = cursor.fetchall()
