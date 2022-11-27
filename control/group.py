@@ -7,7 +7,8 @@ class Group():
         self.name = group_name
         self.master = group_master
         self.date = created_date
-        
+    
+    # Create Group    
     @staticmethod
     def create(user_id, name):
         # mysql DB 연결
@@ -26,10 +27,10 @@ class Group():
         else:
             return False
     
+    # Search Group
     @staticmethod
     def search(name):
         conn = conn_mysql()
-        date = datetime.today().strftime('%Y-%m-%d')
         # 커서
         cursor = conn.cursor()
         query = f"SELECT * FROM group_category WHERE group_name = '{name}';"
@@ -39,7 +40,36 @@ class Group():
             return group
         else:
             return False
-
+    # GET Group
+    @staticmethod
+    def getGroup(name):
+        conn = conn_mysql()
+        # 커서
+        cursor = conn.cursor()
+        query = f"SELECT * FROM group_category WHERE group_name = '{name}';"
+        cnt = cursor.execute(query)
+        if cnt !=0:
+            group = cursor.fetchone()
+            return group
+        else:
+            return False
+        
+    # Search Group WITH KEY
+    @staticmethod
+    def search_key(key):
+        conn = conn_mysql()
+        # 커서
+        cursor = conn.cursor()
+        query = f"SELECT * FROM group_category WHERE group_key = '{key}';"
+        cnt = cursor.execute(query)
+        if cnt !=0:
+            group = cursor.fetchone()
+            group = Group(group_key=group[0], group_name=group[1], group_master=group[3], created_date=group[4])
+            return group
+        else:
+            return False
+        
+    # GetAll Group
     @staticmethod
     def getAll():
         print("get all group")
@@ -53,19 +83,7 @@ class Group():
             return group
         else:
             return False
-        
-    @staticmethod
-    def getCreator(group):
-        conn = conn_mysql()
-        # 커서
-        cursor = conn.cursor()
-        query = f"SELECT * FROM group_category WHERE group_name = '{group}';"
-        cnt = cursor.execute(query)
-        if cnt !=0:
-            group = cursor.fetchall()
-            return group[0][2]
-        else:
-            return False
+    
         
     @staticmethod
     def register(group, user):
@@ -74,7 +92,7 @@ class Group():
         master = Group.getCreator(group)
         # 커서
         cursor = conn.cursor()
-        query = f"SELECT * FROM temp_register WHERE group_name = '{group}' and user_name = '{user}';"
+        query = f"SELECT * FROM temp_register WHERE group_name = '{group}' and user_id = '{user}';"
         cnt = cursor.execute(query)
         if cnt ==0:
             query2 = f"INSERT INTO temp_register VALUES('None', '{master}', '{user}','{group}');"
@@ -99,11 +117,24 @@ class Group():
             return False
         
     @staticmethod
+    def createdList(master):
+        conn = conn_mysql()
+        # 커서
+        cursor = conn.cursor()
+        query = f"SELECT * FROM group_category WHERE group_master = '{master}';"
+        cnt = cursor.execute(query)
+        if cnt !=0:
+            group = cursor.fetchall()
+            return group
+        else:
+            return False
+        
+    @staticmethod
     def allow_temp(group, user):
         conn = conn_mysql()
         # 커서
         cursor = conn.cursor()
-        query1 = f"DELETE FROM temp_register WHERE group_name = '{group}' and user_name = '{user}';"
+        query1 = f"DELETE FROM temp_register WHERE group_name = '{group}' and user_id = '{user}';"
         print(query1)
         cnt1 = cursor.execute(query1);
         if cnt1 !=0:
@@ -120,7 +151,7 @@ class Group():
         conn = conn_mysql()
         # 커서
         cursor = conn.cursor()
-        query1 = f"DELETE FROM temp_register WHERE group_name = '{group}' and user_name = '{user}';"
+        query1 = f"DELETE FROM temp_register WHERE group_name = '{group}' and user_id = '{user}';"
         cnt1 = cursor.execute(query1)
         if cnt1 !=0:
             return True
@@ -131,7 +162,7 @@ class Group():
     def find_register(user):
         conn = conn_mysql()
         cursor = conn.cursor()
-        query = f"SELECT * FROM register WHERE user_name = '{user}';"
+        query = f"SELECT * FROM register WHERE user_id = '{user}';"
         cnt = cursor.execute(query)
         if cnt !=0:
             group = cursor.fetchall()
