@@ -84,3 +84,34 @@ def group_detail(group):
     notice = Notice.getNotice(group[0])
     cate = is_cate()
     return render_template('group_plan.html', group=group, cate=cate, notice=notice, register=is_group())
+
+@login_required
+@group.route('/notice/<int:group>', methods=['POST'])
+def notice():
+    edit = "edit"+str(group)
+    content = request.form.get(edit)
+    notice = Notice.create(group, content);
+    if notice:
+        return '<script>window.location=document.referrer</script>'
+    else:
+        return f"<script>공지 생성에 실패하셨습니다.</script>"
+    
+@login_required
+@group.route('/notice/<int:notice>', methods=['UPDATE'])
+def noticeUpdate():
+    edit = "edit"+str(notice)
+    content = request.form.get(edit)
+    notice = Notice.editNotice(notice, content);
+    if notice:
+        return '<script>window.location=document.referrer</script>'
+    else:
+        return f"<script>공지 수정에 실패하셨습니다.</script>"
+    
+@login_required
+@group.route('/notice/<int:notice>', methods=['DELETE'])
+def noticeDel():
+    notice = Notice.delete(notice);
+    if notice:
+        return '<script>window.location=document.referrer</script>'
+    else:
+        return f"<script>공지 삭제에 실패하셨습니다.</script>"

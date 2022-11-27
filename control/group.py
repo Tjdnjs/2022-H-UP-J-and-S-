@@ -117,6 +117,19 @@ class Group():
             return False
         
     @staticmethod
+    def createdList(master):
+        conn = conn_mysql()
+        # 커서
+        cursor = conn.cursor()
+        query = f"SELECT * FROM group_category WHERE group_master = '{master}';"
+        cnt = cursor.execute(query)
+        if cnt !=0:
+            group = cursor.fetchall()
+            return group
+        else:
+            return False
+        
+    @staticmethod
     def allow_temp(group, user):
         conn = conn_mysql()
         # 커서
