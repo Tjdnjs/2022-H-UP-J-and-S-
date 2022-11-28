@@ -1,0 +1,33 @@
+#notice_tool{
+  color: #434040;
+  background-color: #bebdbd61;
+  font-size: 1.5rem;
+  margin: auto;
+  width: 50rem;
+  height: 30rem;
+  margin-top: 3rem;
+  border-radius: 1rem;
+  box-shadow: 10px 10px 20px rgb(75, 75, 75);
+  
+}
+#group_name{
+  color: white;
+  text-align: center;
+  background-color:#83899e ;
+  padding: .8rem;
+  border-radius: 1rem 1rem 0 0;
+}
+#notice{
+  text-align: center;
+  background-color: #A8A6A6;
+  padding: .5rem;
+}
+#notice_time{
+  font-size:.9rem ;
+  color: #6c6767;
+  text-align: right;
+  margin-right: 2rem ;
+}
+#notice_content{
+  text-align: center;
+}
