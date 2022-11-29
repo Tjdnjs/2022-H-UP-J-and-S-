@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/css/bodygrid.css" >
-    <link rel="stylesheet" href="../static/css/menubar.css">
-    <link rel="stylesheet" href="../static/css/group_plan.css">
+    <link rel="stylesheet" href="/static/css/bodygrid.css" >
+    <link rel="stylesheet" href="/static/css/menubar.css">
+    <link rel="stylesheet" href="/static/css/group_write.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600&display=swap" rel="stylesheet">
@@ -73,17 +73,14 @@
     </section>
   </aside>
   <main>
-    <div id="notice_tool" >
-      <div id="group_name">{{group[1]}}</div>
-      <div id="notice">&lt;&nbsp;공지 사항&nbsp;&gt;</div>
-      {% if notice %}
-      {% for i in notice %}
-      <div id="notice_time">{{notice[0][3]}}</div>
-      <div id="notice_content">{{notice[0][2]}}</div>
-      {% endfor %}
-      {% endif %}
+    <div id="write_tool" >
+      <div id="group_name">{{group}}</div>
+      <div id="notice">공지 사항을 작성해 주세요.</div>
+      <form action="/group/notice/{{i[0]}}" method="update">
+        <textarea id="write_textarea" value="{{i[2]}}" name="edit{{i[0]}}" cols="90" rows="18"></textarea> 
+        <input type="submit" id="notice_save_button" value = "생성">
+      </form>
     </div>
-    
   </main>
   <footer>
 

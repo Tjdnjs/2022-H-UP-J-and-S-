@@ -33,7 +33,7 @@ class Group():
         conn = conn_mysql()
         # 커서
         cursor = conn.cursor()
-        query = f"SELECT * FROM group_category WHERE group_name = '{name}';"
+        query = f"SELECT * FROM group_category where group_name like '%{name}%';"
         cnt = cursor.execute(query)
         if cnt !=0:
             group = cursor.fetchall()
@@ -64,7 +64,7 @@ class Group():
         cnt = cursor.execute(query)
         if cnt !=0:
             group = cursor.fetchone()
-            group = Group(group_key=group[0], group_name=group[1], group_master=group[3], created_date=group[4])
+            group = Group(group_key=group[0], group_name=group[1], group_master=group[2], created_date=group[3])
             return group
         else:
             return False
