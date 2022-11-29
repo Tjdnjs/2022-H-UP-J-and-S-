@@ -1,13 +1,17 @@
 #group_master{
+  width: 80%;
   text-align: center;
   font-size: 1.5rem;
-  color: #747373;
-  margin:0 0 1rem;
+  color: white;
+  margin: 2rem auto 0rem auto;
+  background: #747373;
+  padding: 0.5rem 2px;
+  border-radius: 1.5rem 1.5rem 0 0;
 }
 .group_join_lists{
   text-align: center;
   list-style: none;
-  margin: 2rem 0 2rem 0;
+  margin: 2rem 1rem 2rem 1rem;
   color: #5e5b5b;
 }
 .group_button{
@@ -19,14 +23,35 @@
   padding: .1rem .5rem;
 }
 #group_mn_list{
-  border-top: 2px solid #949292;
-  border-bottom: 2px solid #949292;
+  width: 50%;
+  border-right: 2px solid #949292;
+}
+#group_join_list{
+  width: 50%;
 }
 #manage_tool{
+  border: 2px solid #747373;
   display: flex;
-  height: 100%;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
-  width: 40%;
+  width: 80%;
   margin: auto auto;
+  border-radius: 0 0 1.5rem 1.5rem;
+}
+.group_tool_name{
+  display: inline-block;
+  width: 100%;
+  font-size: 1.5rem;
+  color: #4d4c4c;
+  background-color: #74737341;
+  border-bottom: 1px solid #747373;
+}
+.group_button_notice{
+  background-color: #83899ef5;
+  border: none;
+  font-family: 'Noto Serif KR', serif;
+  color: white;
+  border-radius: 0.2rem;
+  padding: .1rem .5rem;
+  margin-left: .5rem;
 }
