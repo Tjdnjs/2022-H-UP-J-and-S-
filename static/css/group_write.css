@@ -1,0 +1,47 @@
+#write_tool{
+  text-align: center;
+  color: #434040;
+  background-color: #bebdbd61;
+  font-size: 1.5rem;
+  margin: auto;
+  width: 50rem;
+  height: 33rem;
+  margin-top: 3rem;
+  border-radius: 1rem;
+  box-shadow: 10px 10px 20px rgb(75, 75, 75);
+  
+}
+#group_name{
+  color: white;
+  text-align: center;
+  background-color:#83899e ;
+  padding: .8rem;
+  border-radius: 1rem 1rem 0 0;
+}
+#notice{
+  font-size: .9rem;
+  text-align: center;
+  background-color: #A8A6A6;
+  padding: .5rem;
+}
+#write_textarea{
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: .9rem;
+  font-family: 'Noto Serif KR', serif;
+  color:#434040;
+}
+#notice_edit_button, #notice_save_button{
+  float: right;
+  background-color: #bcb8b8;
+  border: none;
+  color: #434040;
+  border-radius: .5rem;
+  padding: .3rem .4rem;
+  font-family: 'Noto Serif KR', serif;
+  margin: .2rem .3rem;
+}
+#notice_edit_button{
+  margin-right: 1rem;
+}
