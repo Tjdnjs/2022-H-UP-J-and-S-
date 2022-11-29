@@ -45,7 +45,7 @@ def group_search():
 @group.route('/register/<string:group_key>', methods=['GET', 'POST'])
 def group_registesr(group_key):
     user = current_user.id
-    if Group.search_key(group_key).master == user:
+    if Group.getGroup(group_key).master == user:
         return '<script>alert("당신은 그룹 생성자입니다.");history.go(-1);</script>'
     if Group.register(group_key, user):
         return redirect(url_for('group.group_page'))

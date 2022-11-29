@@ -50,6 +50,7 @@ class Group():
         cnt = cursor.execute(query)
         if cnt !=0:
             group = cursor.fetchone()
+            group = Group(group_key=group[0], group_name=group[1], group_master=group[2], created_date=group[3])
             return group
         else:
             return False
@@ -89,7 +90,7 @@ class Group():
     def register(group, user):
         # mysql DB 연결
         conn = conn_mysql()
-        master = Group.getCreator(group)
+        master = Group.getGroup(group).master
         # 커서
         cursor = conn.cursor()
         query = f"SELECT * FROM temp_register WHERE group_name = '{group}' and user_id = '{user}';"
