@@ -83,7 +83,7 @@ def group_reject(group, user):
 @group.route('/<string:group>', methods=['GET'])
 def group_detail(group):
     group = Group.getGroup(group)
-    notice = Notice.getNotice(group[0])
+    notice = Notice.getNotice(group.key)
     cate = is_cate()
     return render_template('group_plan.html', group=group, cate=cate, notice=notice, register=is_group())
 
