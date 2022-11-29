@@ -99,6 +99,18 @@
             그룹 가입 요청이 존재하지 않습니다
             {% endif %}
         </div>
+        <div>
+          {% if createlist %}
+          {% for i in createlist %}
+          <li class="group_join_lists">
+            <span>그룹 : {{i[1]}} </span>
+            <button class="group_button"><a href="/group/notice/{{i[0]}}">공지</a></button>
+          </li>
+          {% endfor %}
+          {% else %}
+          생성한 그룹이 존재하지 않습니다
+          {% endif %}
+        </div>
     </div> 
 
   </main>

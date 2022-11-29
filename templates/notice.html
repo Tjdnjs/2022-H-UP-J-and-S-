@@ -75,11 +75,20 @@
   <main>
     <div id="write_tool" >
       <div id="group_name">{{group}}</div>
-      <div id="notice">공지 사항을 작성해 주세요.</div>
-      <form action="/group/notice/{{i[0]}}" method="update">
-        <textarea id="write_textarea" value="{{i[2]}}" name="edit{{i[0]}}" cols="90" rows="18"></textarea> 
-        <input type="submit" id="notice_save_button" value = "생성">
+      {% if notice %}
+      {% for i in notice %}
+      <hr>
+      <form action="/group/notice/update/{{i[0]}}" method="post">
+        <textarea id="write_textarea" name="edit{{i[0]}}" cols="90" rows="18">{{i[2]}}</textarea> 
+        <input type="submit" id="notice_edit_button" value = "수정">
       </form>
+      <form action="/group/notice/delete/{{i[0]}}" method="post">
+        <input id="notice_delete_button" type="submit" value="삭제">
+      </form>
+      {% endfor %}
+      {% else %}
+      공지가 없습니다
+      {% endif %}
     </div>
   </main>
   <footer>

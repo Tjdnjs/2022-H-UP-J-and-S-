@@ -64,7 +64,7 @@ class Group():
         cnt = cursor.execute(query)
         if cnt !=0:
             group = cursor.fetchone()
-            group = Group(group_key=group[0], group_name=group[1], group_master=group[3], created_date=group[4])
+            group = Group(group_key=group[0], group_name=group[1], group_master=group[2], created_date=group[3])
             return group
         else:
             return False

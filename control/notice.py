@@ -41,6 +41,10 @@ class Notice():
         query = f"UPDATE group_notice set content = '{content}' WHERE noticeId = '{noticeId}';"
         cnt = cursor.execute(query)
         conn.commit()
+        query = f"SELECT * FROM group_notice WHERE noticeId = '{noticeId}'";
+        cursor.execute(query)
+        notice = cursor.fetchone()
+        return notice
         
     @staticmethod
     def delete(noticeId):
@@ -48,10 +52,10 @@ class Notice():
         conn = conn_mysql()
         # 커서
         cursor = conn.cursor()
-        query = f"SELECT * FROM personal_plan WHERE noticeId = '{noticeId}';"
+        query = f"SELECT * FROM group_notice WHERE noticeId = '{noticeId}';"
         cnt = cursor.execute(query)
         if cnt==1:
-            query2 = f"DELETE FROM personal_plan WHERE noticeId = '{noticeId}';"
+            query2 = f"DELETE FROM group_notice WHERE noticeId = '{noticeId}';"
             cnt2 = cursor.execute(query2)    # 0:DB오류 / 1:정상
             conn.commit()
             return cnt2

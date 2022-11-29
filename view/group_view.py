@@ -57,7 +57,9 @@ def group_registesr(group_key):
 def group_manage():
     user = current_user.id
     group = Group.registerList(user)
-    return render_template('group_check.html', grouplist=group, cate=is_cate(), register=is_group())
+    created = Group.createdList(user)
+    return render_template('group_check.html', grouplist=group, createlist=created, cate=is_cate(), register=is_group())
+
 
 @login_required
 @group.route('/allow/<string:group>/<string:user>')
@@ -86,30 +88,45 @@ def group_detail(group):
     return render_template('group_plan.html', group=group, cate=cate, notice=notice, register=is_group())
 
 @login_required
+@group.route('/notice/<int:group>', methods=['GET'])
+def notice_get(group):
+    notice = Notice.getNotice(group)
+    group = Group.search_key(group).name
+    if notice:
+        return render_template('notice.html', group=group, notice=notice, cate=is_cate())
+    else:
+        return f"<script>접근할 수 없습니다</script>"
+    
+@login_required
 @group.route('/notice/<int:group>', methods=['POST'])
-def notice():
-    edit = "edit"+str(group)
-    content = request.form.get(edit)
+def notice(group):
+    create = "create"+str(group)
+    content = request.form.get(create)
     notice = Notice.create(group, content);
     if notice:
-        return '<script>window.location=document.referrer</script>'
+        return '<script>window.location=document.referrer;history.go(-1);</script>'
     else:
         return f"<script>공지 생성에 실패하셨습니다.</script>"
     
 @login_required
-@group.route('/notice/<int:notice>', methods=['UPDATE'])
-def noticeUpdate():
+@group.route('/notice/update/<int:notice>', methods=['GET','POST'])
+def noticeUpdate(notice):
+    print("updateupdate")
     edit = "edit"+str(notice)
     content = request.form.get(edit)
+    print("edit : ", content);
     notice = Notice.editNotice(notice, content);
-    if notice:
-        return '<script>window.location=document.referrer</script>'
-    else:
-        return f"<script>공지 수정에 실패하셨습니다.</script>"
+    print("edit success")
+    if not notice:
+        print("damm")
+        return f"<script>alert(공지 수정에 실패하셨습니다.)</script>"
+    print("return")
+    return '<script>window.location=document.referrer;</script>'
+        
     
 @login_required
-@group.route('/notice/<int:notice>', methods=['DELETE'])
-def noticeDel():
+@group.route('/notice/delete/<int:notice>', methods=['GET','POST','DELETE'])
+def noticeDel(notice):
     notice = Notice.delete(notice);
     if notice:
         return '<script>window.location=document.referrer</script>'
