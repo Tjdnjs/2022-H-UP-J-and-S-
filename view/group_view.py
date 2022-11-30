@@ -91,20 +91,20 @@ def group_detail(group):
 @group.route('/notice/<int:group>', methods=['GET'])
 def notice_get(group):
     notice = Notice.getNotice(group)
-    group = Group.search_key(group).name
+    group = Group.search_key(group)
     if notice:
         return render_template('notice.html', group=group, notice=notice, cate=is_cate())
     else:
         return render_template('notice.html', group=group, notice=notice, cate=is_cate())
     
 @login_required
-@group.route('/notice/<int:group>', methods=['POST'])
+@group.route('/notice/create/<int:group>', methods=['POST'])
 def notice(group):
-    create = "create"+str(group)
-    content = request.form.get(create)
+    content = request.form.get('create')
     notice = Notice.create(group, content);
     if notice:
-        return '<script>window.location=document.referrer;history.go(-1);</script>'
+        print("공지 생성 성공")
+        return '<script>window.location=document.referrer;</script>'
     else:
         return f"<script>공지 생성에 실패하셨습니다.</script>"
     

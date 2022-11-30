@@ -75,10 +75,12 @@
   <main>
     
     <div id="write_tool" >
-      <div id="group_name">{{group}}</div>
+      <div id="group_name">{{group.name}}</div>
       <div id="make_notice" class="notice_">
-        <textarea class="write_textarea" name="edit" cols="80" rows="5"></textarea> 
-        <input type="submit" id="notice_make_button" value = "생성">
+        <form id="notice_form" action="/group/notice/create/{{group.key}}" method="post">
+          <textarea class="write_textarea" name="create" cols="80" rows="5"></textarea> 
+          <input type="submit" id="notice_make_button" value = "생성">
+        </form>
       </div>
       
       {% if notice %}

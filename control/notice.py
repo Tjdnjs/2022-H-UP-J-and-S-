@@ -15,6 +15,7 @@ class Notice():
         print(query)
         if cursor.execute(query):    # 쿼리 실행개수 (0:DB오류 / 1:정상)
             conn.commit()
+            return True
         else: return False
         
     # GET Group
