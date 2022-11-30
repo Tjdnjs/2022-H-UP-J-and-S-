@@ -80,12 +80,13 @@
     </section>
   </aside>
   <main>
-    <div id="manage_tool">
-      <div id="group_master">
+    <div id="group_master">
       {{current_user.name}} 님이 생성한 그룹
       </div>
+    <div id="manage_tool">
         
         <div id="group_mn_list">
+          <span class="group_tool_name">가입 요청</span>
             {% if grouplist %}
             {% for i in grouplist %}
             <li class="group_join_lists">
@@ -99,12 +100,13 @@
             그룹 가입 요청이 존재하지 않습니다
             {% endif %}
         </div>
-        <div>
+        <div id="group_join_list">
+          <span class="group_tool_name">공지 작성</span>
           {% if createlist %}
           {% for i in createlist %}
           <li class="group_join_lists">
             <span>그룹 : {{i[1]}} </span>
-            <button class="group_button"><a href="/group/notice/{{i[0]}}">공지</a></button>
+            <button class="group_button_notice"><a href="/group/notice/{{i[0]}}">공지</a></button>
           </li>
           {% endfor %}
           {% else %}

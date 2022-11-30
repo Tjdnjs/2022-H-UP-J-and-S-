@@ -1,0 +1,39 @@
+
+#group_name{
+  display: inline-block;
+  color: white;
+  font-size: 1.5rem;
+  width: 64%;
+  background: #797979;
+  padding: .5rem 0rem 0.8rem 0.5rem;
+  margin-top: 1rem;
+  border-radius: 30rem 30rem 0 0;
+
+}
+#write_textarea{
+  background-color:#dcdad7 ;
+  outline: none;
+  font-family: 'Noto Serif KR', serif;
+}
+#notice_form{
+  display: inline-block;
+}
+#notice_delete_form{
+  display: inline-block;
+}
+#write_tool{
+  text-align: center;
+}
+#notice_delete_button, #notice_edit_button{
+  background-color: #81889d;
+  color: white;
+  font-family: 'Noto Serif KR', serif;
+  border: none;
+  border-radius: .5rem;
+  padding: .2rem .5rem;
+}
+#notice_{
+  background-color: #807e7e4e;/*83899e88#74737341*/
+  display: inline-block;
+  padding: .8rem;
+}

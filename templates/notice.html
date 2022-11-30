@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/static/css/bodygrid.css" >
     <link rel="stylesheet" href="/static/css/menubar.css">
-    <link rel="stylesheet" href="/static/css/group_write.css">
+    <link rel="stylesheet" href="/static/css/notice.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600&display=swap" rel="stylesheet">
@@ -73,20 +73,25 @@
     </section>
   </aside>
   <main>
+    
     <div id="write_tool" >
       <div id="group_name">{{group}}</div>
       {% if notice %}
       {% for i in notice %}
       <hr>
-      <form action="/group/notice/update/{{i[0]}}" method="post">
-        <textarea id="write_textarea" name="edit{{i[0]}}" cols="90" rows="18">{{i[2]}}</textarea> 
-        <input type="submit" id="notice_edit_button" value = "수정">
-      </form>
-      <form action="/group/notice/delete/{{i[0]}}" method="post">
-        <input id="notice_delete_button" type="submit" value="삭제">
-      </form>
+      <div id="notice_">
+        <form id="notice_form" action="/group/notice/update/{{i[0]}}" method="post">
+          <textarea id="write_textarea" name="edit{{i[0]}}" cols="90" rows="10">{{i[2]}}</textarea> 
+          <input type="submit" id="notice_edit_button" value = "수정">
+        </form>
+        <form id="notice_delete_form" action="/group/notice/delete/{{i[0]}}" method="post">
+          <input id="notice_delete_button" type="submit" value="삭제">
+        </form>
+      </div>
+      
       {% endfor %}
       {% else %}
+      <hr>
       공지가 없습니다
       {% endif %}
     </div>
