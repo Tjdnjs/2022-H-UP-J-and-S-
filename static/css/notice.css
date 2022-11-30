@@ -1,19 +1,21 @@
 
 #group_name{
-  display: inline-block;
-  color: white;
-  font-size: 1.5rem;
-  width: 64%;
-  background: #797979;
-  padding: .5rem 0rem 0.8rem 0.5rem;
-  margin-top: 1rem;
-  border-radius: 30rem 30rem 0 0;
+  font-size: 2rem;
+  display: block;
+  width: 15rem;
+  margin: 2rem auto 3rem auto;
+  text-align: center;
+  color: #53555e;
+  padding-bottom: .3rem ;
+  border-bottom: 2px solid#727685;
 
 }
-#write_textarea{
+.write_textarea{
+  font-size: 1rem;
   background-color:#dcdad7 ;
   outline: none;
   font-family: 'Noto Serif KR', serif;
+  border:  none;
 }
 #notice_form{
   display: inline-block;
@@ -24,7 +26,7 @@
 #write_tool{
   text-align: center;
 }
-#notice_delete_button, #notice_edit_button{
+#notice_delete_button, #notice_edit_button, #notice_make_button{
   background-color: #81889d;
   color: white;
   font-family: 'Noto Serif KR', serif;
@@ -32,8 +34,13 @@
   border-radius: .5rem;
   padding: .2rem .5rem;
 }
-#notice_{
-  background-color: #807e7e4e;/*83899e88#74737341*/
+.notice_{
+  background-color: transparent;/*83899e88#74737341*/
   display: inline-block;
+  border-top: 1px dotted #797979ba;
   padding: .8rem;
+  width: 63%;
+}
+#make_notice{
+  border: none;
 }
