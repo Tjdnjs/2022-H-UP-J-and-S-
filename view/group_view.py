@@ -95,7 +95,7 @@ def notice_get(group):
     if notice:
         return render_template('notice.html', group=group, notice=notice, cate=is_cate())
     else:
-        return f"<script>접근할 수 없습니다</script>"
+        return render_template('notice.html', group=group, notice=notice, cate=is_cate())
     
 @login_required
 @group.route('/notice/<int:group>', methods=['POST'])
