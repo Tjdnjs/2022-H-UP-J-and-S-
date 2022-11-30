@@ -75,13 +75,19 @@
   <main>
     
     <div id="write_tool" >
-      <div id="group_name">{{group}}</div>
+      <div id="group_name">{{group.name}}</div>
+      <div id="make_notice" class="notice_">
+        <form id="notice_form" action="/group/notice/create/{{group.key}}" method="post">
+          <textarea class="write_textarea" name="create" cols="80" rows="5"></textarea> 
+          <input type="submit" id="notice_make_button" value = "생성">
+        </form>
+      </div>
+      
       {% if notice %}
       {% for i in notice %}
-      <hr>
-      <div id="notice_">
+      <div class="notice_">
         <form id="notice_form" action="/group/notice/update/{{i[0]}}" method="post">
-          <textarea id="write_textarea" name="edit{{i[0]}}" cols="90" rows="10">{{i[2]}}</textarea> 
+          <textarea class="write_textarea" name="edit{{i[0]}}" cols="80" rows="10">{{i[2]}}</textarea> 
           <input type="submit" id="notice_edit_button" value = "수정">
         </form>
         <form id="notice_delete_form" action="/group/notice/delete/{{i[0]}}" method="post">
