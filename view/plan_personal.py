@@ -1,10 +1,9 @@
-from flask import Flask, Blueprint, request, render_template, redirect, url_for
+from flask import Blueprint, request, render_template, redirect, url_for
 from control.user import User
 from control.plan_p import Cate
 from control.plan_content import Personal_plan
 from flask_login import current_user
 from view.user import is_cate, is_group
-import datetime
 
 # plan blueprint 생성
 plan_p = Blueprint('plan', __name__)

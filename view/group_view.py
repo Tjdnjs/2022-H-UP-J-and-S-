@@ -1,11 +1,10 @@
-from flask import Flask, Blueprint, request, render_template, redirect, url_for
+from flask import Blueprint, request, render_template, redirect, url_for
 from control.notice import Notice
 from control.user import User
 from control.group import Group
 from view.user import is_cate
 from flask_login import current_user, login_required
 from view.user import is_cate, is_group
-import datetime
 
 # group blueprint 생성
 group = Blueprint('group', __name__)
