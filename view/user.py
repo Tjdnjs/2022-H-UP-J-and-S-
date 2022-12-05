@@ -1,4 +1,4 @@
-from flask import Flask, Blueprint, request, render_template, make_response, redirect, url_for, abort, jsonify, flash, get_flashed_messages
+from flask import Blueprint, request, render_template, redirect, url_for, abort, jsonify
 from control.user import User
 from urllib.parse import urlparse, urljoin
 from flask_login import login_user, logout_user, current_user, login_required
