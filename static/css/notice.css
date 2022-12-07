@@ -33,6 +33,14 @@
   border: none;
   border-radius: .5rem;
   padding: .2rem .5rem;
+  margin-left: .5rem;
+}
+#notice_delete_button{
+  background-color: #939292;
+  margin: 0rem;
+}
+#notice_make_button{
+  background-color: #6e7486;
 }
 .notice_{
   background-color: transparent;/*83899e88#74737341*/
@@ -43,4 +51,7 @@
 }
 #make_notice{
   border: none;
+}
+#make_textarea{
+  background-color:#cfcecd ;
 }

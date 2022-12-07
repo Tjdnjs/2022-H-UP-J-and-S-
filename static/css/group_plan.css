@@ -1,35 +1,40 @@
-#notice_tool{
-  color: #434040;
-  background-color: #bebdbd61;
-  font-size: 1.5rem;
-  margin: auto;
-  width: 50rem;
-  height: 30rem;
-  margin-top: 3rem;
-  border-radius: 1rem;
-  box-shadow: 10px 10px 20px rgb(75, 75, 75);
-  
-}
+
 #group_name{
-  color: white;
+  font-size: 2rem;
+  display: block;
+  width: 15rem;
+  margin: 2rem auto 1rem auto;
   text-align: center;
-  background-color:#83899e ;
-  padding: .8rem;
-  border-radius: 1rem 1rem 0 0;
+  color: #53555e;
+  padding-bottom: .3rem ;
+  border-bottom: 2px solid#727685;
 }
 #notice{
+  font-size: 1.5rem;
   text-align: center;
-  background-color: #A8A6A6;
-  padding: .5rem;
+  color: #53555e;
+  margin-bottom: 1.5rem;
+}
+#notice_list{
+  display: block;
+  width: 90%;
+  margin: 1rem auto;
+  padding: 1rem;
+  background-color:#dcdad7;
+  border-radius: .5rem;
 }
 #notice_time{
-  font-size:.9rem ;
-  color: #6c6767;
   text-align: right;
-  margin-right: 2rem ;
+  font-size: .9rem;
+  color: #727685;
+}
+#list {
+  width: 75%;
+  margin: auto;
+  padding: 1.5rem 0.1rem;
+  background-color: #cfcecd;/*#bcbbba*/
+  border-radius: 2rem;
 }
 #notice_content{
-  text-align: center;
-  height: 70%;
-  overflow: auto;
+  font-size: 1.2rem;
 }
