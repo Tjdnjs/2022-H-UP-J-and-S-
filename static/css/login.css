@@ -14,7 +14,7 @@
   border-radius: 3rem;
 }
 #id, #password{
-  font-family: 'Noto Serif KR', serif;
+  font-family: 'Gothic A1', sans-serif;
   font-size: 1.6rem;
   width: 23rem;
   margin: .2rem;
@@ -24,7 +24,7 @@
   outline: none;
 }
 #loginsub{
-  font-family: 'Noto Serif KR', serif;
+  font-family: 'Gothic A1', sans-serif;
   width: 23.5rem;
   font-size: 1.6rem;
   padding: .2rem;

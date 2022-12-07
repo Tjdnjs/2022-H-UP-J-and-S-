@@ -14,7 +14,7 @@
   padding-left: 1rem;
   margin-right: .5rem;
   font-size: 1.1rem;
-  font-family: 'Noto Serif KR', serif;
+  font-family: 'Gothic A1', sans-serif;
   outline: none;
 }
 #group_create_tool{
@@ -35,7 +35,7 @@
   padding: .3rem .5rem;
   outline: none;
   border: none;
-  font-family: 'Noto Serif KR', serif;
+  font-family: 'Gothic A1', sans-serif;
   color: #474747;
 }
 .group_lists{
@@ -59,7 +59,7 @@
   margin-top:1rem ;
   margin-left: auto;
   margin-right: auto;
-  font-family: 'Noto Serif KR', serif;
+  font-family: 'Gothic A1', sans-serif;
   color: white;
   border: none;
   border-radius: 1rem;
@@ -71,7 +71,7 @@
   border: none;
   border-radius: 2rem;
   padding: .2rem .5rem;
-  font-family: 'Noto Serif KR', serif;
+  font-family: 'Gothic A1', sans-serif;
   margin-left:2rem ;
 }
 #group_cr_mn_tool{

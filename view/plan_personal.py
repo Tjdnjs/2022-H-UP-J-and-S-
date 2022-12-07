@@ -38,7 +38,7 @@ def editaction(cate_key):
 # 카테고리 삭제
 @plan_p.route('/deleteaction/<int:cate_key>', methods = ['GET','POST'])
 def delete(cate_key):
-    if current_user.key == Cate.get_b_key(cate_key):
+    if current_user.key == Cate.getCreator(cate_key):
         result = Cate.delete(cate_key)
         if result==1:
             return redirect(url_for('plan.edit'))

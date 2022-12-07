@@ -18,7 +18,7 @@
   border-radius: 4rem;
 }
 #sname, #id, #password, #email, #pw_check{ 
-  font-family: 'Noto Serif KR', serif;
+  font-family: 'Gothic A1', sans-serif;
   font-size: 1rem;
   width: 25rem;
   margin-top: 2rem;
@@ -31,7 +31,7 @@
   width: 21rem;
 }
 #signup{
-  font-family: 'Noto Serif KR', serif;
+  font-family: 'Gothic A1', sans-serif;
   width: 8rem;
   font-size: 1rem;
   padding: .4rem;
@@ -58,7 +58,7 @@
   border: none;
   border-radius: .2rem;
   padding: .4rem .2rem;
-  font-family: 'Noto Serif KR', serif;
+  font-family: 'Gothic A1', sans-serif;
 }
 .check:hover{
   background-color: #939292;

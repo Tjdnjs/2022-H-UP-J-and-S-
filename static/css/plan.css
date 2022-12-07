@@ -37,7 +37,7 @@ input[type="submit"]{
   border: none;
   border-radius: .6rem;
   padding: .4rem .3rem;
-  font-family: 'Noto Serif KR', serif;
+  font-family: 'Gothic A1', sans-serif;
 }
 #day_select_button {
   margin-left: .6rem;
@@ -47,15 +47,17 @@ input[type="submit"]{
   margin-bottom: .5rem;
 }
 #content_p{
-  font-family: 'Noto Serif KR', serif;
+  font-family: 'Gothic A1', sans-serif;
+  color: #989898;
   width: 20rem;
-  padding: .2rem 0;
+  padding: .2rem;
+  border-radius: .2rem;
   background-color: white;
   outline: none;
   border: 2px solid white;
 }
 .text{
-  font-family: 'Noto Serif KR', serif;
+  font-family: 'Gothic A1', sans-serif;
   background-color: transparent;
   outline: none;
   width: 18rem;

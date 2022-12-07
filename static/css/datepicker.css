@@ -4,7 +4,7 @@ input#datepicker{
     border-radius: 10px;
     padding: .3rem 1rem;
     font-size: 1.2rem;
-    font-family: 'Noto Serif KR', serif;
+    font-family: 'Gothic A1', sans-serif;
     outline: none;
   }
 
@@ -17,7 +17,7 @@ div.ui-datepicker-header{
     width: 20em;
     margin-top: 5px;
     border-radius: 10px;
-    font-family: 'Noto Serif KR', serif;
+    font-family: 'Gothic A1', sans-serif;
 }
 .ui-datepicker td span, .ui-datepicker td a {
     width: 1.5rem; height: 1.5rem;

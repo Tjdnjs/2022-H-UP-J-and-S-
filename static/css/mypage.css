@@ -24,7 +24,7 @@
 #delete{
   color: white;
   background-color: #b9b8b8;
-  font-family: 'Noto Serif KR', serif;
+  font-family: 'Gothic A1', sans-serif;
   font-size: .8rem;
   border: none;
   border-radius: .2rem;
@@ -41,7 +41,7 @@
   font-size: .75rem;
 }
 #password{
-  font-family: 'Noto Serif KR', serif;
+  font-family: 'Gothic A1', sans-serif;
   margin: .2rem;
   width: 20rem;
   background-color: transparent;
@@ -50,7 +50,7 @@
   outline: none;
 }
 #pw_check{
-  font-family: 'Noto Serif KR', serif;
+  font-family: 'Gothic A1', sans-serif;
   margin: .2rem;
   width: 17rem;
   background-color: transparent;
@@ -61,7 +61,7 @@
 #edit_profile{
   color: white;
   background-color: #949292;
-  font-family: 'Noto Serif KR', serif;
+  font-family: 'Gothic A1', sans-serif;
   font-size: .8rem;
   border: none;
   border-radius: .2rem;

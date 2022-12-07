@@ -14,7 +14,7 @@
   font-size: 1rem;
   background-color:#dcdad7 ;
   outline: none;
-  font-family: 'Noto Serif KR', serif;
+  font-family: 'Gothic A1', sans-serif;
   border:  none;
 }
 #notice_form{
@@ -29,7 +29,7 @@
 #notice_delete_button, #notice_edit_button, #notice_make_button{
   background-color: #81889d;
   color: white;
-  font-family: 'Noto Serif KR', serif;
+  font-family: 'Gothic A1', sans-serif;
   border: none;
   border-radius: .5rem;
   padding: .2rem .5rem;

@@ -17,7 +17,7 @@
 .group_button{
   background-color: #83899ed0;
   border: none;
-  font-family: 'Noto Serif KR', serif;
+  font-family: 'Gothic A1', sans-serif;
   color: white;
   border-radius: 1rem;
   padding: .1rem .5rem;
@@ -49,7 +49,7 @@
 .group_button_notice{
   background-color: #83899ef5;
   border: none;
-  font-family: 'Noto Serif KR', serif;
+  font-family: 'Gothic A1', sans-serif;
   color: white;
   border-radius: 0.2rem;
   padding: .1rem .5rem;
