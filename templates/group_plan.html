@@ -74,14 +74,20 @@
   </aside>
   <main>
     <div id="notice_tool" >
-      <div id="group_name">{{group[1]}}</div>
+      <div id="group_name">{{group.name}}</div>
       <div id="notice">&lt;&nbsp;공지 사항&nbsp;&gt;</div>
-      {% if notice %}
-      {% for i in notice %}
-      <div id="notice_time">{{i[3]}}</div>
-      <div id="notice_content">{{i[2]}}</div>
-      {% endfor %}
-      {% endif %}
+      <diV id="list">
+        {% if notice %}
+        {% for i in notice %}
+        <div id="notice_list">
+          <div id="notice_time">{{i[3]}}</div>
+          <div id="notice_content">{{i[2]}}</div>
+        </div>
+        
+        {% endfor %}
+        {% endif %}
+      </diV>
+      
     </div>
     
   </main>
