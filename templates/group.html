@@ -6,8 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/static/css/bodygrid.css" >
     <link rel="stylesheet" href="/static/css/menubar.css">
-    <link rel="stylesheet" href="/static/css/plan.css">
-    <link rel="stylesheet" href="/static/css/datepicker.css">
     <link rel="stylesheet" href="/static/css/group.css">
     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <title>Document</title>
@@ -91,22 +89,22 @@
             </form>
             <button id="manage_button"><a href="/group/manage">그룹 관리</a></button>
           </div>
-            
+          <div id="groupli">
             {% if group %}
             {% for i in group %}
             <li class="group_lists">
-              <span class="gtext">그룹명 : {{i[1]}}</span><br>
-              <span class="gtext">그룹 생성자 : {{i[2]}}</span><br>
-              <span class="gtext">그룹 생성일 : {{i[3]}}</span><br> 
+              <span class="gtext" id="gtitle">{{i[1]}}</span><br>
+              <span class="gtext">{{i[2]}}</span><br>
+              <span class="gtext">{{i[3]}}</span><br> 
               <button type="button" class="group_join_button">
-              <a href="/group/register/{{i[1]}}">가&nbsp;입</a>
+              <a href="/group/register/{{i[1]}}">가입</a></button>
             </li>
-            
             
             {% endfor %}
             {% else %}
             그룹이 존재하지 않습니다
             {% endif %}
+          </div>
         </div>
     </div> 
 

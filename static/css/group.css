@@ -7,11 +7,11 @@
 }
 #group_search{
   width: 55%;
-  height: 2.2rem;
   background: transparent;
   border: 1.5px solid rgba(102, 102, 102, 0.792);
+  color: #474747;
   border-radius: 2rem;
-  padding-left: 1rem;
+  padding: .5rem 1rem;
   margin-right: .5rem;
   font-size: 1.1rem;
   font-family: 'Gothic A1', sans-serif;
@@ -30,22 +30,24 @@
 
 }
 #group_create{
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.683);
   width: 80%;
-  padding: .3rem .5rem;
+  padding: .5rem;
   outline: none;
   border: none;
+  border-radius: .5rem;
   font-family: 'Gothic A1', sans-serif;
   color: #474747;
 }
 .group_lists{
+  width: 10rem;
   display: inline-block;
-  margin: 1.2em 2rem;
+  margin: 1.2em .7rem;
   background-color: #d6cfcf6d;
   border: 4px solid #a8a6a654;
   border-radius: 2rem;
-  padding: 2rem 2rem 1.5rem 2rem;
-  color: #474747;
+  padding: 1.5rem;
+  color: #727272;
 }
 #group_list_tool{
   display: inline-block;
@@ -54,31 +56,44 @@
   display: inline-block;
   margin: .2rem 0;
 }
+#gtitle{
+  color: #474747;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
 .group_join_button{
   display: block;
   margin-top:1rem ;
   margin-left: auto;
-  margin-right: auto;
   font-family: 'Gothic A1', sans-serif;
-  color: white;
   border: none;
   border-radius: 1rem;
-  padding: .2rem .7rem;
-  background-color: #83899ed0;
+  padding: .3rem .7rem;
+  background-color: #b5b7c487;
+}
+.group_join_button>a{
+  color:rgba(96, 96, 96, 0.921);
+  font-weight: 500;
 }
 #manage_button{
   background-color: #595757b9;
   border: none;
   border-radius: 2rem;
-  padding: .2rem .5rem;
+  padding: .5rem .8rem;
+  font-size: .8rem;
   font-family: 'Gothic A1', sans-serif;
   margin-left:2rem ;
 }
+
 #group_cr_mn_tool{
   display: flex;
   align-items: center;
   margin-bottom: 1rem;
 }
-main > div{
-  text-align: center;
+
+#groupli{
+  display: flex;
+  justify-content:space-between;
+  flex-wrap: wrap;
+  margin: 0 4.5rem;
 }
