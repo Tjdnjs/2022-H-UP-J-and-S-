@@ -29,7 +29,7 @@
   border: none;
   outline: none;
   font-size: .9rem;
-  font-family: 'Noto Serif KR', serif;
+  font-family: 'Gothic A1', sans-serif;
   color:#434040;
 }
 #notice_edit_button, #notice_save_button{
@@ -39,7 +39,7 @@
   color: #434040;
   border-radius: .5rem;
   padding: .3rem .4rem;
-  font-family: 'Noto Serif KR', serif;
+  font-family: 'Gothic A1', sans-serif;
   margin: .2rem .3rem;
 }
 #notice_edit_button{

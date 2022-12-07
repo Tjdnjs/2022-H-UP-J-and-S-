@@ -44,7 +44,7 @@ a {
   font-size: 1.5rem;
 }
 #categorytext{
-  font-family: 'Noto Serif KR', serif;
+  font-family: 'Gothic A1', sans-serif;
   outline: none;
   border: 0;
   width: 70%;
@@ -52,7 +52,7 @@ a {
   padding: .2rem;
 }
 #cate_button{
-  font-family: 'Noto Serif KR', serif;
+  font-family: 'Gothic A1', sans-serif;
   background-color: #949292;
   color: whitesmoke;
   border: none;
@@ -101,7 +101,7 @@ input[id*="plan"]:checked + label + div{
   display: flex;
   margin-left: auto;
   margin-right: 3rem;
-  font-family: 'Noto Serif KR', serif;
+  font-family: 'Gothic A1', sans-serif;
   background-color: transparent;
   color: whitesmoke;
   border: none;
@@ -118,7 +118,7 @@ input[id*="plan"]:checked + label + div{
   margin-left: 2.2rem;
   padding: .2rem .5rem;
   font-size: .8rem;
-  font-family: 'Noto Serif KR', serif;
+  font-family: 'Gothic A1', sans-serif;
   background-color: rgba(255, 255, 255, 0.217);
   color: whitesmoke;
   border: none;

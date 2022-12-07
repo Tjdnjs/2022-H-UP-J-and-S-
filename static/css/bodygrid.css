@@ -1,7 +1,7 @@
 html, body{
   height: 100vh;
   margin: 0;
-  font-family: 'Noto Serif KR', serif;
+  font-family: 'Gothic A1', sans-serif;
 }
 body{
   /*width: 100vw; /*부모의 영향을 받지 않고 뷰포트 기준 전체화면 꽉 채우는 width*/

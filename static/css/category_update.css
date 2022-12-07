@@ -17,7 +17,7 @@
   color: #656464;
   width: 30rem;
   height: 2rem;
-  font-family: 'Noto Serif KR', serif;
+  font-family: 'Gothic A1', sans-serif;
   margin: .2rem;
   background-color: transparent;
   border: none;
@@ -27,7 +27,7 @@
 #update_button, #delete_button{
   color: #595757;
   background-color: transparent;
-  font-family: 'Noto Serif KR', serif;
+  font-family: 'Gothic A1', sans-serif;
   font-size: .8rem;
   border: none;
   border-radius: .3rem;

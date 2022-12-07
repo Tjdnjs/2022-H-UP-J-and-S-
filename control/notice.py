@@ -1,4 +1,6 @@
 from model.mysql import conn_mysql
+from datetime import datetime
+import pytz
 
 class Notice():
     def __init__(self, group, content):
@@ -11,7 +13,8 @@ class Notice():
         conn = conn_mysql()
         # 커서
         cursor = conn.cursor()
-        query = f"INSERT INTO group_notice VALUES('None','{group}', '{content}', 'None');"
+        KST = pytz.timezone('Asia/Seoul');
+        query = f"insert into group_notice values('None', '{group}', '{content}', '{datetime.now(KST).strftime('%Y-%m-%d %H:%M:%S')}');"
         print(query)
         if cursor.execute(query):    # 쿼리 실행개수 (0:DB오류 / 1:정상)
             conn.commit()
