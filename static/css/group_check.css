@@ -1,14 +1,17 @@
 #group_master{
   width: 80%;
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 1.7rem;
+  font-weight: 600;
   color: white;
   margin: 2rem auto 0rem auto;
   background: #747373;
-  padding: 0.5rem 2px;
+  padding: 0.9rem 2px;
   border-radius: 1.5rem 1.5rem 0 0;
 }
 .group_join_lists{
+  font-size: 1rem;
+  font-weight: 500;
   text-align: center;
   list-style: none;
   margin: 2rem 1rem 2rem 1rem;
@@ -20,7 +23,7 @@
   font-family: 'Gothic A1', sans-serif;
   color: white;
   border-radius: 1rem;
-  padding: .1rem .5rem;
+  padding: .2rem .5rem;
 }
 #group_mn_list{
   width: 50%;
@@ -40,9 +43,12 @@
 }
 .group_tool_name{
   display: inline-block;
+  text-align: center;
   width: 100%;
   font-size: 1.5rem;
-  color: #4d4c4c;
+  font-weight: 500;
+  padding: .5rem 0;
+  color: #4d4c4cc4;
   background-color: #74737341;
   border-bottom: 1px solid #747373;
 }
@@ -51,7 +57,11 @@
   border: none;
   font-family: 'Gothic A1', sans-serif;
   color: white;
-  border-radius: 0.2rem;
-  padding: .1rem .5rem;
+  border-radius: 0.5rem;
+  padding: .2rem .5rem;
   margin-left: .5rem;
+}
+
+.group_button:hover,  .group_button_notice:hover{
+  background-color: #797e91;
 }

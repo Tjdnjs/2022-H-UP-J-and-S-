@@ -14,8 +14,10 @@
   border-radius: 3rem;
 }
 #id, #password{
+  color:#4d4d4d;
   font-family: 'Gothic A1', sans-serif;
   font-size: 1.6rem;
+  font-weight: 500;
   width: 23rem;
   margin: .2rem;
   background-color: transparent;
@@ -27,8 +29,8 @@
   font-family: 'Gothic A1', sans-serif;
   width: 23.5rem;
   font-size: 1.6rem;
-  padding: .2rem;
-  margin-top: 2rem;
+  padding: .3rem .2rem;
+  margin-top: 1.8rem;
   background-color: #939FBF;
   color: white;
   border: none;

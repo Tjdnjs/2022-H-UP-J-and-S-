@@ -12,8 +12,9 @@
   width: 25rem;
 }
 #plan_title{
+  font-weight: 700;
   display: block;
-  width: 15rem;
+  width: 20rem;
   margin: 2rem auto 3rem auto;
   text-align: center;
   color: #53555e;
@@ -21,6 +22,9 @@
   border-bottom: 2px solid#727685;
 }
 #datepicker{
+  width: 18.5rem;
+  font-weight: 600;
+  color: #53555ee7;
   background-image: url(/static/image/calendar_with_check.png);
   background-size: 23px 23px;
   background-repeat: no-repeat;
@@ -43,7 +47,9 @@ input[type="submit"]{
   margin-left: .6rem;
 }
 #date{
-  font-size: 1.5rem;
+  font-weight: 500;
+  color: #53555edc;
+  font-size: 1.4rem;
   margin-bottom: .5rem;
 }
 #content_p{
@@ -85,6 +91,8 @@ input[type="submit"]{
   background-color: #636363;
 }
 #plan_date{
+  font-weight: 600;
+  color: #53555ee7;
   font-size: large;
   margin-bottom: .5rem;
 }
