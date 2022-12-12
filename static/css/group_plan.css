@@ -1,6 +1,7 @@
 
 #group_name{
   font-size: 2rem;
+  font-weight: 700;
   display: block;
   width: 15rem;
   margin: 2rem auto 1rem auto;
@@ -11,8 +12,10 @@
 }
 #notice{
   font-size: 1.5rem;
+  font-weight: 600;
   text-align: center;
-  color: #53555e;
+  color: #53555ed0;
+  margin-top: 2rem;
   margin-bottom: 1.5rem;
 }
 #notice_list{
@@ -26,7 +29,8 @@
 #notice_time{
   text-align: right;
   font-size: .9rem;
-  color: #727685;
+  font-weight: 500;
+  color: #727685e5;
 }
 #list {
   width: 75%;
@@ -37,4 +41,6 @@
 }
 #notice_content{
   font-size: 1.2rem;
+  color: #4e4f54;
+  font-weight: 500;
 }

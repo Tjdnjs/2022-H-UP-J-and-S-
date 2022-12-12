@@ -3,6 +3,8 @@
   height: 100%;
 }
 #title{
+  font-size: 1.2rem;
+  font-weight: 600;
   color: #949292;
   margin-top: 0;
   margin-bottom: .7rem;
@@ -20,6 +22,7 @@
 #sname, #id, #password, #email, #pw_check{ 
   font-family: 'Gothic A1', sans-serif;
   font-size: 1rem;
+  font-weight: 500;
   width: 25rem;
   margin-top: 2rem;
   background-color: transparent;
@@ -47,7 +50,7 @@
 }
 .des{
   color: #949292;
-  margin-top: 0;
+  margin-top: .2rem;
   text-align: left;
   margin-left: 40px;
   font-size: .75rem;
