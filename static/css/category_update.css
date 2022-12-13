@@ -6,14 +6,16 @@
 }
 #page_title{
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 2rem;
   color: #656464;
+  font-weight: 600;
 }
 #plan_update{
   display: inline-block;
 }
 #update_text{
-  font-size: 1.5rem;
+  font-size: 1.2rem;
+  font-weight: 500;
   color: #656464;
   width: 30rem;
   height: 2rem;
@@ -26,12 +28,13 @@
 }
 #update_button, #delete_button{
   color: #595757;
-  background-color: transparent;
+  background-color: #bebdbdc1;
   font-family: 'Gothic A1', sans-serif;
-  font-size: .8rem;
+  font-size: .9rem;
+  font-weight: 400;
   border: none;
-  border-radius: .3rem;
-  padding: .2rem.4rem;
+  border-radius: 1rem;
+  padding: .3rem.5rem;
 }
 #delete{
   display: inline-block;

@@ -13,10 +13,14 @@
   border-bottom: 3px solid #949292;
 }
 #title{
+  font-size: 1.2rem;
+  font-weight: 600;
   color: #949292;
   margin-bottom: 2rem;
 }
 .des{
+  font-size: 1rem;
+  font-weight: 500;
   text-align: left;
   color: #656464;
   margin: 1rem 0 1rem 2rem;
@@ -26,10 +30,11 @@
   background-color: #b9b8b8;
   font-family: 'Gothic A1', sans-serif;
   font-size: .8rem;
+  font-weight: 300;
   border: none;
   border-radius: .2rem;
   padding: .3rem.5rem;
-  margin: 2rem 0 0 20rem;
+  margin: 1.3rem 0 0 20rem;
 }
 #delete:hover{
   background-color: #939292;
@@ -38,7 +43,7 @@
   color: #949292;
   margin-top: 0;
   text-align: left;
-  font-size: .75rem;
+  font-size: .7rem;
 }
 #password{
   font-family: 'Gothic A1', sans-serif;
@@ -63,9 +68,11 @@
   background-color: #949292;
   font-family: 'Gothic A1', sans-serif;
   font-size: .8rem;
+  font-weight: 300;
   border: none;
   border-radius: .2rem;
   padding: .3rem.5rem;
+  margin-top: 1rem;
 }
 #edit_profile:hover{
   background-color: #727171;
