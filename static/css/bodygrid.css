@@ -7,15 +7,15 @@ body{
   /*width: 100vw; /*부모의 영향을 받지 않고 뷰포트 기준 전체화면 꽉 채우는 width*/
   display: grid;
   grid-template-columns: 1fr 3.5fr;
-  grid-template-rows: 10% 85% 5%;
+  grid-template-rows: 5% 90% 5%;
   grid-template-areas: 
+  'side header'
   'side main'
-  'side main'
-  'side main';
+  'side footer';
 }
 header{
   grid-area: header;
-  background-color: #A8A6A6;
+  background-color: #E4E4E0;
 }
 main{
   grid-area: main;
@@ -29,7 +29,7 @@ aside{
 }
 footer{
   grid-area: footer;
-  background-color: #EFEFED;
+  background-color: #E4E4E0;
 }
 main::-webkit-scrollbar{
   width: 10px;
