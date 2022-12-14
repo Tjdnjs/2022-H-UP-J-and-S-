@@ -27,7 +27,7 @@ class Notice():
         conn = conn_mysql()
         # 커서
         cursor = conn.cursor()
-        query = f"select * from group_notice where group_key = '{group}'"
+        query = f"select * from group_notice where group_key = '{group}' ORDER BY createdAt DESC"
         print(query)
         cnt = cursor.execute(query)
         if cnt !=0:
