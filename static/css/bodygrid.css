@@ -9,9 +9,9 @@ body{
   grid-template-columns: 1fr 3.5fr;
   grid-template-rows: 10% 85% 5%;
   grid-template-areas: 
-  'side header'
   'side main'
-  'side footer';
+  'side main'
+  'side main';
 }
 header{
   grid-area: header;
