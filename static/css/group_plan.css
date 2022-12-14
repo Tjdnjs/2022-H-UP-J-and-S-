@@ -1,15 +1,16 @@
-
 #group_name{
-  font-size: 2rem;
-  font-weight: 700;
   display: block;
-  width: 15rem;
-  margin: 2rem auto 1rem auto;
+  margin: 2rem auto 3rem auto;
   text-align: center;
-  color: #53555e;
-  padding-bottom: .3rem ;
-  border-bottom: 2px solid#727685;
 }
+#g_name{
+  font-size: 2rem;
+  font-weight: 600;
+  color: #53555e;
+  padding: 0 .7rem .5rem .7rem;
+  border-bottom: 2px solid #8f94a7;
+}
+
 #notice{
   font-size: 1.5rem;
   font-weight: 600;
@@ -22,25 +23,26 @@
   display: block;
   width: 90%;
   margin: 1rem auto;
-  padding: 1rem;
-  background-color:#dcdad7;
-  border-radius: .5rem;
+  margin-bottom: 2rem;
 }
 #notice_time{
-  text-align: right;
-  font-size: .9rem;
+  font-size: .95rem;
   font-weight: 500;
-  color: #727685e5;
+  color: #777b8b;
 }
 #list {
   width: 75%;
   margin: auto;
   padding: 1.5rem 0.1rem;
-  background-color: #cfcecd;/*#bcbbba*/
+  /* background-color: #cfcecd;#bcbbba */
   border-radius: 2rem;
 }
 #notice_content{
-  font-size: 1.2rem;
-  color: #4e4f54;
-  font-weight: 500;
+  font-size: 1rem;
+  color: #53555e;
+  font-weight: 400;
+  padding: 1.5rem;
+  margin: 1rem 0;
+  background-color:#dcdad7;
+  border-radius: 1rem;
 }
