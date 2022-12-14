@@ -115,8 +115,9 @@
         </form>
         <hr>
         <div id="plan_date">{{ date }}</div>
+        
+        {% if plan_left%}
         <div id="plan_left">
-          {% if plan_left%}
           {% for i in plan_left %}
           <div id="plan_checkbox">
             <input type="checkbox" id="{{i[0]}}" onclick="check(this)">
@@ -131,12 +132,12 @@
           </form>
           </div>
           {% endfor %}
-          {% endif %}
         </div>
+        {% endif %}
         
-
+        
+        {% if plan%}
         <div id="plan_completed"  >
-          {% if plan%}
           {% for i in plan%}
           <div id="plan_checkbox">
             <input class="checked_list" type="checkbox" id="{{i[0]}}" onclick="check(this)" checked>
@@ -151,11 +152,17 @@
           </form>
           </div>
           {% endfor %}
-          {% endif %}
         </div>
-        
+        {% endif %}
+
+        {% if plan or plan_left %}
+        {% else %}
+        <div>작성된 계획이 없습니다</div>
+        {% endif %}
         </div>
-    
+
+
+
         <script>
           document.getElementById('datepicker').value=document.getElementById('plan_date').innerHTML;
           document.getElementById('date2').value=document.getElementById('date').innerHTML;
@@ -163,12 +170,14 @@
           function date_change(){
             document.getElementById('date2').value=document.getElementById('datepicker').value;
             document.getElementById('date').innerHTML = document.getElementById('datepicker').value;
-            
           }
           function check(box){
             const id = $(box).attr('id');
             window.location.href = `/plan/toggle/${id}`;
           }
+
+
+
         </script>
       </div>
     </div> 
