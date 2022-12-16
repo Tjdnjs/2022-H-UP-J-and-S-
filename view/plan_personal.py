@@ -122,11 +122,8 @@ def deleteplan(pp_key):
 @plan_p.route('/toggle/<int:pp_key>')
 def toggleplan(pp_key):
     plan = Personal_plan.get_b_key(pp_key)
-    if current_user.key == plan[1]:
-        Personal_plan.plan_toggle(pp_key)
-        return '<script>window.location=document.referrer</script>'
-    else:
-        return '<script>alert("수정 권한이 없습니다");history.go(-1);</script>'
+    Personal_plan.plan_toggle(pp_key)
+    return '<script>window.location=document.referrer</script>'
     
 @plan_p.route('/')
 def plan():
