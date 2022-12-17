@@ -77,7 +77,9 @@ input[type="submit"]{
 #plan_list, #plan_del{
   display: inline-block;
 }
-
+#plan_checkbox{
+  padding-top: .3rem;
+}
 #plan_checkbox > input[type="checkbox"]{
   display: none;
 }
@@ -98,12 +100,9 @@ input[type="submit"]{
 }
 #plan_left, #plan_completed{
   background-color: #cacaca;
-  padding: .5rem;
   padding-left: 1.5rem;
 }
-#plan_left{
-  padding-bottom: 0;
-}
-#plan_completed{
-  padding-top: 0;
+#noplan{
+  color: #53555ebd;
+  font-weight: 500;
 }

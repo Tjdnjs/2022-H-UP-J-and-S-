@@ -34,7 +34,8 @@
   border: none;
   border-radius: .2rem;
   padding: .3rem.5rem;
-  margin: 1.3rem 0 0 20rem;
+  margin-left: .5rem;
+
 }
 #delete:hover{
   background-color: #939292;
@@ -73,7 +74,13 @@
   border-radius: .2rem;
   padding: .3rem.5rem;
   margin-top: 1rem;
+  margin-right: .5rem;
 }
 #edit_profile:hover{
   background-color: #727171;
+}
+#mpbt{
+  display: flex;
+    justify-content: center;
+    align-items: baseline;
 }

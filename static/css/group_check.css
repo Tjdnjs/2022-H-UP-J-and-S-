@@ -65,3 +65,10 @@
 .group_button:hover,  .group_button_notice:hover{
   background-color: #797e91;
 }
+.nogr{
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  text-align: center;
+  color: #5e5b5b;
+  font-weight: 500;
+}
