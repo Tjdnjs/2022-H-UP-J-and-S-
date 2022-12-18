@@ -7,8 +7,8 @@
 
 ### Framework
 
-- FE : HTML, CSS, JavaScript
-- BE : Flask, MySQL
+- FE : HTML, CSS, JavaScript, jQuery
+- BE : Flask, MySQL, JavaScript
 
 ### view
 
