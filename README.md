@@ -2,8 +2,8 @@
 
 ### Team J & S (Jump and Surf)
 
+- Backend Dev(Team Leader) : 박서원
 - Frontend Dev : 이채원
-- Backend Dev : 박서원
 
 ### Framework
 
